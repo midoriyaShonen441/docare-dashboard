@@ -1,0 +1,167 @@
+{
+    "users": [
+      {
+        "citizen_id": "9918773311248",
+        "domain_id": 28,
+        "username": "arjun_burrows_4230",
+        "password": "y5IEThEcuT4aOCGy",
+        "fullname": "Arjun Burrows",
+        "role": "User",
+        "gender": null,
+        "dob": "1936-06-04",
+        "blood_type": "A",
+        "height": "168",
+        "weight": null,
+        "allergies": [
+          "Sour cream",
+          "Cream"
+        ],
+        "conditions": [
+          "Depressive",
+          "Epilepsy"
+        ],
+        "drugs": [
+          "Furosemide"
+        ],
+        "vital_signs": null,
+        "contact": {
+          "mobile": "+66869890990",
+          "address_1": "nonummy ipsum dolore consectetuer nonummy tincidunt",
+          "address_2": null,
+          "subdistrict": null,
+          "district": null,
+          "province": null,
+          "zip": 89882,
+          "note": null,
+          "latitude": 13.8728126,
+          "longitude": 99.2535352
+        },
+        "family": [
+          {
+            "fullname": "Sumayyah Mathews",
+            "mobile": null,
+            "relation": "euismod elit"
+          },
+          {
+            "fullname": "Tommy-Lee Curran",
+            "mobile": null,
+            "relation": "sed adipiscing"
+          }
+        ]
+      },
+      {
+        "citizen_id": "3717521493123",
+        "domain_id": 26,
+        "username": "lilith_ferry_0927",
+        "password": "6rleVtuuCZ78rzq4",
+        "fullname": "Lilith Ferry",
+        "role": "User",
+        "gender": "Male",
+        "dob": null,
+        "blood_type": null,
+        "height": "155",
+        "weight": null,
+        "allergies": [
+          "Butter"
+        ],
+        "conditions": [
+          "Diabetes",
+          "Heat Stroke",
+          "Overweight",
+          "Coronary Artery Disease",
+          "Overweight"
+        ],
+        "drugs": [
+          "Lisinopril",
+          "Simvastatin",
+          "Losartan",
+          "Albuterol",
+          "Atorvastatin"
+        ],
+        "vital_signs": {
+          "pulse": "58",
+          "bp": null,
+          "temp": "38.11",
+          "oxygen": "86",
+          "glucose": "153",
+          "weight": "63.06"
+        },
+        "contact": {
+          "mobile": "+66915587328",
+          "address_1": "laoreet amet consectetuer elit euismod dolore nibh",
+          "address_2": null,
+          "subdistrict": null,
+          "district": null,
+          "province": null,
+          "zip": 72231,
+          "note": null,
+          "latitude": 13.0828383,
+          "longitude": 100.2557876
+        },
+        "family": [
+          {
+            "fullname": "Kwabena Ahmad",
+            "mobile": "+66644984905",
+            "relation": "lorem erat"
+          }
+        ]
+      },
+      {
+        "citizen_id": "7035080706282",
+        "domain_id": 28,
+        "username": "alix_dennis_3082",
+        "password": "lwCu5nUo0JEfZ2KK",
+        "fullname": "Alix Dennis",
+        "role": "User",
+        "gender": "Other",
+        "dob": "1950-11-04",
+        "blood_type": "O-",
+        "height": null,
+        "weight": null,
+        "allergies": [
+          "Kebab",
+          "Ice cream",
+          "Margarine"
+        ],
+        "conditions": [
+          "Overweight",
+          "High Blood Pressure",
+          "Hypertension",
+          "Substance Abuse: Alcohol"
+        ],
+        "drugs": [
+          "Gabapentin",
+          "Metformin",
+          "Lisinopril",
+          "Fluticasone"
+        ],
+        "vital_signs": {
+          "pulse": "73",
+          "bp": "138/58",
+          "temp": "37.37",
+          "oxygen": "95",
+          "glucose": "84",
+          "weight": "50.31"
+        },
+        "contact": {
+          "mobile": null,
+          "address_1": "nibh consectetuer sit ipsum laoreet nonummy",
+          "address_2": "ut elit sed magna lorem sed",
+          "subdistrict": "sed",
+          "district": "laoreet",
+          "province": "tincidunt",
+          "zip": 17209,
+          "note": null,
+          "latitude": 12.6972418,
+          "longitude": 99.4126928
+        },
+        "family": [
+          {
+            "fullname": "Christian Gallagher",
+            "mobile": "+66693036302",
+            "relation": "ipsum ut"
+          }
+        ]
+      }
+    ]
+  }

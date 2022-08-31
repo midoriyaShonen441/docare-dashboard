@@ -1,0 +1,40 @@
+{
+    "user": {
+      "citizen_id": "1360904500858",
+      "domain_id": 17,
+      "username": "teddie_barron_6826",
+      "password": "IQQOQAFpkKyQH7vU",
+      "fullname": "Teddie Barron",
+      "role": "User",
+      "gender": "Male",
+      "dob": null,
+      "blood_type": "A-",
+      "height": null,
+      "weight": null,
+      "allergies": [],
+      "conditions": [
+        "Coronary Artery Disease",
+        "Hypertension",
+        "Alzheimer",
+        "Osteoporosis",
+        "Osteoporosis"
+      ],
+      "drugs": [
+        "Lisinopril"
+      ],
+      "vital_signs": null,
+      "contact": {
+        "mobile": "+66932251921",
+        "address_1": null,
+        "address_2": null,
+        "subdistrict": null,
+        "district": null,
+        "province": null,
+        "zip": 56594,
+        "note": null,
+        "latitude": 12.5960455,
+        "longitude": 98.6356514
+      },
+      "family": []
+    }
+  }

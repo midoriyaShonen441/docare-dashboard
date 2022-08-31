@@ -1,0 +1,41 @@
+{
+  "user": {
+    "citizen_id": "4273049556126",
+    "domain_id": 20,
+    "username": "codie_mullen_6384",
+    "password": "cwaAlHEbTXH2rx4Q",
+    "fullname": "Codie Mullen",
+    "role": "User",
+    "gender": null,
+    "dob": "1935-09-15",
+    "blood_type": "B",
+    "height": "163",
+    "weight": null,
+    "allergies": [],
+    "conditions": [],
+    "drugs": [
+      "Metoprolol",
+      "Simvastatin",
+      "Lisinopril",
+      "Montelukast",
+      "Amlodipine",
+      "Hydrochlorothiazide",
+      "Atorvastatin",
+      "Atorvastatin"
+    ],
+    "vital_signs": null,
+    "contact": {
+      "mobile": "+66696351438",
+      "address_1": "dolore ut sed magna dolore amet",
+      "address_2": null,
+      "subdistrict": "nonummy",
+      "district": "magna",
+      "province": "adipiscing",
+      "zip": 11229,
+      "note": null,
+      "latitude": 13.7007227,
+      "longitude": 98.2564799
+    },
+    "family": []
+  }
+}

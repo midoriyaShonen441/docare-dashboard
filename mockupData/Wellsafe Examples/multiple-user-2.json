@@ -1,0 +1,111 @@
+{
+  "users": [
+    {
+      "citizen_id": "8500708785365",
+      "domain_id": 17,
+      "username": "isaiah_ferguson_7320",
+      "password": "T0504F6nke5MHSHe",
+      "fullname": "Isaiah Ferguson",
+      "role": "User",
+      "gender": "Female",
+      "dob": null,
+      "blood_type": null,
+      "height": null,
+      "weight": null,
+      "allergies": [
+        "Cottage cheese",
+        "Ham",
+        "Cream"
+      ],
+      "conditions": [
+        "Substance Abuse: Ecstasy",
+        "Substance Abuse: Ecstasy",
+        "Heat Stroke"
+      ],
+      "drugs": [
+        "Metoprolol"
+      ],
+      "vital_signs": null,
+      "contact": {
+        "mobile": "+66658630480",
+        "address_1": "tincidunt sit adipiscing sed elit",
+        "address_2": null,
+        "subdistrict": "lorem",
+        "district": "dolore",
+        "province": "magna",
+        "zip": 72054,
+        "note": null,
+        "latitude": 12.0465767,
+        "longitude": 100.0320197
+      },
+      "family": [
+        {
+          "fullname": "Shyla Finch",
+          "mobile": null,
+          "relation": "laoreet laoreet"
+        },
+        {
+          "fullname": "Esha Blaese",
+          "mobile": null,
+          "relation": "dolor lorem"
+        },
+        {
+          "fullname": "Aamina Jennings",
+          "mobile": "+66806645100",
+          "relation": "tincidunt adipiscing"
+        }
+      ]
+    },
+    {
+      "citizen_id": "4631241881724",
+      "domain_id": 22,
+      "username": "lyndon_hernandez_9086",
+      "password": "qRnbUOagYkpT4BYe",
+      "fullname": "Lyndon Hernandez",
+      "role": "User",
+      "gender": null,
+      "dob": null,
+      "blood_type": null,
+      "height": null,
+      "weight": null,
+      "allergies": [],
+      "conditions": [
+        "Osteoporosis",
+        "Hypertension",
+        "Coronary Artery Disease",
+        "Obesity",
+        "Substance Abuse: Ecstasy",
+        "Obesity"
+      ],
+      "drugs": [
+        "Hydrochlorothiazide",
+        "Fluticasone",
+        "Omeprazole",
+        "Fluticasone",
+        "Gabapentin",
+        "Rosuvastatin"
+      ],
+      "vital_signs": {
+        "pulse": null,
+        "bp": null,
+        "temp": "36.04",
+        "oxygen": "89",
+        "glucose": "144",
+        "weight": null
+      },
+      "contact": {
+        "mobile": "+66841405484",
+        "address_1": "tincidunt tincidunt consectetuer nonummy tincidunt amet",
+        "address_2": null,
+        "subdistrict": "magna",
+        "district": "lorem",
+        "province": "lorem",
+        "zip": 87460,
+        "note": null,
+        "latitude": 12.9048721,
+        "longitude": 99.4130771
+      },
+      "family": []
+    }
+  ]
+}

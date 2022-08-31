@@ -1,0 +1,64 @@
+{
+  "user": {
+    "citizen_id": "2852814001784",
+    "domain_id": 19,
+    "username": "anabella_bravo_1595",
+    "password": "k50csN1ISGPwSylW",
+    "fullname": "Anabella Bravo",
+    "role": "Staff",
+    "gender": null,
+    "dob": null,
+    "blood_type": "A",
+    "height": "161",
+    "weight": "54.23",
+    "allergies": [
+      "Margarine",
+      "Hamburger",
+      "Seafood"
+    ],
+    "conditions": [
+      "Overweight",
+      "Hypertension"
+    ],
+    "drugs": [
+      "Lisinopril",
+      "Amlodipine",
+      "Albuterol",
+      "Metoprolol",
+      "Simvastatin",
+      "Bupropion",
+      "Losartan",
+      "Omeprazole"
+    ],
+    "vital_signs": null,
+    "contact": {
+      "mobile": "+66812110237",
+      "address_1": "dolore nibh consectetuer magna",
+      "address_2": null,
+      "subdistrict": null,
+      "district": null,
+      "province": null,
+      "zip": 16154,
+      "note": null,
+      "latitude": 12.2942507,
+      "longitude": 99.1856809
+    },
+    "family": [
+      {
+        "fullname": "Alix Dennis",
+        "mobile": "+66798340333",
+        "relation": "lorem ipsum"
+      },
+      {
+        "fullname": "Estelle Henson",
+        "mobile": null,
+        "relation": "dolore sed"
+      },
+      {
+        "fullname": "Sultan Cochran",
+        "mobile": null,
+        "relation": "nibh aliquam"
+      }
+    ]
+  }
+}

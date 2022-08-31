@@ -1,0 +1,62 @@
+{
+    "user": {
+      "citizen_id": "7691830103964",
+      "domain_id": 3,
+      "username": "ariah_whitehead_7689",
+      "password": "gQj5DKk31t8iOWVz",
+      "fullname": "Ariah Whitehead",
+      "role": "User",
+      "gender": "Female",
+      "dob": null,
+      "blood_type": "O",
+      "height": null,
+      "weight": null,
+      "allergies": [
+        "Bacon",
+        "Cream",
+        "Margarine"
+      ],
+      "conditions": [
+        "Alzheimer",
+        "Substance Abuse: Alcohol",
+        "Cancer",
+        "Depressive",
+        "Heat Stroke"
+      ],
+      "drugs": [
+        "Montelukast",
+        "Albuterol",
+        "Rosuvastatin"
+      ],
+      "vital_signs": null,
+      "contact": {
+        "mobile": "+66663672634",
+        "address_1": null,
+        "address_2": null,
+        "subdistrict": "magna",
+        "district": "tincidunt",
+        "province": "adipiscing",
+        "zip": 39894,
+        "note": "elit dolor dolore ipsum sed sed erateuismod aliquam aliquam nibh erat aliquam ipsum",
+        "latitude": 12.8284141,
+        "longitude": 100.021327
+      },
+      "family": [
+        {
+          "fullname": "Ammarah Stephens",
+          "mobile": "+66843117044",
+          "relation": "sit adipiscing"
+        },
+        {
+          "fullname": "Kwabena Ahmad",
+          "mobile": null,
+          "relation": "lorem laoreet"
+        },
+        {
+          "fullname": "Nayla Singh",
+          "mobile": null,
+          "relation": "consectetuer sed"
+        }
+      ]
+    }
+  }

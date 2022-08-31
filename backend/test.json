@@ -1,0 +1,57 @@
+{
+    "user": {
+        "citizen_id": "1111122222334",
+        "domain_id": 9,
+        "fullname": "Mr. John Doe",
+        "role": "User",
+        "gender": null,
+        "dob": "2000-12-31",
+        "blood_type": null,
+        "height": 174,
+        "weight": 66.35,
+        "allergies": [
+            "Shrimp",
+            "Amoxy",
+            "Durian"
+        ],
+        "conditions": [
+            "Hypertension", 
+            "Diabete",
+            "ไขมนั ในเลือดสูง", 
+            "DLP"
+        ],
+        "drugs":[],
+        "vital_signs": {
+            "pulse": null,
+            "bp": null,
+            "temp": 37.4,
+            "oxygen": 98,
+            "glucose": null,
+            "weight": 74
+        },
+        "contact": {
+            "mobile": "+66881241240", 
+            "address_1": "24 ซ.6 ถ.บางระจนั ", 
+            "address_2": null, 
+            "subdistrict": "บางแห่ง", 
+            "district": "บางหน", 
+            "province": "พทั ลุง",
+            "zip": 99999,
+            "note": "เจอเซเวน่ เล้ียวซ้าย บา้ นที่สองซ้ายมือ", 
+            "latitude": 13.1234567, 
+            "longitude": 100.7654321
+        },
+        "family": [
+            {
+                "fullname":"เดือนเพญ็ มีศรี",
+                "mobile": "+669998989",
+                "relation": "ภรรยา"
+            },
+            {
+                "fullname": "เจ๊หนอม",
+                "mobile": "0876995995",
+                "relation": "เพื่อนบา้ น"
+            }
+        ]
+    }
+}

@@ -1,0 +1,59 @@
+{
+    "user": {
+      "citizen_id": "6328288455915",
+      "domain_id": 31,
+      "username": "matilda_aldred_6338",
+      "password": "WUshf8BYS9iwWPzB",
+      "fullname": "Matilda Aldred",
+      "role": "User",
+      "gender": "Male",
+      "dob": null,
+      "blood_type": "AB",
+      "height": null,
+      "weight": null,
+      "allergies": [
+        "Sour cream",
+        "Egg",
+        "Cottage cheese"
+      ],
+      "conditions": [
+        "Coronary Artery Disease",
+        "Hypertension",
+        "Stroke",
+        "Diabetes",
+        "Osteoporosis",
+        "Epilepsy"
+      ],
+      "drugs": [
+        "Omeprazole",
+        "Furosemide",
+        "Metformin",
+        "Simvastatin"
+      ],
+      "vital_signs": null,
+      "contact": {
+        "mobile": "+66748208453",
+        "address_1": "lorem adipiscing tincidunt dolore elit adipiscing ut",
+        "address_2": null,
+        "subdistrict": "magna",
+        "district": "lorem",
+        "province": "amet",
+        "zip": 18337,
+        "note": null,
+        "latitude": 13.7176666,
+        "longitude": 98.4042585
+      },
+      "family": [
+        {
+          "fullname": "Finley Herbert",
+          "mobile": null,
+          "relation": "magna laoreet"
+        },
+        {
+          "fullname": "Ammarah Stephens",
+          "mobile": "+66839843252",
+          "relation": "nibh amet"
+        }
+      ]
+    }
+  }
