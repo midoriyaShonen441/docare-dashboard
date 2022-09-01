@@ -24,7 +24,623 @@
         </div>
     </div>
     <div class="set-patiend-info">
-        
+        <div class="label-container">
+            <div class="set-label"> 
+
+                <table>
+                    <tr>
+                        <th>ค่าตัวชี้วัด</th>
+                        <th>ช่วงข้อมูล</th>
+                        <th>ช่วงข้อมูล</th>
+                        <th>ช่วงข้อมูล</th>
+                        <th>ช่วงปกติ</th>
+                        <th>ช่วงข้อมูล</th>
+                        <th>ช่วงข้อมูล</th>
+                        <th>ช่วงข้อมูล</th>
+                    </tr>
+                    <tr class="set-row">
+                        <td class="label">
+                            <div>
+                                ค่าความดัน (mmHg)
+                            </div>
+                            <div class="sub-label">
+                                ตัวบน (Systolic)
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ต่ำกว่า - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <span>ต่ำกว่า - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-normal">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ขึ้นไป - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - ขึ้นไป</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="set-row">
+                        <td  class="label">
+                            <div>
+                                ค่าความดัน (mmHg)
+                            </div>
+                            <div class="sub-label">
+                                ตัวล่าง (Diastolic)
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ต่ำกว่า - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <span>ต่ำกว่า - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-normal">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ขึ้นไป - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - ขึ้นไป</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="set-row">
+                        <td  class="label">
+                            <div>
+                                อัตราการเต้นหัวใจ (BPM)
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ต่ำกว่า - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <span>ต่ำกว่า - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-normal">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ขึ้นไป - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - ขึ้นไป</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="set-row">
+                        <td  class="label">
+                            <div>
+                                ออกซิเจนในเลือด (%Sat)
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ต่ำกว่า - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <span>ต่ำกว่า - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-normal">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ขึ้นไป - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - ขึ้นไป</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="set-row">
+                        <td  class="label">
+                            <div>
+                                น้ำตาลในเลือด (mg/dL)
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ต่ำกว่า - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <span>ต่ำกว่า - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-normal">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ขึ้นไป - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - ขึ้นไป</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="set-row">
+                        <td  class="label">
+                            <div>
+                                อุณหภูมิร่างกาย (°C)
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ต่ำกว่า - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <span>ต่ำกว่า - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-normal">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ขึ้นไป - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - ขึ้นไป</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="set-row">
+                        <td  class="label">
+                            <div>
+                                ค่า BMI (kg/m2)
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ต่ำกว่า - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <span>ต่ำกว่า - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-normal">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-high">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-higher">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ถึง - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - </span><input class="is-in" placeholder="ถึง"/>
+                            </div>
+                        </td>
+                        <td class="input-container is-peak">
+                            <div class="set-label-range">
+                                <div class="range">ตั้งแต่ - </div>
+                                <div class="range">ขึ้นไป - </div>
+                            </div>
+                            <div class="set-input">
+                                <input class="is-in" placeholder="ตั้งแต่"/><span> - ขึ้นไป</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <div class="timing-container">
+        <div class="set-patiend-timer">
+            <div class="set-title">ตั้งช่วงเวลาการวัดค่า</div>
+            <div class="set-timer">
+                <div class="tag-label">
+                    <div class="set-checklist">
+                        <div>ค่าความดัน</div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>เช้า</label>
+                        </div><div>
+                            <input type="checkbox"/>
+                            <label>บ่าย</label>
+                        </div><div>
+                            <input type="checkbox"/>
+                            <label>ค่ำ</label>
+                        </div>
+                    </div>
+                    <div class="set-checklist">
+                        <div>ค่าความดัน</div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>เช้า</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>บ่าย</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>ค่ำ</label>
+                        </div>
+                    </div>
+                    <div class="set-checklist">
+                        <div>ออกซิเจนในเลือด</div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>เช้า</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>บ่าย</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>ค่ำ</label>
+                        </div>
+                    </div>
+                    <div class="set-checklist">
+                        <div>น้ำตาลในเลือด</div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>เช้า</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>บ่าย</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>ค่ำ</label>
+                        </div>
+                    </div>
+                    <div class="set-checklist">
+                        <div>อุณหภูมิร่างกาย</div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>เช้า</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>บ่าย</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>ค่ำ</label>
+                        </div>
+                    </div>
+                    <div class="set-checklist">
+                        <div>ช่วงน้ำหนักร่างกาย</div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>เช้า</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>บ่าย</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"/>
+                            <label>ค่ำ</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="notic">
+                    <div class="notic-title">หมายเหตุ</div>
+                    <div>ช่วงเวลาเช้า ได้แก่ ช่วงเวลา 04:00 - 11:59 น.</div>
+                    <div>ช่วงเวลาบ่าย ได้แก่ ช่วงเวลา 12:00 - 19:59 น.</div>
+                    <div>ช่วงเวลาค่ำ ได้แก่ ช่วงเวลา 20:00 - 03:59 น.</div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -178,5 +794,111 @@ export default {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
- 
+.set-label{
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+} 
+
+table{
+    width:100%;
+    border-collapse: collapse;
+}
+
+th{
+    border-bottom: 1px solid grey;
+}
+
+.set-row{
+    border-bottom: 1px solid grey;
+    height: 100px;
+}
+
+.label{
+    width: 200px;
+}
+
+.sub-label{
+    font-size: 13px;
+}
+
+.input-container{
+    width: 200px;
+    margin: auto;
+    text-align: center;
+}
+
+.set-label-range{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 10px;
+    width: 100px;
+    margin:auto;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.is-in{
+    text-align: center;
+    width: 50px;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid grey;
+    border-radius: 10px;
+}
+
+
+.is-peak{
+    background: rgb(255, 134, 134);
+}
+.is-higher{
+    background: rgb(255, 195, 195);
+}
+.is-high{
+    background: rgb(255, 255, 187);
+}
+.is-normal{
+    background: rgb(189, 255, 189);
+}
+
+.timing-container{
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.set-patiend-timer{
+    width: 95%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+.tag-label > div {
+    margin-top: 50px;
+}
+
+.set-checklist{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 115%;
+
+}
+
+.set-timer{
+    display:flex;
+}
+
+.notic{
+    margin-left: 30%;
+    margin-top: 10%;
+    color: red;
+}
+
 </style>
