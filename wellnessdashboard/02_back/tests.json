@@ -1,0 +1,123 @@
+{
+    "user_ids": [
+        "1111122222334", 
+        "AA1234567890"
+    ],
+    "device": {
+        "id": "SCT350189104",
+        "name": "AST-AMTY-001",
+        "type": "LivOn",
+        "mobile": null
+    },
+    "case_info": {
+        "locateable_id": 14,
+        "locateable_type": "Room",  
+        "latitude": 13.1234567,
+        "longitude": 100.7654321,
+        "timestamp": 1656654172
+    },
+    "floor_plan": [{
+        "amty-public-a":{
+            "locateable_id": 0,
+            "zone_id":7,
+            "zone_ordinal": 1,
+            "buildings":[
+                {
+                    "locateable_id": 0,
+                    "building_id":143,
+                    "building_name": "A1",
+                    "building_ordinal": 1,
+                    "floors":[
+                        {
+                            "locateable_id": 0,
+                            "floor_id":234,
+                            "floor_name":"A1-F1",
+                            "floor_ordinal":1,
+                            "rooms":[
+                                {
+                                    "locateable_id": 0,
+                                    "room_id":1992,
+                                    "room_name":"A101",
+                                    "room_ordinal":1
+                                },
+                                {
+                                    "locateable_id": 14,
+                                    "room_id":1993,
+                                    "room_name":"A102",
+                                    "room_ordinal":2
+                                },
+                                {
+                                    "locateable_id": 0,
+                                    "room_id":1994,
+                                    "room_name":"A103",
+                                    "room_ordinal":2
+                                },
+                                {
+                                    "locateable_id": 0,
+                                    "room_id":1996,
+                                    "room_name":"A104",
+                                    "room_ordinal":2
+                                }
+                            ]
+                        },
+                        {   "locateable_id": 0,
+                            "floor_id":434,
+                            "floor_name":"A1-F2",
+                            "floor_ordinal":2,
+                            "rooms":[
+                                {
+                                    "locateable_id": 0,
+                                    "room_id":3992,
+                                    "room_name":"A201",
+                                    "room_ordinal":1
+                                },
+                                {
+                                    "locateable_id": 0,
+                                    "room_id":3993,
+                                    "room_name":"A202",
+                                    "room_ordinal":2
+                                }
+                            ]
+                        },
+                        {
+                            "locateable_id": 0,
+                            "floor_id": 344,
+                            "floor_name":"A1-F3-Hal",
+                            "floor_ordinal":3,
+                            "rooms":[
+                                {
+                                    "locateable_id": 0,
+                                    "room_id":9283,
+                                    "room_name":"International Hall",
+                                    "room_ordinal":1
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "locateable_id": 0,
+                    "building_id":165,
+                    "building_name":"A2/Gym",
+                    "building_ordinal":2,
+                    "floors":[
+                        {
+                            "locateable_id": 0,
+                            "floor_id":34,
+                            "floor_name":"Floor G",
+                            "floor_ordinal":1,
+                            "rooms":[
+                                {
+                                    "locateable_id": 0,
+                                    "room_id":34,
+                                    "room_name": "Gym Room @A2",
+                                    "room_ordinal": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }]
+}

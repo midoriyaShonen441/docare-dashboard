@@ -1,0 +1,83 @@
+version: '3.7'
+
+# networks:
+#   net:
+#     external: true
+#     driver: bridge
+
+services:
+  db:
+    container_name: db
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./data/db:/data/db
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    restart: always
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: root
+      ME_CONFIG_BASICAUTH_PASSWORD: root
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: root
+      ME_CONFIG_MONGODB_URL: mongodb://root:root@db:27017/
+    ports:
+      - 8081:8081
+    depends_on:
+      - db
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+  backend:
+    container_name: backend
+    restart: always
+    build:
+      context: ./backend
+    ports:
+      - 8888:8888
+    environment:
+      - TZ=Asia/Bangkok
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+  wellness:
+    container_name: wellness
+    restart: always
+    build:
+      context: ./01_front
+      dockerfile: Dockerfile
+    image: wellness-dashboard
+    ports:
+      - 5555:5555
+    environment:
+      - TZ=Asia/Bangkok
+  
+  # nginx:
+  #   container_name: nginx
+  #   build:
+  #     context: ./nginx
+  #   ports:
+  #     - 90:90
+  #     - 443:443
+  #   hostname: nginx
+  #   volumes:
+  #     # - ./certbot/www:/var/www/certbot
+  #     # - ./certbot/conf:/etc/nginx/ssl
+  #     # - ./certbot/dhparam:/etc/nginx/dhparam
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /etc/timezone:/etc/timezone:ro
+  #   networks:
+  #     - net
+  #   depends_on:
+  #     - db
+  #     - mongo-express
+  #     - backend
