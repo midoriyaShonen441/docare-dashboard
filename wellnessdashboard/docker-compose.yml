@@ -49,22 +49,13 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
 
-  wellnessdashbaord:
-    container_name: wellnessdashbaord
+  wellness:
+    container_name: wellness
     restart: always
     build:
-      context: ./wellnessdashbaord
-    ports:
-      - 7777:7777
-    environment:
-      - TZ=Asia/Bangkok
-
-
-  safetydashboard:
-    container_name: safetydashboard
-    restart: always
-    build:
-      context: ./safetydashboard
+      context: ./01_front
+      dockerfile: Dockerfile
+    image: wellness-dashboard
     ports:
       - 5555:5555
     environment:
