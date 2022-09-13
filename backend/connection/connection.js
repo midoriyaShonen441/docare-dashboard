@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
-// const MONGO_URI = "mongodb://root:root@db:27017/safetydb"
-const MONGO_URI = "mongodb://127.0.0.1:27017/scgemotion"
+
+// const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI_LOCALHOST
 
 exports.connect = () => {
     mongoose.connect(MONGO_URI, {

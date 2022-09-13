@@ -42,7 +42,7 @@ services:
     build:
       context: ./backend
     ports:
-      - 5555:5555
+      - 8888:8888
     environment:
       - TZ=Asia/Bangkok
     volumes:

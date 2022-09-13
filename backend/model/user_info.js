@@ -27,24 +27,21 @@ const user_info = new Schema(
                 glucose: Number,
                 weight: Number,
             },
+            contact: {
+                mobile: String,
+                address_1: String, 
+                address_2: String,
+                subdistrict: String,
+                district: String,
+                province: String,
+                zip: String,
+                note: String,
+                latitude: String,
+                longitude: String
+            },
+            family : {type:Array}
         },
-        contact: {
-            mobile: String,
-            address_1: String, 
-            address_2: String,
-            subdistrict: String,
-            district: String,
-            province: String,
-            zip: String,
-            note: String,
-            latitude: String,
-            longitude: String
-        },
-        family : [{
-            fullname: String,
-            mobile: String,
-            relation: String
-        }]
+        
     },
     { timestamps: true }
 )

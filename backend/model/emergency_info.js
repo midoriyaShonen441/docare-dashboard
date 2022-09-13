@@ -3,8 +3,6 @@ const Schema = mongoose.Schema;
 
 const emergency_info = new Schema({
 
-    case_confirm: {type: Boolean, required: true},
-    data:{
         user_ids:[ String ],
         device:{
             id: { type: String },
@@ -21,9 +19,7 @@ const emergency_info = new Schema({
         },
         floor_plan:{
             Zones: {type: Array, required: true }
-        }
-    }
-    
+        }    
 })
 
 module.exports = mongoose.model("emergency_info", emergency_info);
