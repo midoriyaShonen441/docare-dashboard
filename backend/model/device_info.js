@@ -12,9 +12,8 @@ const device_info = new Schema(
             device_type: String,
             device_mobile: String,
         }
-
     },
     { timestamps: true }
-)
+);
 
-module.exports = mongoose.Model("device_info")
+module.exports = mongoose.Model("device_info", device_info);

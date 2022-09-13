@@ -103,9 +103,11 @@ app.post("/syncemergency", async (req, res) => {
 
     const emergency_info = require("./model/emergency_info");
     const userInfo = require("./model/user_info");
+    const deviceInfo = require("./model/device_info");
 
     const userData = await userInfo.find({});
-    const emergencyData = req.body;
+    let emergencyData = req.body;
+    emergency["case_confirm"] = false;
     const caseId = emergencyData.case_info.locateable_id
 
     let ordinal_user = userData.length;
@@ -126,7 +128,8 @@ app.post("/syncemergency", async (req, res) => {
             const emer_citizen_id = emergencyData.user_ids[i];
 
             if(citizen_id === emer_citizen_id){
-                console.log(citizen_id, " === ", emer_citizen_id);
+
+                // console.log(citizen_id, " === ", emer_citizen_id);
 
                 emergencyData.floor_plan.Zones.forEach( async (element) => {
                     if(element.zone_id === caseId){
@@ -181,7 +184,7 @@ app.post("/syncemergency", async (req, res) => {
                         }
 
                         try{
-                            await emergency_report.create(payload);
+                            // await emergency_report.create(payload);
                             res.send(payload);
                         }catch(err){
                             console.log(`error in api syncemergency in loop emergencyData.floor_plan.Zones.forEach ${err}`);
@@ -193,8 +196,8 @@ app.post("/syncemergency", async (req, res) => {
                         
                         if(item1.zone_id === caseId){
 
-                            const payload = {
 
+                            const payload = {
                                 case_confirm: false,
                                 fullname: userData[ordinal_user].user.fullname,
                                 gender: userData[ordinal_user].user.gender,
@@ -244,7 +247,7 @@ app.post("/syncemergency", async (req, res) => {
                                 timestamp: emergencyData.case_info.timestamp,
                             }
                             try{
-                                await emergency_report.create(payload);
+                                // await emergency_report.create(payload);
                                 res.send(payload);
                             }catch(err){
                                 console.log(`error in api syncemergency in loop element.Buildings.forEach( async (item1) ${err}`);
@@ -307,7 +310,7 @@ app.post("/syncemergency", async (req, res) => {
                                     timestamp: emergencyData.case_info.timestamp,
                                 }
                                 try{
-                                    await emergency_report.create(payload);
+                                    // await emergency_report.create(payload);
                                     res.send(payload);
                                 }catch(err){
                                     console.log(`error in api syncemergency in loop item1.Floors.forEach( async (item2) ${err}`);
@@ -365,7 +368,7 @@ app.post("/syncemergency", async (req, res) => {
                                     }
 
                                     try{
-                                        await emergency_report.create(payload);
+                                        // await emergency_report.create(payload);
                                         res.send(payload);
                                     }catch(err){
                                         console.log(`error in api syncemergency in loop item2.Rooms.forEach( async (item3) ${err}`);
@@ -382,33 +385,7 @@ app.post("/syncemergency", async (req, res) => {
     }
 });
 
-// get alert emergency info // 
-app.get("/alertemergency", async (req, res) => {
-    const emergency_info = require("./model/emergency_info");
-    const userInfo = require("./model/user_info");
-
-    try{
-        const emerInfo = await emergency_info.find({case_confirm: false});
-        const userData = await userInfo.find({});
-
-        console.log(emerInfo)
-        
-        // emerInfo.user_ids.forEach((element) => {
-            
-        // });
-
-
-        const payload = {
-            userInfo:"",
-            emerInfo:"",
-        }
-
-        res.send(payload);
-    }catch(err){
-        console.log(`error in api alertemergency: ${err}`);
-        res.sendFile(500);
-    }
-});
+ 
 
 //  if staff confirm emergency   //
 app.put("/confirmemergency", async (req, res) => {
