@@ -1,9 +1,14 @@
 <script>
+import axios from 'axios';
 import { defineComponent } from "vue";
 import { GoogleMap, Marker, InfoWindow } from "vue3-google-map";
 import Navbar from "../components/Navbar.vue";
 import Emergency from "../components/Emergency.vue";
 import EmergencyInfo from '../components/EmergencyInfo.vue';
+import {httpAPI} from "../../settingAPI";
+
+const sensAPI = httpAPI();
+// console.log("sensAPI ==> ",sensAPI)
 
 export default defineComponent({
   components: { 
@@ -22,24 +27,26 @@ export default defineComponent({
     },
     methods:{
         debuging(){
-            console.log(this.$store.state.cssEmergencyInfo)
-            // if(this.$store.state.cssEmergencyInfo === "set-emergency-info-close"){
-            //     this.$store.state.cssEmergencyInfo = "set-emergency-info"
-            // }else{
-            //     this.$store.state.cssEmergencyInfo = "set-emergency-info-close"
-            // }
+            console.log(this.$store.state.cssEmergencyInfo);
         },
+
         btnGoogleMap(data){
             console.log(data)
-            window.open(`https://maps.google.com/?q=${data.lat},${data.lng}`)
+            window.open(`https://maps.google.com/?q=${data.lat},${data.lng}`);
         },
-        // haddleEmergencyMarkerDetail(data){
-   
-        // }
-    }, 
+
+        async syncEmergency(){
+            const emerData = await axios.get(`${sensAPI}/syncEmergencyLog`);
+            this.$store.state.emergencyArray = emerData.data;
+            // console.log( this.$store.state.emergencyArray);
+        }
+    },
+    created(){
+        this.syncEmergency();
+    },
     mounted(){
 
-    }
+    },
 });
 </script>
 
@@ -65,17 +72,18 @@ export default defineComponent({
             backgroundColor="dark"
             mapId="2ee29cc57f571e5b"
             >
-            <div v-for="(data, index) in $store.state.emergencyList" :key="index" >
+            <div v-for="(data, index) in $store.state.emergencyArray" :key="index" >
+                <!-- <h1>{{data.case_info.latitude}}</h1> -->
                 <!-- <Marker :options="{ position: center }" /> -->
                 <div class="set-mark">
-                    <Marker :options="{ position: data.location }"  @click="$store.commit('haddleEmergencyMarker',data)" >
+                    <Marker :options="{ position: {lat:data.case_info.latitude, lng:data.case_info.longitude} }"  @click="$store.commit('haddleEmergencyMarker',data)" >
                     <InfoWindow>
                         <div class="info-marker">
                             <div class="info-title">
                                 Energency alert: 
                             </div>
                             <div class="info-username">
-                                {{data.user}}
+                                {{data.fullname}}
                             </div>
                             <div class="info-detail">
 
@@ -85,7 +93,7 @@ export default defineComponent({
                                     <!-- <button class="btn-marker-detail" >รายละเอียด</button> -->
                                 </div>
                                 <div class="btn-to-google-map">
-                                    <button class="btn-google-map" @click="btnGoogleMap(data.location)">ขอทราบเส้นทาง</button>
+                                    <button class="btn-google-map" @click="btnGoogleMap({lat:data.case_info.latitude, lng:data.case_info.longitude})">ขอทราบเส้นทาง</button>
                                 </div>
                             </div>
                         </div>

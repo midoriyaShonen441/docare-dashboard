@@ -9,23 +9,44 @@ module.exports =  class SendingEmergencyModule {
     }
 
     createPayloadFunction(){
+
         const lengthEmer = this.emergencyArray.length;
-        
+
         for(let i = 0; i < lengthEmer; i++){
             this.emerInfo = this.emergencyArray[i];
             this.caseId = this.emergencyArray[i].case_info.locateable_id;
             this.recursiveFunction();
-
+            // console.log("emerInfo ==> ", this.emerInfo.user_profile)
             const payload = {
-                user_profiles: this.emerInfo.user_profile,
+                // user_profiles: this.emerInfo.user_profile,
+                id: this.emerInfo._id,
+                citizen_id: this.emerInfo.user_profile[0].user.citizen_id,
+                domain_id: this.emerInfo.user_profile[0].user.domain_id,
+                fullname: this.emerInfo.user_profile[0].user.fullname,
+                gender: this.emerInfo.user_profile[0].user.gender,
+                blood_type: this.emerInfo.user_profile[0].user.blood_type,
+                height: this.emerInfo.user_profile[0].user.height,
+                weight: this.emerInfo.user_profile[0].user.weight,
+                allergies: this.emerInfo.user_profile[0].user.allergies,
+                conditions: this.emerInfo.user_profile[0].user.conditions,
+                drugs: this.emerInfo.user_profile[0].user.drugs,
+                mobile: this.emerInfo.user_profile[0].user.contact.mobile,
+                address_1: this.emerInfo.user_profile[0].user.contact.address_1,
+                address_2: this.emerInfo.user_profile[0].user.contact.address_2,
+                subdistrict: this.emerInfo.user_profile[0].user.contact.subdistrict,
+                district: this.emerInfo.user_profile[0].user.contact.district,
+                province: this.emerInfo.user_profile[0].user.contact.province,
+                zip: this.emerInfo.user_profile[0].user.contact.zip,
+                family: this.emerInfo.user_profile[0].user.family,
                 device: this.emerInfo.device,
                 case_info:this.emerInfo.case_info,
                 case_location:this.case_structure
             }
+
+            console.log(payload);
             this.result.push(payload);
         }
     }
-
 
     recursiveFunction(){
         // console.log("this.emerInfo, this.caseId ==> ",this.emerInfo, this.caseId)
@@ -36,7 +57,7 @@ module.exports =  class SendingEmergencyModule {
         let case_zone = 0;
 
         floorPlanData.forEach((element) => {
-            console.log("element");
+            // console.log("element");
             case_zone ++;
             const counting_build = element.Buildings.length;
 
@@ -68,14 +89,14 @@ module.exports =  class SendingEmergencyModule {
                     room_ordinal:null
                 }
 
-                console.log("payload ==>", payload)
+                // console.log("payload ==>", payload)
                 this.case_structure = payload
             }
 
             let case_building = 0;
             element.Buildings.forEach((element1) => {
                 case_building ++;
-                console.log("element1");
+                // console.log("element1");
                 const counting_floors = element1.Floors.length;
                 if(element1.building_id === caseId){
                     const payload = {
@@ -103,7 +124,7 @@ module.exports =  class SendingEmergencyModule {
                         room_id:null,
                         room_ordinal:null
                     }
-                    console.log("payload ==>", payload)
+                    // console.log("payload ==>", payload)
                     this.case_structure = payload
                 }
 
@@ -111,7 +132,7 @@ module.exports =  class SendingEmergencyModule {
 
                 element1.Floors.forEach((element2) => {
                     case_floors ++;
-                    console.log("element2");
+                    // console.log("element2");
                     const counting_room = element2.Rooms.length;
                     if(element2.floor_id === caseId){
                         const payload = {
@@ -139,7 +160,7 @@ module.exports =  class SendingEmergencyModule {
                             room_id:null,
                             room_ordinal:null
                         }
-                        console.log("payload ==>", payload)
+                        // console.log("payload ==>", payload)
                         this.case_structure = payload
                     }
 
@@ -147,7 +168,7 @@ module.exports =  class SendingEmergencyModule {
 
                     element2.Rooms.forEach((element3) => {
                         case_room ++;
-                        console.log("element3",element3.room_id , "caseId ==>", caseId );
+                        // console.log("element3",element3.room_id , "caseId ==>", caseId );
                         if(element3.room_id === caseId){
                             // console.log("element3 ==> ",element3.room_id, "caseId ==>", caseId );
                             const payload = {
@@ -175,7 +196,7 @@ module.exports =  class SendingEmergencyModule {
                                 room_id:element3.room_name,
                                 room_ordinal:element3.room_ordinal
                             }
-                            console.log("payload ==>", payload)
+                            // console.log("payload ==>", payload)
                             this.case_structure = payload
                             
                         }

@@ -1,832 +1,6 @@
 [
     {
-        "_id": "632054c78f1118fb7b8a257c",
-        "user_ids": [
-            "5501307648790"
-        ],
-        "device": {
-            "id": "UNwT91FyrcmW",
-            "name": null,
-            "type": "EV05",
-            "mobile": null
-        },
-        "case_info": {
-            "locateable_id": "105",
-            "locateable_type": "Room",
-            "latitude": 12.8600851,
-            "longitude": 98.1725749,
-            "timestamp": 1661772652
-        },
-        "floor_plan": {
-            "Zones": [
-                {
-                    "name": null,
-                    "zone_id": 226,
-                    "zone_ordinal": 6,
-                    "Buildings": [
-                        {
-                            "building_id": 4,
-                            "building_name": "nonummy erat",
-                            "building_ordinal": 13,
-                            "Floors": [
-                                {
-                                    "floor_id": 152,
-                                    "floor_name": null,
-                                    "floor_ordinal": 15,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 229,
-                                            "room_name": null,
-                                            "room_ordinal": 4
-                                        },
-                                        {
-                                            "room_id": 87,
-                                            "room_name": "euismod diam",
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 177,
-                                            "room_name": null,
-                                            "room_ordinal": 9
-                                        },
-                                        {
-                                            "room_id": 5,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 203,
-                                            "room_name": null,
-                                            "room_ordinal": 13
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 171,
-                                    "floor_name": null,
-                                    "floor_ordinal": 6,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 17,
-                                            "room_name": null,
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 112,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 160,
-                                            "room_name": "adipiscing",
-                                            "room_ordinal": 15
-                                        },
-                                        {
-                                            "room_id": 165,
-                                            "room_name": null,
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 246,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 78,
-                                    "floor_name": "nonummy aliquam",
-                                    "floor_ordinal": 2,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 11,
-                                            "room_name": "nibh dolore",
-                                            "room_ordinal": 15
-                                        },
-                                        {
-                                            "room_id": 185,
-                                            "room_name": "elit",
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 230,
-                                            "room_name": "ut",
-                                            "room_ordinal": 9
-                                        },
-                                        {
-                                            "room_id": 107,
-                                            "room_name": null,
-                                            "room_ordinal": 12
-                                        },
-                                        {
-                                            "room_id": 124,
-                                            "room_name": null,
-                                            "room_ordinal": 11
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 114,
-                                    "floor_name": null,
-                                    "floor_ordinal": 6,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 252,
-                                            "room_name": null,
-                                            "room_ordinal": 9
-                                        },
-                                        {
-                                            "room_id": 211,
-                                            "room_name": "dolor",
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 76,
-                                            "room_name": null,
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 180,
-                                            "room_name": null,
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 163,
-                                            "room_name": null,
-                                            "room_ordinal": 11
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 193,
-                                    "floor_name": "tincidunt nonummy",
-                                    "floor_ordinal": 2,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 103,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 250,
-                                            "room_name": null,
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 203,
-                                            "room_name": null,
-                                            "room_ordinal": 9
-                                        },
-                                        {
-                                            "room_id": 49,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 40,
-                                            "room_name": null,
-                                            "room_ordinal": 10
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 18,
-                                    "floor_name": null,
-                                    "floor_ordinal": 4,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 132,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 211,
-                                            "room_name": null,
-                                            "room_ordinal": 11
-                                        },
-                                        {
-                                            "room_id": 53,
-                                            "room_name": null,
-                                            "room_ordinal": 9
-                                        },
-                                        {
-                                            "room_id": 151,
-                                            "room_name": "elit",
-                                            "room_ordinal": 9
-                                        },
-                                        {
-                                            "room_id": 32,
-                                            "room_name": "dolor",
-                                            "room_ordinal": 11
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "building_id": 147,
-                            "building_name": null,
-                            "building_ordinal": 3,
-                            "Floors": [
-                                {
-                                    "floor_id": 224,
-                                    "floor_name": null,
-                                    "floor_ordinal": 14,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 164,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 160,
-                                            "room_name": null,
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 186,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 96,
-                                            "room_name": "ipsum",
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 115,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 208,
-                                    "floor_name": "amet sed",
-                                    "floor_ordinal": 14,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 206,
-                                            "room_name": "aliquam",
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 96,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 239,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 95,
-                                            "room_name": "lorem",
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 110,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 76,
-                                    "floor_name": "nibh",
-                                    "floor_ordinal": 3,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 200,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 201,
-                                            "room_name": null,
-                                            "room_ordinal": 10
-                                        },
-                                        {
-                                            "room_id": 6,
-                                            "room_name": null,
-                                            "room_ordinal": 4
-                                        },
-                                        {
-                                            "room_id": 108,
-                                            "room_name": "nibh consectetuer",
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 76,
-                                            "room_name": "ipsum diam",
-                                            "room_ordinal": 8
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 72,
-                                    "floor_name": null,
-                                    "floor_ordinal": 4,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 148,
-                                            "room_name": null,
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 20,
-                                            "room_name": "dolore",
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 115,
-                                            "room_name": null,
-                                            "room_ordinal": 15
-                                        },
-                                        {
-                                            "room_id": 15,
-                                            "room_name": "nonummy sit",
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 220,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 61,
-                                    "floor_name": null,
-                                    "floor_ordinal": 6,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 150,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 176,
-                                            "room_name": null,
-                                            "room_ordinal": 15
-                                        },
-                                        {
-                                            "room_id": 57,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 240,
-                                            "room_name": null,
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 3,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 22,
-                                    "floor_name": "laoreet",
-                                    "floor_ordinal": 10,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 89,
-                                            "room_name": "diam",
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 72,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 173,
-                                            "room_name": "ipsum",
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 210,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 32,
-                                            "room_name": null,
-                                            "room_ordinal": 11
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "building_id": 24,
-                            "building_name": "ipsum",
-                            "building_ordinal": 1,
-                            "Floors": [
-                                {
-                                    "floor_id": 235,
-                                    "floor_name": "sit diam",
-                                    "floor_ordinal": 14,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 214,
-                                            "room_name": "euismod",
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 164,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 39,
-                                            "room_name": null,
-                                            "room_ordinal": 12
-                                        },
-                                        {
-                                            "room_id": 68,
-                                            "room_name": "laoreet",
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 193,
-                                            "room_name": "dolore sed",
-                                            "room_ordinal": 5
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 221,
-                                    "floor_name": null,
-                                    "floor_ordinal": 11,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 48,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 183,
-                                            "room_name": null,
-                                            "room_ordinal": 15
-                                        },
-                                        {
-                                            "room_id": 222,
-                                            "room_name": "magna",
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 23,
-                                            "room_name": "dolore nibh",
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 18,
-                                            "room_name": null,
-                                            "room_ordinal": 13
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 178,
-                                    "floor_name": null,
-                                    "floor_ordinal": 13,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 84,
-                                            "room_name": "adipiscing consectetuer",
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 212,
-                                            "room_name": null,
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 121,
-                                            "room_name": null,
-                                            "room_ordinal": 12
-                                        },
-                                        {
-                                            "room_id": 23,
-                                            "room_name": null,
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 104,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 93,
-                                    "floor_name": "dolor sed",
-                                    "floor_ordinal": 14,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 134,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 57,
-                                            "room_name": "elit",
-                                            "room_ordinal": 11
-                                        },
-                                        {
-                                            "room_id": 69,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 87,
-                                            "room_name": null,
-                                            "room_ordinal": 10
-                                        },
-                                        {
-                                            "room_id": 155,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 120,
-                                    "floor_name": null,
-                                    "floor_ordinal": 11,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 218,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 119,
-                                            "room_name": null,
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 45,
-                                            "room_name": "nonummy",
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 215,
-                                            "room_name": "nonummy nonummy",
-                                            "room_ordinal": 11
-                                        },
-                                        {
-                                            "room_id": 18,
-                                            "room_name": "nonummy",
-                                            "room_ordinal": 7
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 241,
-                                    "floor_name": null,
-                                    "floor_ordinal": 6,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 102,
-                                            "room_name": null,
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 36,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 201,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 42,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 200,
-                                            "room_name": "aliquam erat",
-                                            "room_ordinal": 11
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "building_id": 182,
-                            "building_name": null,
-                            "building_ordinal": 6,
-                            "Floors": [
-                                {
-                                    "floor_id": 101,
-                                    "floor_name": null,
-                                    "floor_ordinal": 14,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 157,
-                                            "room_name": null,
-                                            "room_ordinal": 15
-                                        },
-                                        {
-                                            "room_id": 60,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 111,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 48,
-                                            "room_name": "magna tincidunt",
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 254,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 206,
-                                    "floor_name": "consectetuer amet",
-                                    "floor_ordinal": 12,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 6,
-                                            "room_name": "erat dolore",
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 122,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 37,
-                                            "room_name": null,
-                                            "room_ordinal": 12
-                                        },
-                                        {
-                                            "room_id": 3,
-                                            "room_name": null,
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 11,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 129,
-                                    "floor_name": "sed",
-                                    "floor_ordinal": 1,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 223,
-                                            "room_name": "erat adipiscing",
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 20,
-                                            "room_name": null,
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 221,
-                                            "room_name": "elit aliquam",
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 107,
-                                            "room_name": "adipiscing aliquam",
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 63,
-                                            "room_name": "ipsum lorem",
-                                            "room_ordinal": 12
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 152,
-                                    "floor_name": null,
-                                    "floor_ordinal": 6,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 196,
-                                            "room_name": null,
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 173,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 164,
-                                            "room_name": null,
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 75,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 197,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 97,
-                                    "floor_name": "consectetuer",
-                                    "floor_ordinal": 13,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 164,
-                                            "room_name": "amet laoreet",
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 62,
-                                            "room_name": "dolor erat",
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 125,
-                                            "room_name": "laoreet magna",
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 223,
-                                            "room_name": "lorem",
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 105,
-                                            "room_name": null,
-                                            "room_ordinal": 3
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 186,
-                                    "floor_name": "laoreet nonummy",
-                                    "floor_ordinal": 10,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 4,
-                                            "room_name": null,
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 198,
-                                            "room_name": null,
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 243,
-                                            "room_name": "erat",
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 179,
-                                            "room_name": "lorem",
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 147,
-                                            "room_name": "sit euismod",
-                                            "room_ordinal": 15
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        "case_confirm": false,
-        "__v": 0,
-        "user_profile": [
+        "user_profiles": [
             {
                 "_id": "631ede04474614e4578e198c",
                 "user": {
@@ -886,857 +60,44 @@
                 "updatedAt": "2022-09-12T07:21:40.964Z",
                 "__v": 0
             }
-        ]
-    },
-    {
-        "_id": "6320553f4d46642e7c88acfa",
-        "user_ids": [
-            "4751081120470"
         ],
         "device": {
-            "id": "RxexufigENsY",
-            "name": "ut",
-            "type": "Trackimo",
+            "id": "UNwT91FyrcmW",
+            "name": null,
+            "type": "EV05",
             "mobile": null
         },
         "case_info": {
-            "locateable_id": "224",
-            "locateable_type": "Floor",
-            "latitude": 12.8634067,
-            "longitude": 100.4958065,
-            "timestamp": 1661772717
+            "locateable_id": "105",
+            "locateable_type": "Room",
+            "latitude": 12.8600851,
+            "longitude": 98.1725749,
+            "timestamp": 1661772652
         },
-        "floor_plan": {
-            "Zones": [
-                {
-                    "name": "ipsum sed",
-                    "zone_id": 189,
-                    "zone_ordinal": 4,
-                    "Buildings": [
-                        {
-                            "building_id": 31,
-                            "building_name": null,
-                            "building_ordinal": 1,
-                            "Floors": [
-                                {
-                                    "floor_id": 115,
-                                    "floor_name": "diam",
-                                    "floor_ordinal": 11,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 68,
-                                            "room_name": null,
-                                            "room_ordinal": 11
-                                        },
-                                        {
-                                            "room_id": 33,
-                                            "room_name": "ipsum nonummy",
-                                            "room_ordinal": 10
-                                        },
-                                        {
-                                            "room_id": 138,
-                                            "room_name": "elit sit",
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 62,
-                                            "room_name": "lorem nibh",
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 234,
-                                            "room_name": "ipsum amet",
-                                            "room_ordinal": 4
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 124,
-                                    "floor_name": "aliquam",
-                                    "floor_ordinal": 7,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 73,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 195,
-                                            "room_name": "dolor ut",
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 54,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 141,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 185,
-                                            "room_name": null,
-                                            "room_ordinal": 3
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 214,
-                                    "floor_name": null,
-                                    "floor_ordinal": 12,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 87,
-                                            "room_name": null,
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 122,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 102,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 103,
-                                            "room_name": "erat",
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 244,
-                                            "room_name": "erat ut",
-                                            "room_ordinal": 3
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 155,
-                                    "floor_name": null,
-                                    "floor_ordinal": 9,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 52,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 64,
-                                            "room_name": "ipsum",
-                                            "room_ordinal": 9
-                                        },
-                                        {
-                                            "room_id": 59,
-                                            "room_name": "dolor",
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 34,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 229,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "building_id": 116,
-                            "building_name": null,
-                            "building_ordinal": 12,
-                            "Floors": [
-                                {
-                                    "floor_id": 95,
-                                    "floor_name": "diam",
-                                    "floor_ordinal": 11,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 25,
-                                            "room_name": null,
-                                            "room_ordinal": 12
-                                        },
-                                        {
-                                            "room_id": 252,
-                                            "room_name": "dolore lorem",
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 92,
-                                            "room_name": "sit",
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 45,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 161,
-                                            "room_name": "adipiscing nonummy",
-                                            "room_ordinal": 10
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 74,
-                                    "floor_name": null,
-                                    "floor_ordinal": 3,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 118,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 244,
-                                            "room_name": null,
-                                            "room_ordinal": 11
-                                        },
-                                        {
-                                            "room_id": 5,
-                                            "room_name": null,
-                                            "room_ordinal": 12
-                                        },
-                                        {
-                                            "room_id": 122,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 117,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 220,
-                                    "floor_name": null,
-                                    "floor_ordinal": 2,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 190,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 49,
-                                            "room_name": "lorem",
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 132,
-                                            "room_name": "dolor",
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 15,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 230,
-                                            "room_name": null,
-                                            "room_ordinal": 1
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 146,
-                                    "floor_name": "sed tincidunt",
-                                    "floor_ordinal": 9,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 63,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 12,
-                                            "room_name": "sit adipiscing",
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 160,
-                                            "room_name": "diam diam",
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 103,
-                                            "room_name": "nibh adipiscing",
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 7,
-                                            "room_name": "consectetuer",
-                                            "room_ordinal": 8
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "building_id": 127,
-                            "building_name": null,
-                            "building_ordinal": 13,
-                            "Floors": [
-                                {
-                                    "floor_id": 14,
-                                    "floor_name": null,
-                                    "floor_ordinal": 6,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 15,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 81,
-                                            "room_name": "diam",
-                                            "room_ordinal": 4
-                                        },
-                                        {
-                                            "room_id": 77,
-                                            "room_name": "magna euismod",
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 110,
-                                            "room_name": "lorem",
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 202,
-                                            "room_name": "euismod",
-                                            "room_ordinal": 15
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 8,
-                                    "floor_name": "ipsum",
-                                    "floor_ordinal": 5,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 206,
-                                            "room_name": null,
-                                            "room_ordinal": 15
-                                        },
-                                        {
-                                            "room_id": 76,
-                                            "room_name": null,
-                                            "room_ordinal": 4
-                                        },
-                                        {
-                                            "room_id": 130,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 232,
-                                            "room_name": null,
-                                            "room_ordinal": 10
-                                        },
-                                        {
-                                            "room_id": 58,
-                                            "room_name": null,
-                                            "room_ordinal": 10
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 48,
-                                    "floor_name": null,
-                                    "floor_ordinal": 11,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 202,
-                                            "room_name": "dolore diam",
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 16,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 192,
-                                            "room_name": "tincidunt erat",
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 144,
-                                            "room_name": null,
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 143,
-                                            "room_name": null,
-                                            "room_ordinal": 13
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 137,
-                                    "floor_name": null,
-                                    "floor_ordinal": 11,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 97,
-                                            "room_name": "euismod adipiscing",
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 18,
-                                            "room_name": "elit adipiscing",
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 188,
-                                            "room_name": null,
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 183,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 175,
-                                            "room_name": "adipiscing",
-                                            "room_ordinal": 7
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": null,
-                    "zone_id": 70,
-                    "zone_ordinal": 15,
-                    "Buildings": [
-                        {
-                            "building_id": 72,
-                            "building_name": "sit nonummy",
-                            "building_ordinal": 4,
-                            "Floors": [
-                                {
-                                    "floor_id": 175,
-                                    "floor_name": null,
-                                    "floor_ordinal": 3,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 105,
-                                            "room_name": "sed ut",
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 92,
-                                            "room_name": null,
-                                            "room_ordinal": 15
-                                        },
-                                        {
-                                            "room_id": 198,
-                                            "room_name": "amet magna",
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 235,
-                                            "room_name": "magna",
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 93,
-                                            "room_name": "erat tincidunt",
-                                            "room_ordinal": 14
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 20,
-                                    "floor_name": null,
-                                    "floor_ordinal": 15,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 36,
-                                            "room_name": null,
-                                            "room_ordinal": 12
-                                        },
-                                        {
-                                            "room_id": 120,
-                                            "room_name": "sed diam",
-                                            "room_ordinal": 10
-                                        },
-                                        {
-                                            "room_id": 181,
-                                            "room_name": null,
-                                            "room_ordinal": 4
-                                        },
-                                        {
-                                            "room_id": 222,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 123,
-                                            "room_name": "consectetuer",
-                                            "room_ordinal": 4
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 48,
-                                    "floor_name": "diam euismod",
-                                    "floor_ordinal": 13,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 34,
-                                            "room_name": null,
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 58,
-                                            "room_name": "sed laoreet",
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 21,
-                                            "room_name": "lorem",
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 2,
-                                            "room_name": "dolore",
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 13,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 75,
-                                    "floor_name": null,
-                                    "floor_ordinal": 8,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 97,
-                                            "room_name": "elit ipsum",
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 45,
-                                            "room_name": "consectetuer amet",
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 181,
-                                            "room_name": "tincidunt elit",
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 200,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 53,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "building_id": 16,
-                            "building_name": "dolore nibh",
-                            "building_ordinal": 15,
-                            "Floors": [
-                                {
-                                    "floor_id": 229,
-                                    "floor_name": "consectetuer",
-                                    "floor_ordinal": 2,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 62,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 209,
-                                            "room_name": "diam",
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 183,
-                                            "room_name": "magna tincidunt",
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 17,
-                                            "room_name": null,
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 181,
-                                            "room_name": "ut sed",
-                                            "room_ordinal": 11
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 202,
-                                    "floor_name": "aliquam magna",
-                                    "floor_ordinal": 11,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 248,
-                                            "room_name": null,
-                                            "room_ordinal": 1
-                                        },
-                                        {
-                                            "room_id": 23,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 176,
-                                            "room_name": "ipsum sed",
-                                            "room_ordinal": 11
-                                        },
-                                        {
-                                            "room_id": 113,
-                                            "room_name": "erat",
-                                            "room_ordinal": 4
-                                        },
-                                        {
-                                            "room_id": 123,
-                                            "room_name": null,
-                                            "room_ordinal": 10
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 105,
-                                    "floor_name": null,
-                                    "floor_ordinal": 9,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 243,
-                                            "room_name": null,
-                                            "room_ordinal": 15
-                                        },
-                                        {
-                                            "room_id": 174,
-                                            "room_name": "aliquam",
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 97,
-                                            "room_name": "elit tincidunt",
-                                            "room_ordinal": 4
-                                        },
-                                        {
-                                            "room_id": 244,
-                                            "room_name": null,
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 91,
-                                            "room_name": null,
-                                            "room_ordinal": 15
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 55,
-                                    "floor_name": "adipiscing nonummy",
-                                    "floor_ordinal": 7,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 15,
-                                            "room_name": null,
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 202,
-                                            "room_name": null,
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 166,
-                                            "room_name": null,
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 201,
-                                            "room_name": "diam erat",
-                                            "room_ordinal": 12
-                                        },
-                                        {
-                                            "room_id": 132,
-                                            "room_name": null,
-                                            "room_ordinal": 11
-                                        }
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "building_id": 41,
-                            "building_name": "sit laoreet",
-                            "building_ordinal": 9,
-                            "Floors": [
-                                {
-                                    "floor_id": 199,
-                                    "floor_name": null,
-                                    "floor_ordinal": 8,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 244,
-                                            "room_name": "nonummy ipsum",
-                                            "room_ordinal": 9
-                                        },
-                                        {
-                                            "room_id": 17,
-                                            "room_name": "diam",
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 92,
-                                            "room_name": null,
-                                            "room_ordinal": 11
-                                        },
-                                        {
-                                            "room_id": 69,
-                                            "room_name": null,
-                                            "room_ordinal": 8
-                                        },
-                                        {
-                                            "room_id": 59,
-                                            "room_name": null,
-                                            "room_ordinal": 15
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 117,
-                                    "floor_name": null,
-                                    "floor_ordinal": 4,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 12,
-                                            "room_name": null,
-                                            "room_ordinal": 11
-                                        },
-                                        {
-                                            "room_id": 62,
-                                            "room_name": "amet diam",
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 119,
-                                            "room_name": null,
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 179,
-                                            "room_name": null,
-                                            "room_ordinal": 7
-                                        },
-                                        {
-                                            "room_id": 100,
-                                            "room_name": null,
-                                            "room_ordinal": 10
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 224,
-                                    "floor_name": null,
-                                    "floor_ordinal": 7,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 133,
-                                            "room_name": "magna",
-                                            "room_ordinal": 6
-                                        },
-                                        {
-                                            "room_id": 152,
-                                            "room_name": null,
-                                            "room_ordinal": 3
-                                        },
-                                        {
-                                            "room_id": 30,
-                                            "room_name": null,
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 82,
-                                            "room_name": null,
-                                            "room_ordinal": 15
-                                        },
-                                        {
-                                            "room_id": 174,
-                                            "room_name": "erat",
-                                            "room_ordinal": 11
-                                        }
-                                    ]
-                                },
-                                {
-                                    "floor_id": 94,
-                                    "floor_name": "amet consectetuer",
-                                    "floor_ordinal": 4,
-                                    "Rooms": [
-                                        {
-                                            "room_id": 205,
-                                            "room_name": "aliquam ipsum",
-                                            "room_ordinal": 2
-                                        },
-                                        {
-                                            "room_id": 110,
-                                            "room_name": "elit sed",
-                                            "room_ordinal": 5
-                                        },
-                                        {
-                                            "room_id": 28,
-                                            "room_name": "sed consectetuer",
-                                            "room_ordinal": 14
-                                        },
-                                        {
-                                            "room_id": 75,
-                                            "room_name": "elit",
-                                            "room_ordinal": 13
-                                        },
-                                        {
-                                            "room_id": 212,
-                                            "room_name": null,
-                                            "room_ordinal": 4
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        "case_confirm": false,
-        "__v": 0,
-        "user_profile": [
+        "case_location": {
+            "case_zone": 1,
+            "counting_zone": 1,
+            "zone_name": null,
+            "zone_ordinal": 6,
+            "case_building": 4,
+            "counting_building": 4,
+            "building_name": 182,
+            "building_id": null,
+            "building_ordinal": 6,
+            "case_floors": 5,
+            "counting_floors": 6,
+            "floor_name": 97,
+            "floor_id": "consectetuer",
+            "floor_ordinal": 13,
+            "case_room": 5,
+            "counting_room": 5,
+            "room_name": 105,
+            "room_id": null,
+            "room_ordinal": 3
+        }
+    },
+    {
+        "user_profiles": [
             {
                 "_id": "631ede13474614e4578e198f",
                 "user": {
@@ -1798,6 +159,137 @@
                 "updatedAt": "2022-09-12T07:21:55.827Z",
                 "__v": 0
             }
-        ]
+        ],
+        "device": {
+            "id": "RxexufigENsY",
+            "name": "ut",
+            "type": "Trackimo",
+            "mobile": null
+        },
+        "case_info": {
+            "locateable_id": "224",
+            "locateable_type": "Floor",
+            "latitude": 12.8634067,
+            "longitude": 100.4958065,
+            "timestamp": 1661772717
+        },
+        "case_location": {
+            "case_zone": 2,
+            "counting_zone": 2,
+            "zone_name": null,
+            "zone_ordinal": 15,
+            "case_building": 3,
+            "counting_building": 3,
+            "building_name": 41,
+            "building_id": "sit laoreet",
+            "building_ordinal": 9,
+            "case_floors": 3,
+            "counting_floors": 4,
+            "floor_name": 224,
+            "floor_id": null,
+            "floor_ordinal": 7,
+            "case_room": null,
+            "counting_room": null,
+            "room_name": null,
+            "room_id": null,
+            "room_ordinal": null
+        }
+    },
+    {
+        "user_profiles": [
+            {
+                "_id": "631ede04474614e4578e198c",
+                "user": {
+                    "citizen_id": "5501307648790",
+                    "domain_id": "12",
+                    "username": "lyndon_hernandez_2285",
+                    "password": "Wc4bFDupzMECspPw",
+                    "fullname": "Lyndon Hernandez",
+                    "role": "User",
+                    "gender": "Female",
+                    "dob": null,
+                    "blood_type": "B-",
+                    "height": null,
+                    "weight": null,
+                    "allergies": [],
+                    "conditions": [
+                        "Cancer"
+                    ],
+                    "drugs": [
+                        "Acetaminophen; Hydrocodone",
+                        "Levothyroxine",
+                        "Amlodipine",
+                        "Omeprazole"
+                    ],
+                    "vital_signs": null,
+                    "contact": {
+                        "mobile": "+66848077425",
+                        "address_1": "sit consectetuer laoreet sit elit",
+                        "address_2": null,
+                        "subdistrict": null,
+                        "district": null,
+                        "province": null,
+                        "zip": "33011",
+                        "note": null,
+                        "latitude": "13.3871237",
+                        "longitude": "98.2737413"
+                    },
+                    "family": [
+                        {
+                            "fullname": "Ariah Whitehead",
+                            "mobile": "+66976331020",
+                            "relation": "dolore amet"
+                        },
+                        {
+                            "fullname": "Malia Sharpe",
+                            "mobile": "+66711627504",
+                            "relation": "amet tincidunt"
+                        },
+                        {
+                            "fullname": "Matilda Aldred",
+                            "mobile": null,
+                            "relation": "tincidunt amet"
+                        }
+                    ]
+                },
+                "createdAt": "2022-09-12T07:21:40.964Z",
+                "updatedAt": "2022-09-12T07:21:40.964Z",
+                "__v": 0
+            }
+        ],
+        "device": {
+            "id": "UNwT91FyrcmW",
+            "name": null,
+            "type": "EV05",
+            "mobile": null
+        },
+        "case_info": {
+            "locateable_id": "105",
+            "locateable_type": "Room",
+            "latitude": 12.8600851,
+            "longitude": 98.1725749,
+            "timestamp": 1661772652
+        },
+        "case_location": {
+            "case_zone": 1,
+            "counting_zone": 1,
+            "zone_name": null,
+            "zone_ordinal": 6,
+            "case_building": 4,
+            "counting_building": 4,
+            "building_name": 182,
+            "building_id": null,
+            "building_ordinal": 6,
+            "case_floors": 5,
+            "counting_floors": 6,
+            "floor_name": 97,
+            "floor_id": "consectetuer",
+            "floor_ordinal": 13,
+            "case_room": 5,
+            "counting_room": 5,
+            "room_name": 105,
+            "room_id": null,
+            "room_ordinal": 3
+        }
     }
 ]

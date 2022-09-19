@@ -35,6 +35,7 @@ app.get("/", (req, res) => {
 
 /// sync user data in collection user info //
 app.post("/syncUser", async(req, res) => {
+
     const payload = req.body;
     const userInfo = require("./model/user_info");
 
@@ -94,28 +95,16 @@ app.delete("/deleteUser", async(req, res) => {
         res.send(err);
     };
 });
-
-
 //////// management emergency info //////// 
 
-// sync emergency if user btn sos //
-app.post("/syncEmergency", async (req, res) => {
+// sync emergency if user login dashbboard //
+
+app.get("/syncEmergencyLog", async (req, res) => {
 
     // import database // 
     const emergency_info = require("./model/emergency_info");
-
     // import function //
     const SendingEmergencyModule = require("./customFunction/recursiveModule");
-
-    let emergencyData = req.body;
-    emergencyData["case_confirm"] = false;
-
-    try{
-        await emergency_info.create(emergencyData);
-    }catch(err){
-        console.log(`error in api syncemergency emergency_info : ${err}`);
-        res.sendStatus(500);    
-    }
 
     try{
         const emergencyReport = await emergency_info.aggregate([
@@ -128,19 +117,58 @@ app.post("/syncEmergency", async (req, res) => {
             }}
         ])
 
+        // console.log("emergencyReport ==> ", emergencyReport)
+        const emergencyModel = new SendingEmergencyModule(emergencyReport);
+        const sentEmergency = emergencyModel.returnResult();
+        // console.log(sentEmergency);
+        res.send(sentEmergency);
+    }catch(err){
+        console.log(`error in api syncEmergencyLog ==> ${err}`);
+        res.sendStatus(500);
+    }
+
+});
+
+// sync emergency if user btn sos //
+app.post("/syncEmergencysos", async (req, res) => {
+
+    // import database // 
+    const emergency_info = require("./model/emergency_info");
+    // import function //
+    const SendingEmergencyModule = require("./customFunction/recursiveModule");
+    let emergencyData = req.body;
+
+    if(emergencyData){
+
+        emergencyData["case_confirm"] = false;
+
+        try{
+            await emergency_info.create(emergencyData);
+        }catch(err){
+            console.log(`error in api syncemergency emergency_info : ${err}`);
+            res.sendStatus(500);    
+        }
+    }
+
+    try{
+        const emergencyReport = await emergency_info.aggregate([
+            {$match: {case_confirm: false}},
+            {$lookup: {
+                from: "user_infos",
+                localField: "user_ids",
+                foreignField: "user.citizen_id",
+                as: "user_profile"
+            }}
+        ])
         const emergencyModel = new SendingEmergencyModule(emergencyReport);
         const sentEmergency = emergencyModel.returnResult();
         res.send(sentEmergency);
-
     }catch(err){
         console.log(`error in api syncemergency: emergencyReport ==> ${err}`);
         res.sendStatus(500);
     }
-    
-
-
-
 });
+
 
 // get alert emergency info // 
 app.get("/alertemergency", async (req, res) => {

@@ -1,0 +1,409 @@
+{
+    "user_ids": [
+      "3650674025729"
+    ],
+    "device": {
+      "id": "bH4MTN9J3yIl",
+      "name": "lorem",
+      "type": "GoLiveClip",
+      "mobile": "+66668866064"
+    },
+    "case_info": {
+      "locateable_id": 250,
+      "locateable_type": "Building",
+      "latitude": 12.0779141,
+      "longitude": 99.0965417,
+      "timestamp": 1663132572
+    },
+    "floor_plan": {
+      "Zones": [
+        {
+          "name": null,
+          "zone_id": 69,
+          "zone_ordinal": 2,
+          "Buildings": [
+            {
+              "building_id": 30,
+              "building_name": null,
+              "building_ordinal": 4,
+              "Floors": [
+                {
+                  "floor_id": 148,
+                  "floor_name": null,
+                  "floor_ordinal": 3,
+                  "Rooms": [
+                    {
+                      "room_id": 143,
+                      "room_name": null,
+                      "room_ordinal": 4
+                    },
+                    {
+                      "room_id": 77,
+                      "room_name": null,
+                      "room_ordinal": 10
+                    },
+                    {
+                      "room_id": 57,
+                      "room_name": null,
+                      "room_ordinal": 1
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 10,
+                  "floor_name": "sed sed",
+                  "floor_ordinal": 3,
+                  "Rooms": [
+                    {
+                      "room_id": 145,
+                      "room_name": "erat sit",
+                      "room_ordinal": 13
+                    },
+                    {
+                      "room_id": 36,
+                      "room_name": null,
+                      "room_ordinal": 13
+                    },
+                    {
+                      "room_id": 29,
+                      "room_name": null,
+                      "room_ordinal": 10
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 139,
+                  "floor_name": null,
+                  "floor_ordinal": 9,
+                  "Rooms": [
+                    {
+                      "room_id": 73,
+                      "room_name": null,
+                      "room_ordinal": 1
+                    },
+                    {
+                      "room_id": 87,
+                      "room_name": null,
+                      "room_ordinal": 5
+                    },
+                    {
+                      "room_id": 183,
+                      "room_name": null,
+                      "room_ordinal": 9
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 106,
+                  "floor_name": null,
+                  "floor_ordinal": 4,
+                  "Rooms": [
+                    {
+                      "room_id": 27,
+                      "room_name": "ipsum ipsum",
+                      "room_ordinal": 5
+                    },
+                    {
+                      "room_id": 153,
+                      "room_name": null,
+                      "room_ordinal": 13
+                    },
+                    {
+                      "room_id": 113,
+                      "room_name": "nonummy nonummy",
+                      "room_ordinal": 11
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "building_id": 36,
+              "building_name": "lorem",
+              "building_ordinal": 11,
+              "Floors": [
+                {
+                  "floor_id": 66,
+                  "floor_name": "amet",
+                  "floor_ordinal": 14,
+                  "Rooms": [
+                    {
+                      "room_id": 113,
+                      "room_name": null,
+                      "room_ordinal": 1
+                    },
+                    {
+                      "room_id": 132,
+                      "room_name": null,
+                      "room_ordinal": 15
+                    },
+                    {
+                      "room_id": 174,
+                      "room_name": null,
+                      "room_ordinal": 3
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 141,
+                  "floor_name": "sit ut",
+                  "floor_ordinal": 13,
+                  "Rooms": [
+                    {
+                      "room_id": 177,
+                      "room_name": null,
+                      "room_ordinal": 6
+                    },
+                    {
+                      "room_id": 166,
+                      "room_name": null,
+                      "room_ordinal": 12
+                    },
+                    {
+                      "room_id": 158,
+                      "room_name": null,
+                      "room_ordinal": 7
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 130,
+                  "floor_name": null,
+                  "floor_ordinal": 12,
+                  "Rooms": [
+                    {
+                      "room_id": 203,
+                      "room_name": null,
+                      "room_ordinal": 6
+                    },
+                    {
+                      "room_id": 223,
+                      "room_name": null,
+                      "room_ordinal": 6
+                    },
+                    {
+                      "room_id": 97,
+                      "room_name": null,
+                      "room_ordinal": 8
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 98,
+                  "floor_name": null,
+                  "floor_ordinal": 14,
+                  "Rooms": [
+                    {
+                      "room_id": 130,
+                      "room_name": "tincidunt",
+                      "room_ordinal": 2
+                    },
+                    {
+                      "room_id": 64,
+                      "room_name": null,
+                      "room_ordinal": 12
+                    },
+                    {
+                      "room_id": 34,
+                      "room_name": null,
+                      "room_ordinal": 9
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "building_id": 250,
+              "building_name": "magna consectetuer",
+              "building_ordinal": 7,
+              "Floors": [
+                {
+                  "floor_id": 83,
+                  "floor_name": null,
+                  "floor_ordinal": 9,
+                  "Rooms": [
+                    {
+                      "room_id": 237,
+                      "room_name": "tincidunt",
+                      "room_ordinal": 15
+                    },
+                    {
+                      "room_id": 124,
+                      "room_name": "ipsum ut",
+                      "room_ordinal": 15
+                    },
+                    {
+                      "room_id": 65,
+                      "room_name": "ipsum",
+                      "room_ordinal": 14
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 152,
+                  "floor_name": "elit ipsum",
+                  "floor_ordinal": 14,
+                  "Rooms": [
+                    {
+                      "room_id": 199,
+                      "room_name": null,
+                      "room_ordinal": 13
+                    },
+                    {
+                      "room_id": 87,
+                      "room_name": null,
+                      "room_ordinal": 1
+                    },
+                    {
+                      "room_id": 115,
+                      "room_name": null,
+                      "room_ordinal": 4
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 166,
+                  "floor_name": null,
+                  "floor_ordinal": 10,
+                  "Rooms": [
+                    {
+                      "room_id": 173,
+                      "room_name": null,
+                      "room_ordinal": 7
+                    },
+                    {
+                      "room_id": 53,
+                      "room_name": "diam erat",
+                      "room_ordinal": 6
+                    },
+                    {
+                      "room_id": 249,
+                      "room_name": null,
+                      "room_ordinal": 10
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 214,
+                  "floor_name": null,
+                  "floor_ordinal": 7,
+                  "Rooms": [
+                    {
+                      "room_id": 144,
+                      "room_name": "laoreet adipiscing",
+                      "room_ordinal": 6
+                    },
+                    {
+                      "room_id": 242,
+                      "room_name": null,
+                      "room_ordinal": 3
+                    },
+                    {
+                      "room_id": 49,
+                      "room_name": "euismod",
+                      "room_ordinal": 10
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "building_id": 228,
+              "building_name": null,
+              "building_ordinal": 14,
+              "Floors": [
+                {
+                  "floor_id": 196,
+                  "floor_name": "aliquam nonummy",
+                  "floor_ordinal": 7,
+                  "Rooms": [
+                    {
+                      "room_id": 91,
+                      "room_name": "elit sit",
+                      "room_ordinal": 6
+                    },
+                    {
+                      "room_id": 75,
+                      "room_name": null,
+                      "room_ordinal": 5
+                    },
+                    {
+                      "room_id": 85,
+                      "room_name": "tincidunt magna",
+                      "room_ordinal": 9
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 127,
+                  "floor_name": null,
+                  "floor_ordinal": 14,
+                  "Rooms": [
+                    {
+                      "room_id": 141,
+                      "room_name": "ipsum consectetuer",
+                      "room_ordinal": 4
+                    },
+                    {
+                      "room_id": 54,
+                      "room_name": "sit",
+                      "room_ordinal": 11
+                    },
+                    {
+                      "room_id": 92,
+                      "room_name": "laoreet",
+                      "room_ordinal": 7
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 179,
+                  "floor_name": null,
+                  "floor_ordinal": 14,
+                  "Rooms": [
+                    {
+                      "room_id": 21,
+                      "room_name": null,
+                      "room_ordinal": 11
+                    },
+                    {
+                      "room_id": 253,
+                      "room_name": "tincidunt",
+                      "room_ordinal": 1
+                    },
+                    {
+                      "room_id": 151,
+                      "room_name": null,
+                      "room_ordinal": 3
+                    }
+                  ]
+                },
+                {
+                  "floor_id": 234,
+                  "floor_name": "adipiscing",
+                  "floor_ordinal": 11,
+                  "Rooms": [
+                    {
+                      "room_id": 79,
+                      "room_name": null,
+                      "room_ordinal": 3
+                    },
+                    {
+                      "room_id": 44,
+                      "room_name": null,
+                      "room_ordinal": 2
+                    },
+                    {
+                      "room_id": 200,
+                      "room_name": null,
+                      "room_ordinal": 4
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }

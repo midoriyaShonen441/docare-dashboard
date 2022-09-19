@@ -4,7 +4,7 @@
         <div class="set-emergency-counting-text">
                 <h4>
                     <i class='fas fa-exclamation-triangle' style='font-size:23px'></i> 
-                    {{$store.state.emergencyList.length}}
+                    {{$store.state.emergencyArray.length}}
                 </h4>
         </div>
     </div>
@@ -20,24 +20,25 @@
             </div>
             <div class="emergency-content" v-if="showEmergency === 'set-emergency-container'">
                 <div class="counting-emergency">
-                    <h3>จำนวนการแจ้งเตือน {{$store.state.emergencyList.length}}</h3>
+                    <h3>จำนวนการแจ้งเตือน {{$store.state.emergencyArray.length}}</h3>
                 </div>
                 <!-- use v-for here -->
-                <div class="emergency-list" v-for="(data, index) in $store.state.emergencyList" :key="index">
-                    <div class="emergency-text" @click="$store.commit('haddleSelectEmergency',data)">
+                <div class="emergency-list" v-for="(data, index) in $store.state.emergencyArray" :key="index">
+                    <div class="emergency-text" @click="$store.commit('haddleSelectEmergency',{localtion:{lat:data.case_info.latitude,lng:data.case_info.longitude}, datas: data})">
                         <div class="content-text-container">
                             <div class="content-text">
-                                {{data.text}}
+                                กดปุ่มขอความช่วยเหลือ (Anywhere) 
+                                {{data.case_info.latitude}} {{data.case_info.longitude}}
                             </div>
                             <div class="user-text">
-                                {{data.user}}
+                                {{data.fullname}}
                             </div>
                             <div class="mat-line">
-                                {{data.matLine}}
+                                Teleheath
                             </div>
                         </div>
                         <div class="timing-history">
-                            {{data.timing}}
+                            9 ชม.
                         </div>
                     </div>
                 </div>

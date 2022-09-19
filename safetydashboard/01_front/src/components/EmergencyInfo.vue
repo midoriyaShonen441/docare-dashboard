@@ -15,48 +15,86 @@
             <i class='fas fa-user-alt' style='font-size:40px'></i>
           </div>
           <div class="user-id">
-            <div class="user-name">{{this.$store.state.userSelectEmergency.user}}</div>
-            <div class="user-address">{{this.$store.state.userSelectEmergency.userAddress}}</div>
+            <div class="user-name">{{this.$store.state.userSelectEmergency.fullname}}</div>
+            <div class="user-address" v-if="$store.state.userSelectEmergency.address_1">{{this.$store.state.userSelectEmergency.province}} {{this.$store.state.userSelectEmergency.district}} {{this.$store.state.userSelectEmergency.subdistrict}}  {{this.$store.state.userSelectEmergency.zip}} {{this.$store.state.userSelectEmergency.address_1}} </div>
+            <div class="user-address" v-if="!($store.state.userSelectEmergency.address_1)">{{this.$store.state.userSelectEmergency.province}} {{this.$store.state.userSelectEmergency.district}} {{this.$store.state.userSelectEmergency.subdistrict}}  {{this.$store.state.userSelectEmergency.zip}} {{this.$store.state.userSelectEmergency.address_2}}</div>
           </div>
         </div>
 
         <div class="customer-info">
+
           <div class="title-person">
-            <div class="title-set-tel-device">
+            <div class="set-grid title-set-tel-device">
               <div class="set-name">เบอร์โทรศัพท์ (อุปกรณ์)</div>
-              <!-- <div class="set-data"></div> -->
+              <div class="detail-set-tel-device" >
+                <div class="set-name" v-if="$store.state.userSelectEmergency.device.mobile !== '' || 
+                $store.state.userSelectEmergency.device.mobile !== undefined || 
+                $store.state.userSelectEmergency.device.mobile !== null"
+                >{{$store.state.userSelectEmergency.device.mobile}}</div>
+
+                <div class="set-name" v-if="$store.state.userSelectEmergency.device.mobile === '' || 
+                $store.state.userSelectEmergency.device.mobile === undefined || 
+                $store.state.userSelectEmergency.device.mobile === null"
+                >n/a</div>
+              </div>
             </div>
-            <div class="title-set-tel-person">
+
+            <div class="set-grid title-set-tel-person">
               <div class="set-name">เบอร์โทรศัพท์ (บุคคล)</div>
-              <!-- <div class="set-data"></div> -->
-              
+              <div class="detail-set-tel-person" >
+                <div class="set-name" v-if="$store.state.userSelectEmergency.mobile !== '' || 
+                $store.state.userSelectEmergency.mobile !== undefined || 
+                $store.state.userSelectEmergency.mobile !== null">
+                {{$store.state.userSelectEmergency.mobile}}
+                </div>
+
+                <div class="set-name" v-if="$store.state.userSelectEmergency.mobile === '' || 
+                $store.state.userSelectEmergency.mobile === undefined || 
+                $store.state.userSelectEmergency.mobile === null">
+                n/a
+              </div>
             </div>
-            <div class="title-congenital-disease">
+            </div>
+
+            <div class="set-grid title-congenital-blood">
+              <div class="set-name">กรุ๊ปเลือด</div>
+              <div class="detail-congenital-blood" >
+                <div class="set-name" v-if="$store.state.userSelectEmergency.blood_type !== '' || 
+                $store.state.userSelectEmergency.blood_type !== undefined || 
+                $store.state.userSelectEmergency.blood_type !== null">
+                {{$store.state.userSelectEmergency.blood_type}}</div>
+
+                <div class="set-name" v-if="$store.state.userSelectEmergency.blood_type === '' || 
+                $store.state.userSelectEmergency.blood_type === undefined || 
+                $store.state.userSelectEmergency.blood_type === null">
+                n/a</div>
+                </div>
+            </div>
+            
+            <div class="set-grid title-congenital-disease">
               <div class="set-name">โรคประจำตัว</div>
-              <!-- <div class="set-data"></div> -->
+              <div class="detail-congenital-disease" >
+                <div class="set-name" v-if="$store.state.userSelectEmergency.conditions !== '' || 
+                $store.state.userSelectEmergency.conditions !== undefined || 
+                $store.state.userSelectEmergency.conditions !== null">
+                <span v-for="(data, index) in $store.state.userSelectEmergency.conditions" :key="index">{{data}}, </span></div>
+
+                <div class="set-name" v-if="$store.state.userSelectEmergency.conditions === '' || 
+                $store.state.userSelectEmergency.conditions === undefined || 
+                $store.state.userSelectEmergency.conditions === null">
+                n/a</div>
+                </div>
             </div>
+
           </div>
-          <div class="personal-detail">
-            <div class="detail-set-tel-device">
-              <div class="set-name">{{this.$store.state.userSelectEmergency.userNumDevice}}</div>
-              <!-- <div class="set-data"></div> -->
-            </div>
-            <div class="detail-set-tel-person">
-              <div class="set-name">{{this.$store.state.userSelectEmergency.userPhone}}</div>
-              <!-- <div class="set-data"></div> -->
-              
-            </div>
-            <div class="detail-congenital-disease">
-              <div class="set-name">{{this.$store.state.userSelectEmergency.congenitalDisease}}</div>
-            </div>
-          </div>
+
         </div>
 
         <div class="set-customer-contact">
           <div class="title-contact">ผู้ติดต่อ</div>
-          <div class="customer-contact" v-for="(data, index) in $store.state.userSelectEmergency.subContact" :key="index">
-            <div class="another-type">{{ data.typeCon}}</div>
-            <div class="another-contact">{{data.contact }}</div>
+          <div class="customer-contact" v-for="(data, index) in $store.state.userSelectEmergency.family" :key="index">
+            <div class="another-type">{{data.fullname}}</div>
+            <div class="another-contact">{{data.mobile }}</div>
           </div>
         </div>
 
@@ -98,8 +136,8 @@
         </div>
 
         <div class="btn-change">
-          <button :class="cssBtnConfirm">ยืนยันเหตุการณ์</button>
-          <button :class="cssBtnEvt">ไม่เกิดเหคุการณ์</button>
+          <button :class="cssBtnConfirm" @click="haddleAction('emer', $store.state.userSelectEmergency.id)">ยืนยันเหตุการณ์</button>
+          <button :class="cssBtnEvt" @click="haddleAction('nor', $store.state.userSelectEmergency.id)">ไม่เกิดเหคุการณ์</button>
         </div>
 
       </div>
@@ -120,8 +158,24 @@ export default {
         }
     },
     methods:{
-      haddleAction(){
+      haddleAction(evt, id){
 
+        headerConfig = {
+          
+        }
+
+        if(evt === "emer"){
+          payload = {
+            _id:id,
+            case_confirm: true,
+          }
+
+        }else if(evt === "nor"){
+          payload = {
+            _id:id,
+            case_confirm: true,
+          }
+        }
       },
       checkComment(){
         if(this.commentArea !== ''){
@@ -239,7 +293,7 @@ export default {
   color: black;
 }
 .customer-contact{
-  margin-top: 20px;
+  margin-top: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   font-size: 16px;
@@ -393,4 +447,21 @@ label{
 .personal-detail{
   margin-left: 30px;
 }
+
+
+.set-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 10px;
+}
+
+/* 
+.title-set-tel-device, .itle-set-tel-person, .title-congenital-disease{
+  width: 170px;
+  min-width: 150px;
+}
+
+.personal-detail, .detail-set-tel-person, .detail-congenital-disease{
+  font-size: 14px;
+} */
 </style>
