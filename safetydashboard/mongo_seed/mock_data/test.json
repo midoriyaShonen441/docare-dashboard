@@ -1,0 +1,295 @@
+[
+    {
+        "user_profiles": [
+            {
+                "_id": "631ede04474614e4578e198c",
+                "user": {
+                    "citizen_id": "5501307648790",
+                    "domain_id": "12",
+                    "username": "lyndon_hernandez_2285",
+                    "password": "Wc4bFDupzMECspPw",
+                    "fullname": "Lyndon Hernandez",
+                    "role": "User",
+                    "gender": "Female",
+                    "dob": null,
+                    "blood_type": "B-",
+                    "height": null,
+                    "weight": null,
+                    "allergies": [],
+                    "conditions": [
+                        "Cancer"
+                    ],
+                    "drugs": [
+                        "Acetaminophen; Hydrocodone",
+                        "Levothyroxine",
+                        "Amlodipine",
+                        "Omeprazole"
+                    ],
+                    "vital_signs": null,
+                    "contact": {
+                        "mobile": "+66848077425",
+                        "address_1": "sit consectetuer laoreet sit elit",
+                        "address_2": null,
+                        "subdistrict": null,
+                        "district": null,
+                        "province": null,
+                        "zip": "33011",
+                        "note": null,
+                        "latitude": "13.3871237",
+                        "longitude": "98.2737413"
+                    },
+                    "family": [
+                        {
+                            "fullname": "Ariah Whitehead",
+                            "mobile": "+66976331020",
+                            "relation": "dolore amet"
+                        },
+                        {
+                            "fullname": "Malia Sharpe",
+                            "mobile": "+66711627504",
+                            "relation": "amet tincidunt"
+                        },
+                        {
+                            "fullname": "Matilda Aldred",
+                            "mobile": null,
+                            "relation": "tincidunt amet"
+                        }
+                    ]
+                },
+                "createdAt": "2022-09-12T07:21:40.964Z",
+                "updatedAt": "2022-09-12T07:21:40.964Z",
+                "__v": 0
+            }
+        ],
+        "device": {
+            "id": "UNwT91FyrcmW",
+            "name": null,
+            "type": "EV05",
+            "mobile": null
+        },
+        "case_info": {
+            "locateable_id": "105",
+            "locateable_type": "Room",
+            "latitude": 12.8600851,
+            "longitude": 98.1725749,
+            "timestamp": 1661772652
+        },
+        "case_location": {
+            "case_zone": 1,
+            "counting_zone": 1,
+            "zone_name": null,
+            "zone_ordinal": 6,
+            "case_building": 4,
+            "counting_building": 4,
+            "building_name": 182,
+            "building_id": null,
+            "building_ordinal": 6,
+            "case_floors": 5,
+            "counting_floors": 6,
+            "floor_name": 97,
+            "floor_id": "consectetuer",
+            "floor_ordinal": 13,
+            "case_room": 5,
+            "counting_room": 5,
+            "room_name": 105,
+            "room_id": null,
+            "room_ordinal": 3
+        }
+    },
+    {
+        "user_profiles": [
+            {
+                "_id": "631ede13474614e4578e198f",
+                "user": {
+                    "citizen_id": "4751081120470",
+                    "domain_id": "3",
+                    "username": "myron_partridge_5034",
+                    "password": "dU3pug1cfkY7Vg98",
+                    "fullname": "Myron Partridge",
+                    "role": "User",
+                    "gender": "Other",
+                    "dob": null,
+                    "blood_type": "O-",
+                    "height": null,
+                    "weight": null,
+                    "allergies": [
+                        "Ham",
+                        "Bacon",
+                        "Cream"
+                    ],
+                    "conditions": [
+                        "Osteoarthritis",
+                        "Hypertension",
+                        "Alzheimer",
+                        "Alzheimer",
+                        "Epilepsy",
+                        "Obesity"
+                    ],
+                    "drugs": [
+                        "Hydrochlorothiazide",
+                        "Amlodipine",
+                        "Simvastatin",
+                        "Atorvastatin",
+                        "Furosemide",
+                        "Bupropion",
+                        "Bupropion"
+                    ],
+                    "vital_signs": null,
+                    "contact": {
+                        "mobile": null,
+                        "address_1": "sed lorem amet diam erat aliquam ipsum",
+                        "address_2": null,
+                        "subdistrict": "lorem",
+                        "district": "dolore",
+                        "province": "ut",
+                        "zip": "14524",
+                        "note": null,
+                        "latitude": "12.5738386",
+                        "longitude": "100.4967454"
+                    },
+                    "family": [
+                        {
+                            "fullname": "Vikki Talbot",
+                            "mobile": "+66941881415",
+                            "relation": "aliquam dolore"
+                        }
+                    ]
+                },
+                "createdAt": "2022-09-12T07:21:55.827Z",
+                "updatedAt": "2022-09-12T07:21:55.827Z",
+                "__v": 0
+            }
+        ],
+        "device": {
+            "id": "RxexufigENsY",
+            "name": "ut",
+            "type": "Trackimo",
+            "mobile": null
+        },
+        "case_info": {
+            "locateable_id": "224",
+            "locateable_type": "Floor",
+            "latitude": 12.8634067,
+            "longitude": 100.4958065,
+            "timestamp": 1661772717
+        },
+        "case_location": {
+            "case_zone": 2,
+            "counting_zone": 2,
+            "zone_name": null,
+            "zone_ordinal": 15,
+            "case_building": 3,
+            "counting_building": 3,
+            "building_name": 41,
+            "building_id": "sit laoreet",
+            "building_ordinal": 9,
+            "case_floors": 3,
+            "counting_floors": 4,
+            "floor_name": 224,
+            "floor_id": null,
+            "floor_ordinal": 7,
+            "case_room": null,
+            "counting_room": null,
+            "room_name": null,
+            "room_id": null,
+            "room_ordinal": null
+        }
+    },
+    {
+        "user_profiles": [
+            {
+                "_id": "631ede04474614e4578e198c",
+                "user": {
+                    "citizen_id": "5501307648790",
+                    "domain_id": "12",
+                    "username": "lyndon_hernandez_2285",
+                    "password": "Wc4bFDupzMECspPw",
+                    "fullname": "Lyndon Hernandez",
+                    "role": "User",
+                    "gender": "Female",
+                    "dob": null,
+                    "blood_type": "B-",
+                    "height": null,
+                    "weight": null,
+                    "allergies": [],
+                    "conditions": [
+                        "Cancer"
+                    ],
+                    "drugs": [
+                        "Acetaminophen; Hydrocodone",
+                        "Levothyroxine",
+                        "Amlodipine",
+                        "Omeprazole"
+                    ],
+                    "vital_signs": null,
+                    "contact": {
+                        "mobile": "+66848077425",
+                        "address_1": "sit consectetuer laoreet sit elit",
+                        "address_2": null,
+                        "subdistrict": null,
+                        "district": null,
+                        "province": null,
+                        "zip": "33011",
+                        "note": null,
+                        "latitude": "13.3871237",
+                        "longitude": "98.2737413"
+                    },
+                    "family": [
+                        {
+                            "fullname": "Ariah Whitehead",
+                            "mobile": "+66976331020",
+                            "relation": "dolore amet"
+                        },
+                        {
+                            "fullname": "Malia Sharpe",
+                            "mobile": "+66711627504",
+                            "relation": "amet tincidunt"
+                        },
+                        {
+                            "fullname": "Matilda Aldred",
+                            "mobile": null,
+                            "relation": "tincidunt amet"
+                        }
+                    ]
+                },
+                "createdAt": "2022-09-12T07:21:40.964Z",
+                "updatedAt": "2022-09-12T07:21:40.964Z",
+                "__v": 0
+            }
+        ],
+        "device": {
+            "id": "UNwT91FyrcmW",
+            "name": null,
+            "type": "EV05",
+            "mobile": null
+        },
+        "case_info": {
+            "locateable_id": "105",
+            "locateable_type": "Room",
+            "latitude": 12.8600851,
+            "longitude": 98.1725749,
+            "timestamp": 1661772652
+        },
+        "case_location": {
+            "case_zone": 1,
+            "counting_zone": 1,
+            "zone_name": null,
+            "zone_ordinal": 6,
+            "case_building": 4,
+            "counting_building": 4,
+            "building_name": 182,
+            "building_id": null,
+            "building_ordinal": 6,
+            "case_floors": 5,
+            "counting_floors": 6,
+            "floor_name": 97,
+            "floor_id": "consectetuer",
+            "floor_ordinal": 13,
+            "case_room": 5,
+            "counting_room": 5,
+            "room_name": 105,
+            "room_id": null,
+            "room_ordinal": 3
+        }
+    }
+]

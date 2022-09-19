@@ -1,0 +1,53 @@
+{
+    "user": {
+      "citizen_id": "3893833680255",
+      "domain_id": 17,
+      "username": "mariah_brady_0077",
+      "password": "bKnuRTuWza2R55CK",
+      "fullname": "Mariah Brady",
+      "role": "User",
+      "gender": "Male",
+      "dob": "1903-04-02",
+      "blood_type": null,
+      "height": null,
+      "weight": null,
+      "allergies": [
+        "Steak"
+      ],
+      "conditions": [],
+      "drugs": [
+        "Acetaminophen; Hydrocodone",
+        "Fluoxetine",
+        "Omeprazole",
+        "Montelukast",
+        "Fluoxetine",
+        "Escitalopram",
+        "Amoxicillin"
+      ],
+      "vital_signs": null,
+      "contact": {
+        "mobile": null,
+        "address_1": "ipsum sed ipsum laoreet nibh",
+        "address_2": null,
+        "subdistrict": null,
+        "district": null,
+        "province": null,
+        "zip": 11668,
+        "note": null,
+        "latitude": 12.2510524,
+        "longitude": 98.8202017
+      },
+      "family": [
+        {
+          "fullname": "Joely O Neill",
+          "mobile": "+66864087112",
+          "relation": "adipiscing nonummy"
+        },
+        {
+          "fullname": "Jadene Lucero",
+          "mobile": "+66874572918",
+          "relation": "laoreet aliquam"
+        }
+      ]
+    }
+  }

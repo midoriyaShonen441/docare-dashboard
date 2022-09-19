@@ -1,0 +1,53 @@
+{
+  "user": {
+    "citizen_id": "3318620708468",
+    "domain_id": 13,
+    "username": "clarissa_dillard_5352",
+    "password": "cadfym8121J37cIr",
+    "fullname": "Clarissa Dillard",
+    "role": "User",
+    "gender": "Female",
+    "dob": null,
+    "blood_type": null,
+    "height": "169",
+    "weight": "63.72",
+    "allergies": [
+      "Ice cream",
+      "Sausage",
+      "Bacon"
+    ],
+    "conditions": [
+      "Hypertension"
+    ],
+    "drugs": [
+      "Montelukast",
+      "Amoxicillin",
+      "Metoprolol",
+      "Fluoxetine",
+      "Albuterol",
+      "Bupropion",
+      "Amoxicillin"
+    ],
+    "vital_signs": {
+      "pulse": "82",
+      "bp": "99/87",
+      "temp": null,
+      "oxygen": null,
+      "glucose": null,
+      "weight": "83.02"
+    },
+    "contact": {
+      "mobile": null,
+      "address_1": "nonummy ut nonummy dolor laoreet sit",
+      "address_2": null,
+      "subdistrict": "ut",
+      "district": "lorem",
+      "province": "adipiscing",
+      "zip": 18987,
+      "note": null,
+      "latitude": 13.0677644,
+      "longitude": 100.968642
+    },
+    "family": []
+  }
+}

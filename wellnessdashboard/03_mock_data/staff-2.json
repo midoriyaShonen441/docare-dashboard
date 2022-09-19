@@ -1,0 +1,45 @@
+{
+    "user": {
+      "citizen_id": "3487518473001",
+      "domain_id": 9,
+      "username": "murat_knights_8706",
+      "password": "jD90PdfrToAc3HCX",
+      "fullname": "Murat Knights",
+      "role": "Staff",
+      "gender": "Female",
+      "dob": null,
+      "blood_type": "AB-",
+      "height": null,
+      "weight": null,
+      "allergies": [],
+      "conditions": [
+        "Cancer",
+        "Alzheimer",
+        "Osteoarthritis",
+        "Osteoarthritis"
+      ],
+      "drugs": [
+        "Amoxicillin"
+      ],
+      "vital_signs": null,
+      "contact": {
+        "mobile": "+66756355852",
+        "address_1": "aliquam dolore lorem consectetuer",
+        "address_2": null,
+        "subdistrict": null,
+        "district": null,
+        "province": null,
+        "zip": 87621,
+        "note": null,
+        "latitude": 13.9522204,
+        "longitude": 100.2706185
+      },
+      "family": [
+        {
+          "fullname": "Lilith Ferry",
+          "mobile": "+66680604040",
+          "relation": "nibh ut"
+        }
+      ]
+    }
+  }

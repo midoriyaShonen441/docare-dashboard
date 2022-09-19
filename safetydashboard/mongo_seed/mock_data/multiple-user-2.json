@@ -1,0 +1,208 @@
+{
+    "users": [
+      {
+        "citizen_id": "2714044005474",
+        "domain_id": 18,
+        "username": "emmy_henry_7173",
+        "password": "WSHHzKB3MU7w63nG",
+        "fullname": "Emmy Henry",
+        "role": "User",
+        "gender": "Female",
+        "dob": "2010-11-14",
+        "blood_type": "O",
+        "height": "176",
+        "weight": "89.99",
+        "allergies": [
+          "Kebab"
+        ],
+        "conditions": [
+          "Heat Stroke",
+          "High Blood Pressure",
+          "Diabetes",
+          "Heat Stroke"
+        ],
+        "drugs": [
+          "Pantoprazole",
+          "Omeprazole",
+          "Simvastatin",
+          "Atorvastatin",
+          "Lisinopril"
+        ],
+        "vital_signs": {
+          "pulse": "117",
+          "bp": null,
+          "temp": "38.25",
+          "oxygen": "97",
+          "glucose": "115",
+          "weight": "92.82"
+        },
+        "contact": {
+          "mobile": "+66600148149",
+          "address_1": "sit nonummy ut dolore sed ipsum",
+          "address_2": "adipiscing tincidunt laoreet magna sit ipsum",
+          "subdistrict": "nonummy",
+          "district": "adipiscing",
+          "province": "amet",
+          "zip": 87710,
+          "note": null,
+          "latitude": 12.8073802,
+          "longitude": 100.526014
+        },
+        "family": []
+      },
+      {
+        "citizen_id": "3837080417977",
+        "domain_id": 9,
+        "username": "shola_schaefer_6933",
+        "password": "b06QZgUIM0AiIgTp",
+        "fullname": "Shola Schaefer",
+        "role": "User",
+        "gender": "Other",
+        "dob": null,
+        "blood_type": "AB",
+        "height": null,
+        "weight": "81.41",
+        "allergies": [
+          "Steak",
+          "Sausage",
+          "Egg"
+        ],
+        "conditions": [
+          "Epilepsy",
+          "Epilepsy"
+        ],
+        "drugs": [],
+        "vital_signs": {
+          "pulse": "57",
+          "bp": null,
+          "temp": "37.12",
+          "oxygen": "88",
+          "glucose": null,
+          "weight": null
+        },
+        "contact": {
+          "mobile": null,
+          "address_1": "ut amet euismod euismod nonummy",
+          "address_2": null,
+          "subdistrict": null,
+          "district": null,
+          "province": null,
+          "zip": 49624,
+          "note": null,
+          "latitude": 13.9413474,
+          "longitude": 99.5043486
+        },
+        "family": [
+          {
+            "fullname": "Dexter Blanchard",
+            "mobile": null,
+            "relation": "euismod aliquam"
+          },
+          {
+            "fullname": "Sabah Sharples",
+            "mobile": null,
+            "relation": "ut lorem"
+          }
+        ]
+      },
+      {
+        "citizen_id": "3031461092561",
+        "domain_id": 31,
+        "username": "lani_mccartney_2336",
+        "password": "L9Koqz3THVfeOkRP",
+        "fullname": "Lani Mccartney",
+        "role": "User",
+        "gender": "Female",
+        "dob": null,
+        "blood_type": "A-",
+        "height": null,
+        "weight": "65.07",
+        "allergies": [
+          "Cottage cheese",
+          "Bread",
+          "Sausage"
+        ],
+        "conditions": [
+          "Obesity",
+          "Osteoporosis"
+        ],
+        "drugs": [
+          "Simvastatin"
+        ],
+        "vital_signs": null,
+        "contact": {
+          "mobile": "+66943969912",
+          "address_1": null,
+          "address_2": null,
+          "subdistrict": "sit",
+          "district": "dolor",
+          "province": "ut",
+          "zip": 65265,
+          "note": "tincidunt lorem diam consectetuer sit consectetuer diam consectetuersit nibh tincidunt dolore diam dolor laoreet erat",
+          "latitude": 13.2013572,
+          "longitude": 99.0708396
+        },
+        "family": []
+      },
+      {
+        "citizen_id": "9048548177245",
+        "domain_id": 23,
+        "username": "lucca_lake_1933",
+        "password": "9v7f8Xtr7qNuTZjc",
+        "fullname": "Lucca Lake",
+        "role": "User",
+        "gender": "Other",
+        "dob": null,
+        "blood_type": "A",
+        "height": null,
+        "weight": "66.24",
+        "allergies": [
+          "Steak"
+        ],
+        "conditions": [
+          "Depressive"
+        ],
+        "drugs": [
+          "Escitalopram",
+          "Bupropion",
+          "Fluticasone",
+          "Fluoxetine",
+          "Acetaminophen; Hydrocodone",
+          "Pantoprazole",
+          "Fluticasone",
+          "Fluoxetine"
+        ],
+        "vital_signs": null,
+        "contact": {
+          "mobile": "+66804434485",
+          "address_1": null,
+          "address_2": null,
+          "subdistrict": null,
+          "district": null,
+          "province": null,
+          "zip": 50012,
+          "note": null,
+          "latitude": 13.4300896,
+          "longitude": 100.5910402
+        },
+        "family": [
+          {
+            "fullname": "Parris Greene",
+            "mobile": null,
+            "relation": "amet nonummy"
+          },
+          {
+            "fullname": "Chiara Hutchings",
+            "mobile": "+66821266604",
+            "relation": "diam erat"
+          },
+          {
+            "fullname": "Nayla Singh",
+            "mobile": null,
+            "relation": "elit euismod"
+          }
+        ]
+      }
+    ]
+  }
+  

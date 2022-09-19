@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "citizen_id": "0557744832562",
+      "domain_id": 31,
+      "username": "chiara_hutchings_6263",
+      "password": "Ak3gMHViJlsDb4Lo",
+      "fullname": "Chiara Hutchings",
+      "role": "User",
+      "gender": "Other",
+      "dob": null,
+      "blood_type": "O-",
+      "height": "168",
+      "weight": null,
+      "allergies": [
+        "Kebab"
+      ],
+      "conditions": [],
+      "drugs": [],
+      "vital_signs": null,
+      "contact": {
+        "mobile": "+66758269012",
+        "address_1": "laoreet sit sit amet dolore dolor nonummy",
+        "address_2": "nibh adipiscing nonummy consectetuer lorem",
+        "subdistrict": "elit",
+        "district": "amet",
+        "province": "dolore",
+        "zip": 40670,
+        "note": "sit ut dolor amet sit ipsum ametnibh aliquam amet euismod laoreet magna doloredolore nonummy amet ut lorem dolor adipiscing",
+        "latitude": 13.197879,
+        "longitude": 100.6819578
+      },
+      "family": [
+        {
+          "fullname": "Isaiah Ferguson",
+          "mobile": "+66725461060",
+          "relation": "tincidunt lorem"
+        },
+        {
+          "fullname": "Aamina Jennings",
+          "mobile": "+66798399045",
+          "relation": "euismod adipiscing"
+        }
+      ]
+    },
+    {
+      "citizen_id": "0831931803488",
+      "domain_id": 24,
+      "username": "sultan_cochran_3534",
+      "password": "YLFixsJgr4zYTQVG",
+      "fullname": "Sultan Cochran",
+      "role": "User",
+      "gender": null,
+      "dob": "1909-06-04",
+      "blood_type": "A-",
+      "height": null,
+      "weight": null,
+      "allergies": [
+        "Bacon",
+        "Bread"
+      ],
+      "conditions": [],
+      "drugs": [
+        "Montelukast",
+        "Sertraline",
+        "Acetaminophen; Hydrocodone"
+      ],
+      "vital_signs": {
+        "pulse": "60",
+        "bp": "109/83",
+        "temp": "35.91",
+        "oxygen": null,
+        "glucose": "178",
+        "weight": "84.61"
+      },
+      "contact": {
+        "mobile": null,
+        "address_1": "adipiscing consectetuer nonummy euismod sed sed magna",
+        "address_2": null,
+        "subdistrict": "ipsum",
+        "district": "laoreet",
+        "province": "diam",
+        "zip": 18015,
+        "note": null,
+        "latitude": 13.7743191,
+        "longitude": 99.1371036
+      },
+      "family": []
+    }
+  ]
+}
