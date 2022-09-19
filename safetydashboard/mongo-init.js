@@ -9,30 +9,30 @@ db.createUser({
   ],
 });
 
-db.createCollection("device_info", (err, res) => {
+db.createCollection("device_infos", (err, res) => {
   if (err) throw err;
 });
 
-db.createCollection("emergency_info", (err, res) => {
+db.createCollection("emergency_infos", (err, res) => {
   if (err) throw err;
 });
 
-db.createCollection("emergency_report", (err, res) => {
+db.createCollection("emergency_reports", (err, res) => {
   if (err) throw err;
 });
 
-db.createCollection("patiend_record", (err, res) => {
+db.createCollection("patiend_records", (err, res) => {
   if (err) throw err;
 });
 
-db.createCollection("user_info", (err, res) => {
+db.createCollection("user_infos", (err, res) => {
   if (err) throw err;
 });
 
-db.createCollection("vital_info", (err, res) => {
+db.createCollection("vital_infos", (err, res) => {
   if (err) throw err;
 });
 
-db.createCollection("wel_user_info", (err, res) => {
+db.createCollection("wel_user_infos", (err, res) => {
   if (err) throw err;
 });

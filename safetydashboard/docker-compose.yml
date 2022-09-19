@@ -63,6 +63,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
+    depends_on:
+      - db
 
   frontend:
     container_name: frontend
@@ -75,19 +77,6 @@ services:
       - 7777:7777
     environment:
       - TZ=Asia/Bangkok
-
-
-  # wellness:
-  #   container_name: wellness
-  #   restart: always
-  #   build:
-  #     context: ./01_front
-  #     dockerfile: Dockerfile
-  #   image: wellness-dashboard
-  #   ports:
-  #     - 5555:5555
-  #   environment:
-  #     - TZ=Asia/Bangkok
   
   # nginx:
   #   container_name: nginx
