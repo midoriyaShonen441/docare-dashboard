@@ -9,7 +9,9 @@
             X
           </div>
         </div>
-
+        <div class="emer-stuc">
+          <img src="../assets/tower-block.png" width="60" height="50"/>
+        </div>
         <div class="user-detail">
           <div class="user-icon">
             <i class='fas fa-user-alt' style='font-size:40px'></i>
