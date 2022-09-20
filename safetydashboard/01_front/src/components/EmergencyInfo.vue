@@ -490,9 +490,9 @@ label{
   padding-top: 5px;
   padding-bottom: 5px;
   -webkit-animation: close-alert-emergency 1s infinite;  /* Safari 4+ */
-    -moz-animation: close-alert-emergency 1s infinite;  /* Fx 5+ */
-    -o-animation: close-alert-emergency 1s infinite;  /* Opera 12+ */
-    animation: close-alert-emergency 1s infinite; 
+  -moz-animation: close-alert-emergency 1s infinite;  /* Fx 5+ */
+  -o-animation: close-alert-emergency 1s infinite;  /* Opera 12+ */
+  animation: close-alert-emergency 1s infinite; 
   
 }
 
