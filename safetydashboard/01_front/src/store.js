@@ -11,6 +11,7 @@ export default createStore({
         setsidemenu: "set-menu-container",
         myDefaultPosition: { lat: 13.746791, lng:100.535458 },
         muDefaultZoom: 12,
+        sturctureShow:false,
 
         // vvvv userSelectEmergency collect data in array like this vvvv // 
         // {

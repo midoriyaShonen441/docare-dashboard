@@ -5,6 +5,7 @@ import { GoogleMap, Marker, InfoWindow } from "vue3-google-map";
 import Navbar from "../components/Navbar.vue";
 import Emergency from "../components/Emergency.vue";
 import EmergencyInfo from '../components/EmergencyInfo.vue';
+import BuildingStructure from "../components/BuildingStructure.vue";
 import {httpAPI} from "../../settingAPI";
 
 const sensAPI = httpAPI();
@@ -17,7 +18,8 @@ export default defineComponent({
     Navbar,
     Emergency,
     InfoWindow,
-    EmergencyInfo
+    EmergencyInfo,
+    BuildingStructure
     },
     data(){
         return{
@@ -51,10 +53,9 @@ export default defineComponent({
 </script>
 
 <template>
-
+    <BuildingStructure v-if="$store.state.sturctureShow === true"/>
     <div class="safety-dashborad-container">
         <div class="set-navbar-container">
-            <!-- <button @click="debuging">Debug</button> -->
             <Navbar/>
         </div>
         <div class="emergency-info-container">
@@ -140,7 +141,7 @@ export default defineComponent({
     width: 150px;
     border-radius: 10px;
     margin-bottom: 10px;
-    z-index: 999;
+    z-index: 9;
 }
 
 .btn-google-map{
@@ -150,7 +151,7 @@ export default defineComponent({
     height: 30px;
     width: 150px;
     border-radius: 10px;
-    z-index: 999;
+    z-index: 9;
 }
 
 </style>

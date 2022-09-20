@@ -128,7 +128,7 @@ export default {
 .menu-ham-container {
   margin-top: 20px;
   padding-right: 10px;
-  z-index: 999;
+  z-index: 9;
 }
 
 /* toggle menu */
@@ -164,7 +164,7 @@ export default {
   background: #ffffff;
   height: 100vh;
   width: 0px;
-  z-index: 999;
+  z-index: 9;
   transition: 0.5s;
 }
 
@@ -173,7 +173,7 @@ export default {
   position: absolute;
   left: 0;
   background: #424242;
-  z-index: 999;
+  z-index: 9;
   height: 100vh;
   width: 250px;
   max-width: 250px;

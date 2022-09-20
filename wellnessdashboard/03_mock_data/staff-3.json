@@ -1,0 +1,46 @@
+{
+  "user": {
+    "citizen_id": "3805979637541",
+    "domain_id": 6,
+    "username": "uzma_fraser_3965",
+    "password": "JGPDxv7hlsMwQpS6",
+    "fullname": "Uzma Fraser",
+    "role": "Staff",
+    "gender": null,
+    "dob": null,
+    "blood_type": "B",
+    "height": null,
+    "weight": "53.02",
+    "allergies": [
+      "Pizza",
+      "Steak"
+    ],
+    "conditions": [],
+    "drugs": [],
+    "vital_signs": null,
+    "contact": {
+      "mobile": "+66990372116",
+      "address_1": "sed dolore amet dolor dolor elit",
+      "address_2": null,
+      "subdistrict": "consectetuer",
+      "district": "ipsum",
+      "province": "laoreet",
+      "zip": 98545,
+      "note": null,
+      "latitude": 13.0569784,
+      "longitude": 99.8424189
+    },
+    "family": [
+      {
+        "fullname": "Mariah Brady",
+        "mobile": null,
+        "relation": "ut consectetuer"
+      },
+      {
+        "fullname": "Luisa Houghton",
+        "mobile": "+66991256732",
+        "relation": "erat dolore"
+      }
+    ]
+  }
+}

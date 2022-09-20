@@ -1,5 +1,4 @@
 <template>
- 
     <div class="close-emergency-counting" v-if="showEmergency === 'close-set-emergency-container'" @click="haddleClosingEmergency('comon')">
         <div class="set-emergency-counting-text">
                 <h4>
@@ -10,7 +9,6 @@
     </div>
 
     <div :class="showEmergency" >
-
         <div class="emergency-container">
             <div class="closing-emergency" @click="haddleClosingEmergency('comon')">
                 <div class="btn-closing">
@@ -82,7 +80,7 @@ export default {
 .close-emergency-counting{
     position: absolute;
     text-align: center;
-    z-index: 999;
+    z-index: 9;
     right: 0;
     width: 100px;
     height: 55px;
@@ -109,7 +107,7 @@ export default {
     min-width: 100px;
     height: 100vh;
     background: white;
-    z-index: 999;
+    z-index: 9;
     transition: 0.4s;
     overflow-y: scroll;
 }
@@ -121,7 +119,7 @@ export default {
     width: 28px;
     height: 100vh;
     background: white;
-    z-index: 999;
+    z-index: 9;
     transition: 0.4s;
     opacity: 0.25;
     -webkit-animation: close-alert-emergency 1s infinite;  /* Safari 4+ */

@@ -1,0 +1,58 @@
+{
+    "user": {
+      "citizen_id": "3650674025729",
+      "domain_id": 28,
+      "username": "anabella_bravo_6197",
+      "password": "RTn3M1aForL9mBvg",
+      "fullname": "Anabella Bravo",
+      "role": "User",
+      "gender": "Other",
+      "dob": "1917-05-12",
+      "blood_type": null,
+      "height": null,
+      "weight": null,
+      "allergies": [
+        "Kebab",
+        "Yogurt"
+      ],
+      "conditions": [
+        "Substance Abuse: Ecstasy",
+        "Osteoporosis",
+        "Substance Abuse: Alcohol"
+      ],
+      "drugs": [
+        "Pantoprazole",
+        "Bupropion"
+      ],
+      "vital_signs": null,
+      "contact": {
+        "mobile": "+66996364649",
+        "address_1": "adipiscing dolor dolore dolor elit nibh euismod",
+        "address_2": null,
+        "subdistrict": null,
+        "district": null,
+        "province": null,
+        "zip": 96699,
+        "note": "laoreet euismod diam erat euismod dolor erat laoreetnonummy dolor dolor ut adipiscing ipsum diam magna",
+        "latitude": 13.5892794,
+        "longitude": 100.9723888
+      },
+      "family": [
+        {
+          "fullname": "Isaiah Ferguson",
+          "mobile": null,
+          "relation": "diam adipiscing"
+        },
+        {
+          "fullname": "Esha Blaese",
+          "mobile": null,
+          "relation": "erat diam"
+        },
+        {
+          "fullname": "Kwabena Ahmad",
+          "mobile": null,
+          "relation": "dolore tincidunt"
+        }
+      ]
+    }
+  }

@@ -57,8 +57,6 @@ app.post("/syncUser", async(req, res) => {
     };
 });
 
-
-
 /// sync user data in collection user info //
 app.post("/updateBatch", async(req, res) => {
     const users = req.body.users;
@@ -76,8 +74,6 @@ app.post("/updateBatch", async(req, res) => {
         res.send(err);
     };
 });
-
-
 
 app.delete("/deleteUser", async(req, res) => {
     const userIds = req.body.user_ids;
@@ -139,9 +135,7 @@ app.post("/syncEmergencysos", async (req, res) => {
     let emergencyData = req.body;
 
     if(emergencyData){
-
         emergencyData["case_confirm"] = false;
-
         try{
             await emergency_info.create(emergencyData);
         }catch(err){
@@ -169,7 +163,6 @@ app.post("/syncEmergencysos", async (req, res) => {
     }
 });
 
-
 // get alert emergency info // 
 app.get("/alertemergency", async (req, res) => {
     const emergency_info = require("./model/emergency_info");
@@ -177,19 +170,11 @@ app.get("/alertemergency", async (req, res) => {
 
     try{
         const emerInfo = await emergency_info.find({case_confirm: false});
-
-        console.log(emerInfo)
-        
-        // emerInfo.user_ids.forEach((element) => {
-            
-        // });
-
-
+        console.log(emerInfo);
         const payload = {
             userInfo:"",
             emerInfo:"",
         }
-
         res.send(payload);
     }catch(err){
         console.log(`error in api alertemergency: ${err}`);
@@ -218,8 +203,6 @@ app.put("/confirmemergency", async (req, res) => {
 //////// end management emergency info //////// 
 
 ////////////////// safey end ///////////////////////////
-
-
 ////////////////// wellnesss start ///////////////////////////
 
 // sync user wellness // 

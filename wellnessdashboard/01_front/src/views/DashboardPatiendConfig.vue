@@ -688,7 +688,7 @@ export default {
     left:0;
     width: 100%;
     height: 100%;
-    z-index: 99;
+    z-index: 9;
     background: rgb(36, 36, 36);
     opacity: 0.6;  
 }
@@ -786,8 +786,8 @@ export default {
 }
 
 .btn-all-patiend:hover{
-    background: rgb(20, 130, 199);
-    border: 1px solid rgb(20, 130, 199);
+    background: rgb(20, 130, 19);
+    border: 1px solid rgb(20, 130, 19);
 }
 
 .btn-all-patiend:active{

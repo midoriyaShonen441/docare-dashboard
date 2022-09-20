@@ -8,11 +8,11 @@ exports.connect = () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         // authSource: 'admin',
-        // auth: { username: 'root', password: 'root' },
+        // auth: { username: 'docareUser', password: 'docareUser' },
         // driverInfo: { name: 'Mongoose', version: '6.2.1' }
     })
     .then(() => {
-        console.log("connected to Iot database")
+        console.log("connected tomdatabase")
     })
     .catch((error) => {
         console.log("error Iot Database connecting")

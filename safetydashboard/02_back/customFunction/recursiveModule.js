@@ -15,6 +15,7 @@ module.exports =  class SendingEmergencyModule {
         for(let i = 0; i < lengthEmer; i++){
             this.emerInfo = this.emergencyArray[i];
             this.caseId = this.emergencyArray[i].case_info.locateable_id;
+            // console.log("this.emerInfo.case_info, ==> ", this.case_structure)
             this.recursiveFunction();
             // console.log("emerInfo ==> ", this.emerInfo.user_profile)
             const payload = {
@@ -55,19 +56,18 @@ module.exports =  class SendingEmergencyModule {
         const counting_zone = floorPlanData.length;
 
         let case_zone = 0;
-
+        
         floorPlanData.forEach((element) => {
             // console.log("element");
             case_zone ++;
             const counting_build = element.Buildings.length;
-
             if(element.zone_id === caseId){
-
+          
                 const payload = {
                     case_zone: case_zone,
                     counting_zone: counting_zone,
                     zone_name: element.name,
-                    zone_id: element.id,
+                    zone_id: element.zone_id,
                     zone_ordinal: element.zone_ordinal,
 
                     case_building: null,
@@ -103,7 +103,7 @@ module.exports =  class SendingEmergencyModule {
                         case_zone: case_zone,
                         counting_zone: counting_zone,
                         zone_name: element.name,
-                        zone_id: element.id,
+                        zone_id: element.zone_id,
                         zone_ordinal: element.zone_ordinal,
     
                         case_building: case_building,
@@ -139,7 +139,7 @@ module.exports =  class SendingEmergencyModule {
                             case_zone: case_zone,
                             counting_zone: counting_zone,
                             zone_name: element.name,
-                            zone_id: element.id,
+                            zone_id: element.zone_id,
                             zone_ordinal: element.zone_ordinal,
         
                             case_building: case_building,
@@ -175,7 +175,7 @@ module.exports =  class SendingEmergencyModule {
                                 case_zone: case_zone,
                                 counting_zone: counting_zone,
                                 zone_name: element.name,
-                                zone_id: element.id,
+                                zone_id: element.zone_id,
                                 zone_ordinal: element.zone_ordinal,
             
                                 case_building: case_building,

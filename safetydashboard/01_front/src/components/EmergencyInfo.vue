@@ -9,9 +9,7 @@
             X
           </div>
         </div>
-        <div class="emer-stuc">
-          <img src="../assets/tower-block.png" width="60" height="50"/>
-        </div>
+        
         <div class="user-detail">
           <div class="user-icon">
             <i class='fas fa-user-alt' style='font-size:40px'></i>
@@ -22,9 +20,8 @@
             <div class="user-address" v-if="!($store.state.userSelectEmergency.address_1)">{{this.$store.state.userSelectEmergency.province}} {{this.$store.state.userSelectEmergency.district}} {{this.$store.state.userSelectEmergency.subdistrict}}  {{this.$store.state.userSelectEmergency.zip}} {{this.$store.state.userSelectEmergency.address_2}}</div>
           </div>
         </div>
-
+        
         <div class="customer-info">
-
           <div class="title-person">
             <div class="set-grid title-set-tel-device">
               <div class="set-name">เบอร์โทรศัพท์ (อุปกรณ์)</div>
@@ -79,8 +76,9 @@
                 <div class="set-name" v-if="$store.state.userSelectEmergency.conditions !== '' || 
                 $store.state.userSelectEmergency.conditions !== undefined || 
                 $store.state.userSelectEmergency.conditions !== null">
-                <span v-for="(data, index) in $store.state.userSelectEmergency.conditions" :key="index">{{data}}, </span></div>
-
+                <span v-for="(data, index) in $store.state.userSelectEmergency.conditions" :key="index">{{data}}, </span>
+              
+              </div>
                 <div class="set-name" v-if="$store.state.userSelectEmergency.conditions === '' || 
                 $store.state.userSelectEmergency.conditions === undefined || 
                 $store.state.userSelectEmergency.conditions === null">
@@ -105,6 +103,21 @@
           <div class="set-staff-contact">
             <div class="set-name-title">UAT TESTER</div>
             <div class="staff-contact">{{$store.state.userSelectEmergency.UATAction}}</div>
+          </div>
+        </div>
+        <div class="emer-stuc">
+          <div>
+            เหตุฉุกเฉินในอาคาร: 
+          </div>
+          <div class="set-detail-floor" @click="haddleSturctureShow">
+            <div>
+              <!-- {{$store.state.userSelectEmergency.case_location}} -->
+              <div v-if="$store.state.userSelectEmergency.case_info.case_info !== null">Case Id: {{$store.state.userSelectEmergency.case_info.locateable_id}}</div>
+              <div v-if="$store.state.userSelectEmergency.case_info.locateable_type !== null">Type: {{$store.state.userSelectEmergency.case_info.locateable_type}}</div>
+            </div>
+            <div>
+              <img src="../assets/tower-block.png" width="60" height="50"/>
+            </div>
           </div>
         </div>
         <div class="under-line">
@@ -187,10 +200,13 @@ export default {
           this.cssBtnConfirm = this.cssTextArea
           this.cssBtnEvt = this.cssTextArea
         }
+      },
+      haddleSturctureShow(){
+        this.$store.state.sturctureShow = true
       }
     },
     mounted(){
-      
+      // console.log(this.$store.state.userSelectEmergency.case_location)
     },
     updated(){
       this.checkComment();      
@@ -206,7 +222,7 @@ export default {
     width: 500px;
     background: white;
     left: 0;
-    z-index: 999;
+    z-index: 99;
     transition: 0.4s;
     height: 100vh;
     overflow-y: scroll;
@@ -457,13 +473,39 @@ label{
   margin-top: 10px;
 }
 
-/* 
-.title-set-tel-device, .itle-set-tel-person, .title-congenital-disease{
-  width: 170px;
-  min-width: 150px;
+.emer-stuc{
+  color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 80%;
+  margin-left: 40px;
+  margin-top: 30px;
 }
 
-.personal-detail, .detail-set-tel-person, .detail-congenital-disease{
-  font-size: 14px;
-} */
+.set-detail-floor{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  -webkit-animation: close-alert-emergency 1s infinite;  /* Safari 4+ */
+    -moz-animation: close-alert-emergency 1s infinite;  /* Fx 5+ */
+    -o-animation: close-alert-emergency 1s infinite;  /* Opera 12+ */
+    animation: close-alert-emergency 1s infinite; 
+  
+}
+
+@-webkit-keyframes close-alert-emergency {
+  0%, 49% {
+    color: white;
+    opacity: 1;
+    background: rgb(229, 87, 87);
+  }
+  50%, 100% {
+    color: black;
+    opacity: 1;
+    background: rgb(255, 255, 255);
+  }
+}
 </style>
