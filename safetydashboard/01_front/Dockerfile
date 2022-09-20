@@ -9,6 +9,6 @@ COPY package.json .
 RUN npm install && npm cache clean --force
 COPY . .
 
-EXPOSE 5555
+EXPOSE 7777
 
 CMD ["npm", "run", "dev"]

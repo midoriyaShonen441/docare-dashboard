@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 // const MONGO_URI = process.env.MONGO_URI;
 const MONGO_URI = process.env.MONGO_URI_LOCALHOST
@@ -12,11 +13,11 @@ exports.connect = () => {
         // driverInfo: { name: 'Mongoose', version: '6.2.1' }
     })
     .then(() => {
-        console.log("connected tomdatabase")
+      console.log("connected to database");
     })
     .catch((error) => {
-        console.log("error Iot Database connecting")
-        console.error(error)
-        process.exit(1)
+      console.log("error Database connecting");
+      console.error(error);
+      process.exit(1);
     });
-}
+};
