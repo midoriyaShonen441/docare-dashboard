@@ -22,7 +22,7 @@ db.connect();
 ////////////////// Test Debug //////////////////////////////
 ////////////////////////////////////////////////////////////
 
-app.get("/", (req, res) => {
+app.get("/backend/", (req, res) => {
     res.send("OK");
 })
 
@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
 ////////////////// safey start ///////////////////////////
 
 /// sync user data in collection user info //
-app.post("/syncUser", async(req, res) => {
+app.post("/backend/syncUser", async(req, res) => {
 
     const payload = req.body;
     const userInfo = require("./model/user_info");
@@ -58,7 +58,7 @@ app.post("/syncUser", async(req, res) => {
 });
 
 /// sync user data in collection user info //
-app.post("/updateBatch", async(req, res) => {
+app.post("/backend/updateBatch", async(req, res) => {
     const users = req.body.users;
     const userInfo = require("./model/user_info");
 
@@ -75,7 +75,7 @@ app.post("/updateBatch", async(req, res) => {
     };
 });
 
-app.delete("/deleteUser", async(req, res) => {
+app.delete("/backend/deleteUser", async(req, res) => {
     const userIds = req.body.user_ids;
     const userInfo = require("./model/user_info");
     console.log(userIds);
@@ -95,7 +95,7 @@ app.delete("/deleteUser", async(req, res) => {
 
 // sync emergency if user login dashbboard //
 
-app.get("/syncEmergencyLog", async (req, res) => {
+app.get("/backend/syncEmergencyLog", async (req, res) => {
 
     // import database // 
     const emergency_info = require("./model/emergency_info");
@@ -126,7 +126,7 @@ app.get("/syncEmergencyLog", async (req, res) => {
 });
 
 // sync emergency if user btn sos //
-app.post("/syncEmergencysos", async (req, res) => {
+app.post("/backend/syncEmergencysos", async (req, res) => {
 
     // import database // 
     const emergency_info = require("./model/emergency_info");
@@ -164,7 +164,7 @@ app.post("/syncEmergencysos", async (req, res) => {
 });
 
 // get alert emergency info // 
-app.get("/alertemergency", async (req, res) => {
+app.get("/backend/alertemergency", async (req, res) => {
     const emergency_info = require("./model/emergency_info");
     const userInfo = require("./model/user_info");
 
@@ -183,7 +183,7 @@ app.get("/alertemergency", async (req, res) => {
 });
 
 //  if staff confirm emergency   //
-app.put("/confirmemergency", async (req, res) => {
+app.put("/backend/confirmemergency", async (req, res) => {
     const { isConfirm, _id } = req.body; 
     const emergency_info = require("./model/emergency_info");
 
@@ -206,7 +206,7 @@ app.put("/confirmemergency", async (req, res) => {
 ////////////////// wellnesss start ///////////////////////////
 
 // sync user wellness // 
-app.post("/wellness/syncuser", async(req, res) => {
+app.post("/backend/wellness/syncuser", async(req, res) => {
     const payload = req.body;
     const userInfo = require("./model/wel_user_info");
 
@@ -230,14 +230,14 @@ app.post("/wellness/syncuser", async(req, res) => {
 
 
 
-// app.get("/wellness/getuser", async(req, res) => {
+// app.get("/backend/wellness/getuser", async(req, res) => {
 //     const userInfo = require("./model/wel_user_info");
 
 //     try{a}
 // })
 
 // vitalSign api
-app.post("/wellness/vitalsign", async(req, res) => {
+app.post("/backend/wellness/vitalsign", async(req, res) => {
     const payload = req.body;
     const vital_info = require("./model/vital_info");
  
