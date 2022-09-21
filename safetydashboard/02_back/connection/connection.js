@@ -1,13 +1,18 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-// const MONGO_URI = process.env.MONGO_URI;
-const MONGO_URI = process.env.MONGO_URI_LOCALHOST
+const MONGO_URI = process.env.MONGO_URI;
+// const MONGO_URI = process.env.MONGO_URI_LOCALHOST
 
 exports.connect = () => {
     mongoose.connect(MONGO_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        auth: {
+          authSource: "admin",
+        },
+        user: "docareUser",
+        pass: "docareUser"
         // authSource: 'admin',
         // auth: { username: 'docareUser', password: 'docareUser' },
         // driverInfo: { name: 'Mongoose', version: '6.2.1' }
