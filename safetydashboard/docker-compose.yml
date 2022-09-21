@@ -41,6 +41,7 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: docareRoot
       ME_CONFIG_MONGODB_ADMINPASSWORD: docareRoot
       ME_CONFIG_MONGODB_URL: mongodb://docareRoot:docareRoot@db:27017/
+      ME_CONFIG_SITE_BASEURL: /mongoexpress/
     ports:
       - 8081:8081
     depends_on:
@@ -78,23 +79,22 @@ services:
     environment:
       - TZ=Asia/Bangkok
   
-  # nginx:
-  #   container_name: nginx
-  #   build:
-  #     context: ./nginx
-  #   ports:
-  #     - 90:90
-  #     - 443:443
-  #   hostname: nginx
-  #   volumes:
-  #     # - ./certbot/www:/var/www/certbot
-  #     # - ./certbot/conf:/etc/nginx/ssl
-  #     # - ./certbot/dhparam:/etc/nginx/dhparam
-  #     - /etc/localtime:/etc/localtime:ro
-  #     - /etc/timezone:/etc/timezone:ro
-  #   networks:
-  #     - net
-  #   depends_on:
-  #     - db
-  #     - mongo-express
-  #     - backend
+  nginx:
+    container_name: nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 90:90
+      - 443:443
+    hostname: nginx
+    volumes:
+      # - ./certbot/www:/var/www/certbot
+      # - ./certbot/conf:/etc/nginx/ssl
+      # - ./certbot/dhparam:/etc/nginx/dhparam
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    depends_on:
+      - db
+      - frontend
+      - backend
