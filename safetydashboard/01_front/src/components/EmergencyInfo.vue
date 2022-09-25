@@ -9,7 +9,6 @@
             X
           </div>
         </div>
-        
         <div class="user-detail">
           <div class="user-icon">
             <i class='fas fa-user-alt' style='font-size:40px'></i>
@@ -20,7 +19,6 @@
             <div class="user-address" v-if="!($store.state.userSelectEmergency.address_1)">{{this.$store.state.userSelectEmergency.province}} {{this.$store.state.userSelectEmergency.district}} {{this.$store.state.userSelectEmergency.subdistrict}}  {{this.$store.state.userSelectEmergency.zip}} {{this.$store.state.userSelectEmergency.address_2}}</div>
           </div>
         </div>
-        
         <div class="customer-info">
           <div class="title-person">
             <div class="set-grid title-set-tel-device">
@@ -30,14 +28,12 @@
                 $store.state.userSelectEmergency.device.mobile !== undefined || 
                 $store.state.userSelectEmergency.device.mobile !== null"
                 >{{$store.state.userSelectEmergency.device.mobile}}</div>
-
                 <div class="set-name" v-if="$store.state.userSelectEmergency.device.mobile === '' || 
                 $store.state.userSelectEmergency.device.mobile === undefined || 
                 $store.state.userSelectEmergency.device.mobile === null"
                 >n/a</div>
               </div>
             </div>
-
             <div class="set-grid title-set-tel-person">
               <div class="set-name">เบอร์โทรศัพท์ (บุคคล)</div>
               <div class="detail-set-tel-person" >
@@ -46,7 +42,6 @@
                 $store.state.userSelectEmergency.mobile !== null">
                 {{$store.state.userSelectEmergency.mobile}}
                 </div>
-
                 <div class="set-name" v-if="$store.state.userSelectEmergency.mobile === '' || 
                 $store.state.userSelectEmergency.mobile === undefined || 
                 $store.state.userSelectEmergency.mobile === null">
@@ -54,7 +49,6 @@
               </div>
             </div>
             </div>
-
             <div class="set-grid title-congenital-blood">
               <div class="set-name">กรุ๊ปเลือด</div>
               <div class="detail-congenital-blood" >
@@ -62,14 +56,12 @@
                 $store.state.userSelectEmergency.blood_type !== undefined || 
                 $store.state.userSelectEmergency.blood_type !== null">
                 {{$store.state.userSelectEmergency.blood_type}}</div>
-
                 <div class="set-name" v-if="$store.state.userSelectEmergency.blood_type === '' || 
                 $store.state.userSelectEmergency.blood_type === undefined || 
                 $store.state.userSelectEmergency.blood_type === null">
                 n/a</div>
                 </div>
             </div>
-            
             <div class="set-grid title-congenital-disease">
               <div class="set-name">โรคประจำตัว</div>
               <div class="detail-congenital-disease" >
@@ -77,7 +69,6 @@
                 $store.state.userSelectEmergency.conditions !== undefined || 
                 $store.state.userSelectEmergency.conditions !== null">
                 <span v-for="(data, index) in $store.state.userSelectEmergency.conditions" :key="index">{{data}}, </span>
-              
               </div>
                 <div class="set-name" v-if="$store.state.userSelectEmergency.conditions === '' || 
                 $store.state.userSelectEmergency.conditions === undefined || 
@@ -85,11 +76,8 @@
                 n/a</div>
                 </div>
             </div>
-
           </div>
-
         </div>
-
         <div class="set-customer-contact">
           <div class="title-contact">ผู้ติดต่อ</div>
           <div class="customer-contact" v-for="(data, index) in $store.state.userSelectEmergency.family" :key="index">
@@ -97,7 +85,6 @@
             <div class="another-contact">{{data.mobile }}</div>
           </div>
         </div>
-
         <div class="staff-in-action">
           <div class="staff-title">เจ้าหน้าที่ศูนย์ควบคุมประจำท้องที่ (กำลังปฏิบัติงาน)</div>
           <div class="set-staff-contact">
@@ -123,7 +110,6 @@
         <div class="under-line">
           <hr/>
         </div>
-        
         <div class="time-emergency">
           <div class="title-emergency">เหตุการณ์ กดปุ่มขอความช่วยเหลือ (Anywhere)</div>
           <div class="set-time-emergency">
@@ -131,7 +117,6 @@
             <div class="at-emer">{{$store.state.userSelectEmergency.emergencyDate}} &nbsp; {{$store.state.userSelectEmergency.emergencyTime}}</div>
           </div>
         </div>
-
         <div class="confirm-emer">
           <div class="confirm-title">
             ยืนยันเหตุการณ์

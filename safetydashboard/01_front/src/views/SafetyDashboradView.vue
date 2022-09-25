@@ -33,7 +33,6 @@ export default defineComponent({
         },
 
         btnGoogleMap(data){
-            console.log(data)
             window.open(`https://maps.google.com/?q=${data.lat},${data.lng}`);
         },
 
@@ -114,7 +113,9 @@ export default defineComponent({
     opacity: 0.5;
 }
 
-
+.set-map{
+    border: 1px solid rgb(218, 218, 218);
+}
 .info-title{
     color: black;
     font-weight: bold;

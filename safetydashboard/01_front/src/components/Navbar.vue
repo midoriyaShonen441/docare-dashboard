@@ -4,6 +4,7 @@ export default {
   data() {
     return {
       // css //
+      
     };
   },
   methods: {
@@ -64,16 +65,16 @@ export default {
           class="menu-content-conatiner"
           @click="haddleRouter('sensorDetect')"
         >
-          <div class="set-icon">
+          <!-- <div class="set-icon">
             <i class="far fa-file-alt" style="font-size: 24px"></i>
           </div>
-          <div class="set-menu-content">แจ้งเตือนอุปกรณ์</div>
+          <div class="set-menu-content">แจ้งเตือนอุปกรณ์</div> -->
         </div>
         <div class="menu-content-conatiner" @click="haddleRouter('equipment')">
           <div class="set-icon">
-            <i class="fas fa-boxes" style="font-size: 24px"></i>
+            <i class='fas fa-id-badge' style='font-size:24px'></i>
           </div>
-          <div class="set-menu-content">อุปกรณ์</div>
+          <div class="set-menu-content">เจ้าหน้าที่</div>
         </div>
         <div class="menu-content-conatiner" @click="haddleRouter('user')">
           <div class="set-icon">

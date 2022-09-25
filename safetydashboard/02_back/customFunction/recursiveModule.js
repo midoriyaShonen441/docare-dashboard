@@ -43,8 +43,7 @@ module.exports =  class SendingEmergencyModule {
                 case_info:this.emerInfo.case_info,
                 case_location:this.case_structure
             }
-
-            console.log(payload);
+            // console.log(payload);
             this.result.push(payload);
         }
     }
@@ -108,8 +107,8 @@ module.exports =  class SendingEmergencyModule {
     
                         case_building: case_building,
                         counting_building: counting_build,
-                        building_name: element1.building_id,
-                        building_id: element1.building_name,
+                        building_name: element1.building_name,
+                        building_id: element1.building_id,
                         building_ordinal: element1.building_ordinal,
     
                         case_floors: null,
@@ -144,14 +143,14 @@ module.exports =  class SendingEmergencyModule {
         
                             case_building: case_building,
                             counting_building: counting_build,
-                            building_name: element1.building_id,
-                            building_id: element1.building_name,
+                            building_name: element1.building_name,
+                            building_id: element1.building_id,
                             building_ordinal: element1.building_ordinal,
         
                             case_floors: case_floors,
                             counting_floors: counting_floors,
-                            floor_name: element2.floor_id,
-                            floor_id: element2.floor_name,
+                            floor_name:element2.floor_name,
+                            floor_id: element2.floor_id, 
                             floor_ordinal: element2.floor_ordinal,
                             
                             case_room: null,
@@ -180,20 +179,20 @@ module.exports =  class SendingEmergencyModule {
             
                                 case_building: case_building,
                                 counting_building: counting_build,
-                                building_name: element1.building_id,
-                                building_id: element1.building_name,
+                                building_name: element1.building_name,
+                                building_id: element1.building_id,
                                 building_ordinal: element1.building_ordinal,
             
                                 case_floors: case_floors,
                                 counting_floors: counting_floors,
-                                floor_name: element2.floor_id,
-                                floor_id: element2.floor_name,
+                                floor_name: element2.floor_name,
+                                floor_id: element2.floor_id,
                                 floor_ordinal: element2.floor_ordinal,
                                 
                                 case_room: case_room,
                                 counting_room: counting_room,
-                                room_name: element3.room_id,
-                                room_id:element3.room_name,
+                                room_name: element3.room_name,
+                                room_id:element3.room_id, 
                                 room_ordinal:element3.room_ordinal
                             }
                             // console.log("payload ==>", payload)

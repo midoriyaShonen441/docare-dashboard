@@ -62,8 +62,8 @@
                     </div>
                 </div>
                 <div class="env-set">
-                     <img class="tree-1" src="../assets/nature.png"/>
-                     <img class="tree-2" src="../assets/nature_1.png" />
+                    <img class="tree-1" src="../assets/nature.png"/>
+                    <img class="tree-2" src="../assets/nature_1.png" />
                 </div>
             </div>
             
@@ -144,7 +144,6 @@ export default {
     },
     mounted(){
         console.log(this.$store.state.userSelectEmergency.case_location);
-        // console.log(this.$store.state.userSelectEmergency.case_info)
     }
 }
 </script>
@@ -155,7 +154,7 @@ export default {
     position: fixed;
     width: 1000px;
     height: 90vh;
-    margin-left: 20%;
+    margin-left: 27%;
     margin-top: 3%;
     background: white;
     border-radius: 10px;
@@ -177,7 +176,7 @@ export default {
 
 .block{
     margin: auto;
-    border: 15px solid rgb(79, 79, 79);
+    border: 10px solid rgb(79, 79, 79);
     width: 50%;
     height: 100px;
 }

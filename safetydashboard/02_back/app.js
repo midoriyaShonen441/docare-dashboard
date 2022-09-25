@@ -48,9 +48,7 @@ app.post("/syncUser", async(req, res) => {
             console.log("Profile already create");
         } else {
             await userInfo.create(payload);
-
             res.sendStatus(200);
-            console.log("Sync Profile OK");
         };
     } catch (err) {
         res.send(err);
@@ -78,7 +76,7 @@ app.post("/updateBatch", async(req, res) => {
 app.delete("/deleteUser", async(req, res) => {
     const userIds = req.body.user_ids;
     const userInfo = require("./model/user_info");
-    console.log(userIds);
+    // console.log(userIds);
 
     try {
         userIds.forEach(async (value) => {
@@ -92,6 +90,12 @@ app.delete("/deleteUser", async(req, res) => {
     };
 });
 //////// management emergency info //////// 
+
+// sync device // 
+app.post("/syncDevice", async (req, res) => {
+    const deviceData = req.body;
+
+});
 
 // sync emergency if user login dashbboard //
 
@@ -130,14 +134,23 @@ app.post("/syncEmergencysos", async (req, res) => {
 
     // import database // 
     const emergency_info = require("./model/emergency_info");
+    const device_info = require("./model/device_info");
     // import function //
     const SendingEmergencyModule = require("./customFunction/recursiveModule");
     let emergencyData = req.body;
 
     if(emergencyData){
         emergencyData["case_confirm"] = false;
+        // console.log("emergencyData ==> ",emergencyData.user_ids)
+        const devicePayload = {
+            user_ids: emergencyData.user_ids,
+            device: emergencyData.device,
+            case_confirm: false
+        }
+        // console.log("devicePayload ==> ", devicePayload)
         try{
             await emergency_info.create(emergencyData);
+            await device_info.create(devicePayload)
         }catch(err){
             console.log(`error in api syncemergency emergency_info : ${err}`);
             res.sendStatus(500);    
@@ -206,7 +219,7 @@ app.put("/confirmemergency", async (req, res) => {
 ////////////////// wellnesss start ///////////////////////////
 
 // sync user wellness // 
-app.post("/wellness/syncuser", async(req, res) => {
+app.post("/syncuser", async(req, res) => {
     const payload = req.body;
     const userInfo = require("./model/wel_user_info");
 
@@ -228,16 +241,52 @@ app.post("/wellness/syncuser", async(req, res) => {
     };
 });
 
+app.get("/getuser", async(req, res) => {
+    const userInfo = require("./model/user_info");
+    const dateTimeConvert = require("./customFunction/datetimeConvert");
+    
+    try {
+        const userAvialable = await userInfo.aggregate([
+            {$lookup: {
+                from: "device_infos",
+                localField: "user.citizen_id",
+                foreignField: "user_ids",
+                as: "device_data"
+            }},
+            {$unwind:"$device_data"},
+            {$lookup: {
+                from:"emergency_infos",
+                localField: "user.citizen_id",
+                foreignField: "user_ids",
+                as: "emergency_data"
+            }},
+            {$unwind:"$emergency_data"},
+            {$project:{
+                "user":1,
+                device_data: '$device_data.device',
+                emergency_data: '$emergency_data.case_info',
+                case_confirm: '$emergency_data.case_confirm',
+                timestamp: "$emergency_data.case_info.timestamp"
+            }},
+        ]);
 
-
-// app.get("/wellness/getuser", async(req, res) => {
-//     const userInfo = require("./model/wel_user_info");
-
-//     try{a}
-// })
+        const genStringDate = new dateTimeConvert(userAvialable);
+        const setStringDate = genStringDate.convertTimesStamp();
+        // console.log("getStringDate ===>", setStringDate)
+        // const uniqueArray =  userAvialable.filter((v, i, a) => a.indexOf(v) === i);
+        res.send(setStringDate);
+    } catch (err) {
+        const payload = {
+            status: 500,
+            text:err
+        }
+        console.log(`error in API wellness/getuser ${err}`)
+        res.send(payload);
+    };
+})
 
 // vitalSign api
-app.post("/wellness/vitalsign", async(req, res) => {
+app.post("/vitalsign", async(req, res) => {
     const payload = req.body;
     const vital_info = require("./model/vital_info");
  

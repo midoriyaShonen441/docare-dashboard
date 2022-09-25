@@ -12,7 +12,10 @@ export default createStore({
         myDefaultPosition: { lat: 13.746791, lng:100.535458 },
         muDefaultZoom: 12,
         sturctureShow:false,
-
+        deletePopupActive: false,
+        deleteUserName:"",
+        deleteUserId:"",
+        deleteDeviceId:"",
         // vvvv userSelectEmergency collect data in array like this vvvv // 
         // {
         //     text:"กดปุ่มขอความช่วยเหลือ (Anywhere)",
