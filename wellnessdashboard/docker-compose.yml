@@ -1,33 +1,47 @@
 version: '3.7'
 
-# networks:
-#   net:
-#     external: true
-#     driver: bridge
+networks:
+  net:
+    external: true
+    driver: bridge
 
 services:
+
   db:
     container_name: db
     image: mongo:latest
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
+      MONGO_INITDB_ROOT_USERNAME: docareRoot
+      MONGO_INITDB_ROOT_PASSWORD: docareRoot
+      MONGO_INITDB_DATABASE: safetydb
     volumes:
-      - ./data/db:/data/db
+      # - ./data/db:/data/db
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  mongo-seed:
+    image: mongo_seed
+    build: 
+      context: ./mongo_seed
+      dockerfile: Dockerfile
+    links:
+      - db
+    depends_on:
+      - db
       
   mongo-express:
     container_name: mongo-express
     image: mongo-express
     restart: always
     environment:
-      ME_CONFIG_BASICAUTH_USERNAME: root
-      ME_CONFIG_BASICAUTH_PASSWORD: root
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: root
-      ME_CONFIG_MONGODB_URL: mongodb://root:root@db:27017/
+      ME_CONFIG_BASICAUTH_USERNAME: docareAdmin
+      ME_CONFIG_BASICAUTH_PASSWORD: docareAdmin
+      ME_CONFIG_MONGODB_ADMINUSERNAME: docareRoot
+      ME_CONFIG_MONGODB_ADMINPASSWORD: docareRoot
+      ME_CONFIG_MONGODB_URL: mongodb://docareRoot:docareRoot@db:27017/
+      ME_CONFIG_SITE_BASEURL: /mongoexpress/
     ports:
       - 8081:8081
     depends_on:
@@ -39,8 +53,10 @@ services:
   backend:
     container_name: backend
     restart: always
+    image: wellness_backend
     build:
-      context: ./backend
+      context: ./02_back
+      dockerfile: Dockerfile
     ports:
       - 8888:8888
     environment:
@@ -48,36 +64,43 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
+    depends_on:
+      - db
 
-  wellness:
-    container_name: wellness
+  frontend:
+    container_name: frontend
     restart: always
+    image: wellness_frontend
     build:
       context: ./01_front
       dockerfile: Dockerfile
-    image: wellness-dashboard
     ports:
-      - 5555:5555
+      - 7777:7777
     environment:
       - TZ=Asia/Bangkok
   
-  # nginx:
-  #   container_name: nginx
-  #   build:
-  #     context: ./nginx
-  #   ports:
-  #     - 90:90
-  #     - 443:443
-  #   hostname: nginx
-  #   volumes:
-  #     # - ./certbot/www:/var/www/certbot
-  #     # - ./certbot/conf:/etc/nginx/ssl
-  #     # - ./certbot/dhparam:/etc/nginx/dhparam
-  #     - /etc/localtime:/etc/localtime:ro
-  #     - /etc/timezone:/etc/timezone:ro
-  #   networks:
-  #     - net
-  #   depends_on:
-  #     - db
-  #     - mongo-express
-  #     - backend
+  nginx:
+    container_name: nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    hostname: nginx
+    volumes:
+      - ./certbot/www:/var/www/certbot:ro
+      - ./certbot/conf:/etc/nginx/ssl:ro
+      - ./certbot/dhparam:/etc/nginx/dhparam:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    depends_on:
+      - db
+      - frontend
+      - backend
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www:/var/www/certbot:rw
+      - ./certbot/conf:/etc/letsencrypt:rw

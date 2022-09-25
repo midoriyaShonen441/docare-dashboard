@@ -14,6 +14,6 @@ RUN npm install && npm cache clean --force
 RUN npm i bcrypt@5.0.0
 COPY . .
 
-EXPOSE 8888
+EXPOSE 7777
 
 CMD ["npm", "run", "dev"]
