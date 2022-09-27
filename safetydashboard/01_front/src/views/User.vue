@@ -258,7 +258,13 @@ export default {
     },
 
     async fetchAPIUser(){
-      const userProfile = await axios.get(`${sensAPI}/getuser`);
+      const headerData = this.$cookies.get("sefaty-token")
+      const headerConf = {
+                headers:{
+                    "access-token": headerData.token
+                }
+            }
+      const userProfile = await axios.get(`${sensAPI}/getuser`,headerConf);
       this.backupUser = userProfile.data;
       this.arrayUser = userProfile.data;
       this.rangeOfPage = userProfile.data.length;

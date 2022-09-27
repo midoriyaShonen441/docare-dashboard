@@ -444,10 +444,11 @@ app.put("/backend/confirmemergency", async (req, res) => {
 
 //////// end management emergency info //////// 
 
-app.get("/backend/getuser", async(req, res) => {
+app.get("/backend/getuser", auth,async(req, res) => {
     const userInfo = require("./model/user_info");
     const dateTimeConvert = require("./customFunction/datetimeConvert");
-    
+    const {domain_id} = req.authData.decode
+    console.log("domain_id ", domain_id)
     try {
         const userAvialable = await userInfo.aggregate([
             {$lookup: {
@@ -469,10 +470,12 @@ app.get("/backend/getuser", async(req, res) => {
                 device_data: '$device_data.device',
                 emergency_data: '$emergency_data.case_info',
                 case_confirm: '$emergency_data.case_confirm',
-                timestamp: "$emergency_data.case_info.timestamp"
+                timestamp: "$emergency_data.case_info.timestamp",
+                tenan:"$user.domain_id",
             }},
+            {$match: {tenan: domain_id}}
         ]);
-
+        // console.log("userAvialable ==> ", userAvialable)
         const genStringDate = new dateTimeConvert(userAvialable);
         const setStringDate = genStringDate.convertTimesStamp();
         res.send(setStringDate);
@@ -481,7 +484,7 @@ app.get("/backend/getuser", async(req, res) => {
             status: 500,
             text:err
         }
-        console.log(`error in API wellness/getuser ${err}`)
+        console.log(`error in API /backend/getuser ${err}`)
         res.send(payload);
     };
 })
@@ -641,8 +644,6 @@ app.post("/backend/login", async (req, res) => {
             }
             res.send(payload);
         }
-        
-
     }else{
         const payload = {
             status: 401,
