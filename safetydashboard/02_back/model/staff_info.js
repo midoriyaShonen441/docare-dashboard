@@ -3,12 +3,13 @@ const Schema = mongoose.Schema;
 
 //  API model for 1 and 2 // 
 
-const user_info = new Schema(
+const staff_info = new Schema(
     {   user: {
             citizen_id: { type:  String, required: true},
             domain_id:{ type:  String, required: true},
             username: String,
             password: String,
+            password_dashboard: String,
             fullname: String,
             role: String,
             gender:String,
@@ -16,17 +17,10 @@ const user_info = new Schema(
             blood_type: String,
             height: Number,
             weight: Number,
-            allergies: [ String ],
-            conditions: [ String ],
-            drugs: [ String ],
-            vital_signs: {
-                pulse: Number,
-                bp: Number,
-                temp: Number,
-                oxygen: Number,
-                glucose: Number,
-                weight: Number,
-            },
+            allergies: {type: Array},
+            conditions: {type: Array},
+            drugs: {type: Array},
+            vital_signs: {type: Array},
         },
         contact: {
             mobile: String,
@@ -40,13 +34,9 @@ const user_info = new Schema(
             latitude: String,
             longitude: String
         },
-        family : [{
-            fullname: String,
-            mobile: String,
-            relation: String
-        }]
+        family : {type: Array}
     },
     { timestamps: true }
 )
 
-module.exports = mongoose.model("user_info", user_info);
+module.exports = mongoose.model("staff_info", staff_info);

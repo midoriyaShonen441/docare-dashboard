@@ -43,11 +43,9 @@
       </div>
       <div class="set-searching">
         <el-button class="searching" @click="findUser">ค้นหา</el-button>
-        <el-button class="searching" @click="findUser">ดาวน์โหลด csv ไฟล์</el-button>
+        <el-button class="searching" @click="haddleDownload">ดาวน์โหลด csv ไฟล์</el-button>
       </div>
       </div>
-      
-
       <el-row :gutter="12">
         <el-col :span="24">
           <el-table
@@ -58,7 +56,7 @@
           >
             <el-table-column type="expand">
               <template #default="props">
-                <div m="4">
+                <div m="4" v-if="props.row.pages === pageSelect">
                   <el-row :gutter="12">
                     <el-col :span="2" class="text-center">
                       <img
@@ -104,27 +102,12 @@
                   </el-row>
                   <el-divider />
                   <el-row class="set-emer-and-device" :gutter="12">
-                    <!-- <el-col >
-                      <img
-                        style="width: 60px; height: 60px; margin-left: 50px"
-                        src="@/assets/user.png"
-                        fit="cover"
-                      />
-                    </el-col> -->
                     <el-col class="set-name">
-                      <!-- <span>ชื่อ : {{props.row.user.fullname}}</span> -->
                       <div>เครส / เหตุฉุกเฉิน</div>
                       <div>ประเภทที่เกิดเหตุ : {{props.row.emergency_data.locateable_type}}</div>
                       <div>รหัส : {{props.row.emergency_data.locateable_id}}</div>
                       <div>วันเวลาที่เกิดเหตุ : {{props.row.stringDate}}</div>
                       <div class="owner-info">
-                        <!-- <el-icon
-                          @click="dialogOwnerInfoVisible = true"
-                          size="14px"
-                          class="ml-4"
-                        >
-                          <InfoFilled />
-                        </el-icon> -->
                       </div>
                     </el-col>
                     <div>
@@ -167,16 +150,6 @@
                           </span>
                         </div>
                       </div>
-                    <!-- <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
-                      <div class="mb-2 flex justify-between"></div>
-                    </el-col>
-                    <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
-                      <div class="mb-2 flex justify-between">
-                        <span>อุปกรณ์ที่เกี่ยวข้อง</span>
-                        <span>Telehealth Development</span>
-                      </div>
-                      
-                    </el-col> -->
                   </el-row>
                 </div>
               </template>
@@ -212,8 +185,10 @@
           <el-pagination
             background
             layout="prev, pager, next"
-            :total="1000"
+            :total="rangeOfPage"
+            :page-size="30"
             class="float-right"
+            @current-change="handleCurrentChange"
           />
         </el-col>
       </el-row>
@@ -259,7 +234,10 @@ export default {
       search:"ทั้งหมด",
       activeStaus:["ทั้งหมด", "ยืนยันเสร็จสิ้น", "ยังไม่ได้ยืนยัน"],
       startDate:null,
-      endDate:null
+      endDate:null,
+      setMaxPage:null,
+      rangeOfPage:null,
+      pageSelect: 1
     
     };
   },
@@ -267,7 +245,6 @@ export default {
     openDeletepopup(userId) {
       let arrayDeleteDeviceId = []; 
       this.$store.state.deletePopupActive = true;
-      
       for(let i = 0; i < userId.device_data.length; i++){
         arrayDeleteDeviceId.push(userId.device_data[0]._id);
       }
@@ -282,144 +259,315 @@ export default {
 
     async fetchAPIUser(){
       const userProfile = await axios.get(`${sensAPI}/getuser`);
-      this.arrayUser = userProfile.data;
-      console.log("this.arrayUser ===> ",this.arrayUser)
       this.backupUser = userProfile.data;
+      this.arrayUser = userProfile.data;
+      this.rangeOfPage = userProfile.data.length;
+      let genPages = 1;
+      let countMax = 1;
       for(let i = 0; i < userProfile.data.length; i++){
-        this.searchUsersList.push(userProfile.data[i].user.fullname)
+        this.arrayUser[i]["pages"] = genPages;
+        this.searchUsersList.push(userProfile.data[i].user.fullname);
+        countMax ++;
+        if(countMax ===  30){
+          genPages ++;
+          countMax = 0
+        }
       }
+      console.log(this.arrayUser)
     },
 
     findUser(){
       this.selectionUser.trim()
       this.arrayUser = this.backupUser;
-
+      console.log("find user!")
       if(this.startDate !== null && this.endDate !== null){
         const isStart = new Date(this.startDate);
         const isEnd = new Date(this.endDate);
         const startTimeStamp = isStart.getTime();
         const endTimeStamp = isEnd.getTime();
-        // console.log("startTimeStamp", startTimeStamp);
-        // console.log("endTimeStamp", endTimeStamp);
         if(this.selectionUser !== "" && this.activeStatusFilter === null){
-        let setArray = []
+        let setArray = [];
+        let genPages = 1;
+        let countMax = 1;
         for(let i = 0; i < this.arrayUser.length; i++){
           if(this.arrayUser[i].user.fullname === this.selectionUser && this.arrayUser[i].timestamp * 1000 >= startTimeStamp && this.arrayUser[i].timestamp * 1000 <= endTimeStamp){
-            setArray.push(this.arrayUser[i])
+            this.arrayUser[i]["pages"] = genPages;
+            setArray.push(this.arrayUser[i]);
+            countMax ++;
+            if(countMax === 30){
+              genPages ++;
+              countMax = 0
+            }
           }
-        } 
+        }
+        console.log("1: ",this.arrayUser)
         this.arrayUser = setArray;
-        }else if(this.selectionUser !== ""  && this.activeStatusFilter === "ทั้งหมด" ){
-          let setArray = []
+      }else if(this.selectionUser !== ""  && this.activeStatusFilter === "ทั้งหมด" ){
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
           for(let i = 0; i < this.arrayUser.length; i++){
             if(this.arrayUser[i].user.fullname === this.selectionUser && this.arrayUser[i].timestamp * 1000 >= startTimeStamp && this.arrayUser[i].timestamp * 1000 <= endTimeStamp){
-              setArray.push(this.arrayUser[i])
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
               }
-            } 
+            }
+          }
+          console.log("2: ",this.arrayUser)
           this.arrayUser = setArray;
         }else if(this.selectionUser !== ""  && this.activeStatusFilter === "ยังไม่ได้ยืนยัน"){
-          let setArray = []
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
           for(let i = 0; i < this.arrayUser.length; i++){
             if(this.arrayUser[i].user.fullname === this.selectionUser && this.arrayUser[i].case_confirm === false && this.arrayUser[i].timestamp * 1000 >= startTimeStamp && this.arrayUser[i].timestamp * 1000 <= endTimeStamp){
-              setArray.push(this.arrayUser[i])
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
               }
-            } 
+            }
+          } 
+          console.log("3: ",this.arrayUser)
           this.arrayUser = setArray;
         }else if(this.selectionUser !== ""  && this.activeStatusFilter === "ยืนยันเสร็จสิ้น"){
-          let setArray = []
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
           for(let i = 0; i < this.arrayUser.length; i++){
             if(this.arrayUser[i].user.fullname === this.selectionUser && this.arrayUser[i].case_confirm === true && this.arrayUser[i].timestamp * 1000 >= startTimeStamp && this.arrayUser[i].timestamp * 1000 <= endTimeStamp){
-              setArray.push(this.arrayUser[i])
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
               }
-            } 
+            }
+          }
+          console.log("4: ",this.arrayUser)
           this.arrayUser = setArray;
         }else if(this.selectionUser === ""  && this.activeStatusFilter === null){
-          let setArray = []
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
           for(let i = 0; i < this.arrayUser.length; i++){
             if(this.arrayUser[i].timestamp * 1000 >= startTimeStamp && this.arrayUser[i].timestamp * 1000 <= endTimeStamp){
-              setArray.push(this.arrayUser[i])
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
+              }
             }
           }
+          console.log("5: ",this.arrayUser)
           this.arrayUser = setArray
         }else if( this.selectionUser === "" && this.activeStatusFilter === "ทั้งหมด"){
-          let setArray = []
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
           for(let i = 0; i < this.arrayUser.length; i++){
             if(this.arrayUser[i].timestamp * 1000 >= startTimeStamp && this.arrayUser[i].timestamp * 1000 <= endTimeStamp){
-              setArray.push(this.arrayUser[i])
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
+              }
             }
           }
+          console.log("6: ",this.arrayUser)
           this.arrayUser = setArray
         }else if( this.selectionUser === "" && this.activeStatusFilter === "ยังไม่ได้ยืนยัน"){
-          let setArray = []
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
           for(let i = 0; i < this.arrayUser.length; i++){
             if(this.arrayUser[i].case_confirm === false && this.arrayUser[i].timestamp * 1000 >= startTimeStamp && this.arrayUser[i].timestamp * 1000 <= endTimeStamp){
-              setArray.push(this.arrayUser[i])
-              }
-            } 
-          this.arrayUser = setArray;
-        }else if( this.selectionUser === "" && this.activeStatusFilter === "ยืนยันเสร็จสิ้น"){
-          let setArray = []
-          for(let i = 0; i < this.arrayUser.length; i++){
-            if(this.arrayUser[i].case_confirm === true && this.arrayUser[i].timestamp * 1000 >= startTimeStamp && this.arrayUser[i].timestamp * 1000 <= endTimeStamp){
-              setArray.push(this.arrayUser[i])
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
               }
             }
+          }
+          console.log("7: ",this.arrayUser)
+          this.arrayUser = setArray;
+        }else if( this.selectionUser === "" && this.activeStatusFilter === "ยืนยันเสร็จสิ้น"){
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
+          for(let i = 0; i < this.arrayUser.length; i++){
+            if(this.arrayUser[i].case_confirm === true && this.arrayUser[i].timestamp * 1000 >= startTimeStamp && this.arrayUser[i].timestamp * 1000 <= endTimeStamp){
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
+              }
+            }
+          }
+          console.log("8: ",this.arrayUser)
           this.arrayUser = setArray; 
         }
       }else{
         if(this.selectionUser !== "" && this.activeStatusFilter === null){
-        let setArray = []
-        for(let i = 0; i < this.arrayUser.length; i++){
-          if(this.arrayUser[i].user.fullname === this.selectionUser ){
-            setArray.push(this.arrayUser[i])
-          }
-        } 
-        this.arrayUser = setArray;
-        }else if(this.selectionUser !== ""  && this.activeStatusFilter === "ทั้งหมด"){
-          let setArray = []
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
           for(let i = 0; i < this.arrayUser.length; i++){
-            if(this.arrayUser[i].user.fullname === this.selectionUser){
-              setArray.push(this.arrayUser[i])
-              }
-            } 
-          this.arrayUser = setArray;
-        }else if(this.selectionUser !== ""  && this.activeStatusFilter === "ยังไม่ได้ยืนยัน"){
-          let setArray = []
-          for(let i = 0; i < this.arrayUser.length; i++){
-            if(this.arrayUser[i].user.fullname === this.selectionUser && this.arrayUser[i].case_confirm === false){
-              setArray.push(this.arrayUser[i])
-              }
-            } 
-          this.arrayUser = setArray;
-        }else if(this.selectionUser !== ""  && this.activeStatusFilter === "ยืนยันเสร็จสิ้น"){
-          let setArray = []
-          for(let i = 0; i < this.arrayUser.length; i++){
-            if(this.arrayUser[i].user.fullname === this.selectionUser && this.arrayUser[i].case_confirm === true){
-              setArray.push(this.arrayUser[i])
-              }
-            } 
-          this.arrayUser = setArray;
-        }else if(this.selectionUser === ""  && this.activeStatusFilter === null){
-          this.arrayUser = this.backupUser
-        }else if( this.selectionUser === "" && this.activeStatusFilter === "ทั้งหมด"){
-          this.arrayUser = this.backupUser
-        }else if( this.selectionUser === "" && this.activeStatusFilter === "ยังไม่ได้ยืนยัน"){
-          console.log("ยังไม่ได้ยืนยัน f and null user")
-          console.log(this.arrayUser)
-          let setArray = []
-          for(let i = 0; i < this.arrayUser.length; i++){
-            if(this.arrayUser[i].case_confirm === false){
-              setArray.push(this.arrayUser[i])
-              }
-            } 
-          this.arrayUser = setArray;
-        }else if( this.selectionUser === "" && this.activeStatusFilter === "ยืนยันเสร็จสิ้น"){
-          let setArray = []
-          for(let i = 0; i < this.arrayUser.length; i++){
-            if(this.arrayUser[i].case_confirm === true){
-              setArray.push(this.arrayUser[i])
+            if(this.arrayUser[i].user.fullname === this.selectionUser ){
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
               }
             }
+          }
+          this.arrayUser = setArray;
+          console.log("9: ",this.arrayUser)
+        }else if(this.selectionUser !== ""  && this.activeStatusFilter === "ทั้งหมด"){
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
+          for(let i = 0; i < this.arrayUser.length; i++){
+            if(this.arrayUser[i].user.fullname === this.selectionUser){
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
+              }
+            }
+          }
+          console.log("10: ",this.arrayUser)
+          this.arrayUser = setArray;
+        }else if(this.selectionUser !== ""  && this.activeStatusFilter === "ยังไม่ได้ยืนยัน"){
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
+          for(let i = 0; i < this.arrayUser.length; i++){
+            if(this.arrayUser[i].user.fullname === this.selectionUser && this.arrayUser[i].case_confirm === false){
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
+              }
+            }
+          }
+          console.log("11: ",this.arrayUser)
+          this.arrayUser = setArray;
+        }else if(this.selectionUser !== ""  && this.activeStatusFilter === "ยืนยันเสร็จสิ้น"){
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
+          for(let i = 0; i < this.arrayUser.length; i++){
+            if(this.arrayUser[i].user.fullname === this.selectionUser && this.arrayUser[i].case_confirm === true){
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
+              }
+            }
+          }
+          console.log("12: ",this.arrayUser)
+          this.arrayUser = setArray;
+        }else if(this.selectionUser === ""  && this.activeStatusFilter === null){
+          let setArray = [];
+          const setMaxPage = this.backupUser.length / 30;
+          this.arrayUser = this.backupUser
+          let genPages = 1;
+          let countMax = 1;
+          for(let i = 0; i < this.backupUser.length; i++){
+            this.arrayUser[i]["pages"] = genPages;
+            setArray.push(this.arrayUser[i]);
+            countMax ++;
+            if(countMax === 30){
+              genPages ++;
+              countMax = 0
+            }
+          }
+          if(setMaxPage > 0 && setMaxPage <= 1){
+            this.setMaxPage = 1;
+          }else{
+            this.setMaxPage = parseInt(setMaxPage);
+          }
+          console.log("13: ",this.arrayUser);
+          this.arrayUser = setArray;
+        }else if( this.selectionUser === "" && this.activeStatusFilter === "ทั้งหมด"){
+          let setArray = [];
+          const setMaxPage = this.backupUser.length / 30;
+          this.arrayUser = this.backupUser
+          let genPages = 1;
+          let countMax = 1;
+          for(let i = 0; i < this.backupUser.length; i++){
+            this.arrayUser[i]["pages"] = genPages;
+            setArray.push(this.arrayUser[i]);
+            countMax ++;
+            if(countMax === 30){
+              genPages ++;
+              countMax = 0
+            }
+          }
+          if(setMaxPage > 0 && setMaxPage <= 1){
+            this.setMaxPage = 1;
+          }else{
+            this.setMaxPage = parseInt(setMaxPage);
+          }
+          console.log("14: ",this.arrayUser);
+          this.arrayUser = setArray;
+        }else if( this.selectionUser === "" && this.activeStatusFilter === "ยังไม่ได้ยืนยัน"){
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
+          for(let i = 0; i < this.arrayUser.length; i++){
+            if(this.arrayUser[i].case_confirm === false){
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
+              }
+            }
+          }
+          console.log("15: ",this.arrayUser);
+          this.arrayUser = setArray;
+        }else if( this.selectionUser === "" && this.activeStatusFilter === "ยืนยันเสร็จสิ้น"){
+          let setArray = [];
+          let genPages = 1;
+          let countMax = 1;
+          for(let i = 0; i < this.arrayUser.length; i++){
+            if(this.arrayUser[i].case_confirm === true){
+              this.arrayUser[i]["pages"] = genPages;
+              setArray.push(this.arrayUser[i]);
+              countMax ++;
+              if(countMax === 30){
+                genPages ++;
+                countMax = 0
+              }
+            }
+          }
+          console.log("16: ",this.arrayUser);
           this.arrayUser = setArray; 
         }
       }
@@ -427,19 +575,32 @@ export default {
 
     toLocaltion(lat, lng){
       window.open(`https://maps.google.com/?q=${lat},${lng}`);
+    },
+
+    handleCurrentChange(data){
+        this.pageSelect = data;
+    },
+
+    async haddleDownload(){
+      // const headerConf = {
+      //   headers:
+      //   {
+      //     'access-token': this.$cookies.get("admin_anotherme")
+      //   }
+      // }
+
+      const getData = await axios.post(`${sensAPI}/download`,this.arrayUser);
+      const anchor = document.createElement('a');
+      anchor.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(getData.data);
+      anchor.target = '_blank';
+      anchor.download = 'safety_report.csv';
+      anchor.click();
     }
 
   },
   created(){
     this.fetchAPIUser();
   },
-
-  mounted(){
-    
-  },
-  updated(){
-  }
-
 };
 </script>
 
