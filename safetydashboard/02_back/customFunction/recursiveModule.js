@@ -1,6 +1,6 @@
 module.exports =  class SendingEmergencyModule {
 
-    constructor(emergencyArray){
+    constructor(emergencyArray, tenan){
         this.emergencyArray = emergencyArray;
         this.case_structure;
         this.caseId;
@@ -11,7 +11,7 @@ module.exports =  class SendingEmergencyModule {
     createPayloadFunction(){
 
         const lengthEmer = this.emergencyArray.length;
-
+        // console.log("emerInfo ==> ", this.emergencyArray)
         for(let i = 0; i < lengthEmer; i++){
             this.emerInfo = this.emergencyArray[i];
             this.caseId = this.emergencyArray[i].case_info.locateable_id;
@@ -53,6 +53,7 @@ module.exports =  class SendingEmergencyModule {
         const caseId = parseInt(this.caseId);
         const floorPlanData = this.emerInfo.floor_plan.Zones;
         const counting_zone = floorPlanData.length;
+        
 
         let case_zone = 0;
         

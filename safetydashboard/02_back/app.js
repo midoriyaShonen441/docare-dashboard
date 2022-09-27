@@ -320,27 +320,40 @@ app.post("/backend/syncDevice", async (req, res) => {
 
 // sync emergency if user login dashbboard //
 
-app.get("/backend/syncEmergencyLog", async (req, res) => {
+app.get("/backend/syncEmergencyLog", auth, async (req, res) => {
 
     // import database // 
     const emergency_info = require("./model/emergency_info");
     // import function //
     const SendingEmergencyModule = require("./customFunction/recursiveModule");
-
+    const {domain_id} = req.authData.decode
+    // console.log("domain_id" , domain_id)
     try{
         const emergencyReport = await emergency_info.aggregate([
-            {$match: {case_confirm: false}},
+            // {$match:{case_confirm: false}},
             {$lookup: {
                 from: "user_infos",
                 localField: "user_ids",
                 foreignField: "user.citizen_id",
                 as: "user_profile"
-            }}
+            }},
+            {$unwind: "$user_profile"},
+            {$project: {
+                "user_ids":1,
+                "device":1,
+                "case_info":1,
+                "floor_plan":1,
+                "case_confirm":1,
+                user_profile:["$user_profile"],
+                "tenan": "$user_profile.user.domain_id"
+            }},
+            {$match: {tenan: domain_id,case_confirm: false}}
         ])
 
         // console.log("emergencyReport ==> ", emergencyReport)
-        const emergencyModel = new SendingEmergencyModule(emergencyReport);
+        const emergencyModel = new SendingEmergencyModule(emergencyReport, domain_id);
         const sentEmergency = emergencyModel.returnResult();
+
         // console.log(sentEmergency);
         res.send(sentEmergency);
     }catch(err){
@@ -352,14 +365,12 @@ app.get("/backend/syncEmergencyLog", async (req, res) => {
 
 // sync emergency if user btn sos //
 app.post("/backend/syncEmergencysos", async (req, res) => {
-
     // import database // 
     const emergency_info = require("./model/emergency_info");
     const device_info = require("./model/device_info");
     // import function //
     const SendingEmergencyModule = require("./customFunction/recursiveModule");
     let emergencyData = req.body;
-
     if(emergencyData){
         emergencyData["case_confirm"] = false;
         const devicePayload = {
@@ -388,6 +399,7 @@ app.post("/backend/syncEmergencysos", async (req, res) => {
         ])
         const emergencyModel = new SendingEmergencyModule(emergencyReport);
         const sentEmergency = emergencyModel.returnResult();
+        console.log(sentEmergency);
         res.send(sentEmergency);
     }catch(err){
         console.log(`error in api syncemergency: emergencyReport ==> ${err}`);
@@ -565,7 +577,7 @@ app.post("/backend/sync/staff", async (req, res) => {
     }
 });
 
-app.post("/backend/genpassword", async (req, res) => {
+app.put("/backend/genpassword", async (req, res) => {
     const {username,password} = req.body;
     const staff_info = require("./model/staff_info");
     if(password){
@@ -595,23 +607,26 @@ app.post("/backend/login", async (req, res) => {
     if(username){
         try{
             const isUsername = await staff_info.findOne({"user.username": username});
+            console.log(isUsername)
             if(isUsername && bcrypt.compare(password, isUsername.user.password_dashboard)){
                 const genToken = jwt.sign(
                     {
                         _id: isUsername._id,
                         username: isUsername.user.username,
+                        domain_id: isUsername.user.domain_id,
                         role: isUsername.user.role
                     },
                     process.env.TOKEN_KEY,
                     {expiresIn: process.env.EXPIRES}
                 )
                 const payload = {
+                    status:200,
                     token: genToken,
                     username: isUsername.user.username
                 }
                 res.send(payload)
             }else{
-                console.log(`error in API /backend/username ${err}`);
+                console.log(`2 try set error in API /backend/login ${err}`);
                 const payload = {
                     status: 401,
                     data: "invalid username or password"
@@ -619,12 +634,12 @@ app.post("/backend/login", async (req, res) => {
                 res.sendStatus(401).send(payload);
             }
         }catch(err){
-            console.log(`error in API /backend/username ${err}`);
+            console.log(`1 error in API /backend/login ${err}`);
             const payload = {
                 status: 401,
                 data: "invalid username!"
             }
-            res.sendStatus(401).send(payload);
+            res.send(payload);
         }
         
 

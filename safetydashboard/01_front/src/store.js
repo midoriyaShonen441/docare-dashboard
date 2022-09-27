@@ -28,6 +28,7 @@ export default createStore({
         
         // mock emergency data // 
         emergencyArray:"",
+        popupRegister:false,
        
     },
     mutations:{

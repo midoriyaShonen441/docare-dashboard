@@ -24,6 +24,7 @@ const verifyToken = (req, res, next) => {
                     token: getToken
                 }
                 // console.log("verifyToken ==> ", replyText);
+                // console.log("verifyToken",replyText)
                 req.authData =  replyText
                 next();
             }

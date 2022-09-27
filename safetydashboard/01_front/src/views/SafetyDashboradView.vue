@@ -37,9 +37,15 @@ export default defineComponent({
         },
 
         async syncEmergency(){
-            const emerData = await axios.get(`${sensAPI}/syncEmergencyLog`);
+            const headerData = this.$cookies.get("sefaty-token")
+            const headerConf = {
+                headers:{
+                    "access-token": headerData.token
+                }
+            }
+            const emerData = await axios.get(`${sensAPI}/syncEmergencyLog`, headerConf);
             this.$store.state.emergencyArray = emerData.data;
-            // console.log( this.$store.state.emergencyArray);
+            console.log( this.$store.state.emergencyArray);
         }
     },
     created(){

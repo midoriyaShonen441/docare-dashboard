@@ -1,33 +1,6 @@
-<script>
-export default {
-    components:{
-    },
-    data(){
-        return{
-            username: '',
-            password: '',
-            errorDesc: ''
-        }
-    },
-    methods:{
-        async haddleLogin(){
-            console.log("action..")
-            if(this.username && this.password){
-                this.$router.push('/');
-            }else{
-                this.errorDesc = "username and password are required."
-            }
-        }
-    },
-    mounted(){
-
-    }
-}   
-</script>
-
 <template>
-
     <div class="set-background-login">
+        <RegisterUser/>
         <div class="login-container">
         
             <div class="set-login">
@@ -48,6 +21,7 @@ export default {
                             <h5>{{errorDesc}}</h5>
                         </div>
                         <div class="set-btn">
+                            <button class="btn-register" @click="haddleRegister">สร้างรหัสสมาชิก</button>
                             <button class="btn-login" @click="haddleLogin">เข้าสู่ระบบ</button>
                         </div>
                     </div>
@@ -57,6 +31,57 @@ export default {
     </div>
     
 </template>
+
+<script>
+    import RegisterUser from "../components/RegisterUser.vue";
+    import axios from "axios";
+    import {httpAPI} from "../../settingAPI";
+    const sendAPI = httpAPI();
+
+    export default {
+        components:{
+            RegisterUser,
+        },
+        data(){
+            return{
+                username: '',
+                password: '',
+                errorDesc: ''
+            }
+        },
+        methods:{
+            async haddleLogin(){
+                console.log("action..")
+                if(this.username && this.password){
+                    const payload ={
+                        username: this.username,
+                        password: this.password
+                    }
+                    const userProfile = await axios.post(`${sendAPI}/login`,payload);                    
+                    console.log(userProfile)
+                    if(userProfile.data.status === 200){
+                        console.log(userProfile)
+                        this.$cookies.set("sefaty-token",userProfile.data);
+                        this.$router.push('/');
+                    }else{
+                        console.log(userProfile)
+                        this.errorDesc  = "invalid username or password";
+                    }
+                    // 
+                }else{
+                    this.errorDesc = "username and password are required."
+                }
+            },
+            haddleRegister(){
+                this.$store.state.popupRegister = true;
+            },
+
+        },
+        mounted(){
+    
+        }   
+    }   
+</script>
 
 <style scoped>
 .set-background-login{
@@ -74,7 +99,7 @@ export default {
     color: white;
     background: rgb(62, 62, 62);
     margin: auto;
-    height: calc(40vh + 1vh);
+    height: calc(35vh);
     width: 25%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     min-width: 300px;
@@ -123,13 +148,17 @@ input:focus{
 
 .set-btn{
     text-align: right;
-    margin-right: 14%;
+    margin-right: 10%;
 }
 
 .error-login-container{
     text-align: center;
     margin-top: 10px; 
     color: red;
+}
+.btn-register{
+    text-decoration: underline;
+    margin-right: 15px;
 }
 .btn-login{
     min-width: 100px;
@@ -143,6 +172,5 @@ input:focus{
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
- 
- 
+
 </style>
