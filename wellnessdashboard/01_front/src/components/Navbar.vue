@@ -157,7 +157,7 @@ export default {
   /* transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1); */
   position: absolute;
   left: 0;
-  background: #ffffff;
+  background: white;
   z-index: 9;
   height: 100vh;
   width: 250px;
