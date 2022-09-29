@@ -1,0 +1,44 @@
+{
+  "user": {
+    "citizen_id": "4567889018082",
+    "domain_id": 31,
+    "username": "aahil_woods_0425",
+    "password": "xNmoT45doCFV0j6f",
+    "fullname": "Aahil Woods",
+    "role": "Staff",
+    "gender": "Other",
+    "dob": null,
+    "blood_type": "AB-",
+    "height": null,
+    "weight": null,
+    "allergies": [
+      "Hamburger",
+      "Hot dog"
+    ],
+    "conditions": [
+      "Coronary Artery Disease",
+      "High Blood Pressure",
+      "Epilepsy",
+      "Obesity",
+      "Hypertension",
+      "Obesity"
+    ],
+    "drugs": [
+      "Fluticasone"
+    ],
+    "vital_signs": null,
+    "contact": {
+      "mobile": "+66655629976",
+      "address_1": "erat adipiscing ipsum adipiscing lorem euismod",
+      "address_2": null,
+      "subdistrict": "elit",
+      "district": "nibh",
+      "province": "erat",
+      "zip": 93027,
+      "note": "sed diam elit amet laoreet consectetuerut lorem dolor aliquam ut ut",
+      "latitude": 13.7202213,
+      "longitude": 98.3918119
+    },
+    "family": []
+  }
+}

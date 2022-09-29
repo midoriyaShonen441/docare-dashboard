@@ -154,7 +154,7 @@ export default {
     left:0;
     width: 100%;
     height: 100%;
-    z-index: 9;
+    z-index: 8;
     background: rgb(36, 36, 36);
     opacity: 0.6;  
 }

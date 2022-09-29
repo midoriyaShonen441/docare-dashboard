@@ -1,0 +1,55 @@
+{
+  "user": {
+    "citizen_id": "8412722395323",
+    "domain_id": 2,
+    "username": "edie_wardle_9267",
+    "password": "Nt315SK50q1tGigs",
+    "fullname": "Edie Wardle",
+    "role": "User",
+    "gender": "Female",
+    "dob": null,
+    "blood_type": null,
+    "height": "164",
+    "weight": null,
+    "allergies": [
+      "Cheese",
+      "Steak"
+    ],
+    "conditions": [
+      "Diabetes",
+      "Osteoarthritis",
+      "Heat Stroke",
+      "Heat Stroke",
+      "Obesity",
+      "Stroke"
+    ],
+    "drugs": [
+      "Omeprazole",
+      "Amoxicillin",
+      "Sertraline",
+      "Hydrochlorothiazide",
+      "Furosemide",
+      "Fluoxetine"
+    ],
+    "vital_signs": null,
+    "contact": {
+      "mobile": null,
+      "address_1": "sed amet erat euismod ipsum tincidunt",
+      "address_2": null,
+      "subdistrict": null,
+      "district": null,
+      "province": null,
+      "zip": 43116,
+      "note": null,
+      "latitude": 12.5329646,
+      "longitude": 98.3085538
+    },
+    "family": [
+      {
+        "fullname": "Simone Rodrigues",
+        "mobile": "+66816736234",
+        "relation": "ut erat"
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "user": {
+    "citizen_id": "4079089186617",
+    "domain_id": 16,
+    "username": "zavier_griffiths_8291",
+    "password": "Z5LAdfedTr0CG2Sw",
+    "fullname": "Zavier Griffiths",
+    "role": "Staff",
+    "gender": "Male",
+    "dob": null,
+    "blood_type": "A-",
+    "height": null,
+    "weight": null,
+    "allergies": [
+      "Steak",
+      "Cottage cheese",
+      "Sausage"
+    ],
+    "conditions": [
+      "Depressive",
+      "Overweight"
+    ],
+    "drugs": [
+      "Escitalopram",
+      "Simvastatin",
+      "Lisinopril",
+      "Lisinopril",
+      "Rosuvastatin"
+    ],
+    "vital_signs": null,
+    "contact": {
+      "mobile": "+66653879916",
+      "address_1": "dolor tincidunt amet adipiscing magna aliquam",
+      "address_2": null,
+      "subdistrict": "adipiscing",
+      "district": "consectetuer",
+      "province": "nibh",
+      "zip": 19529,
+      "note": null,
+      "latitude": 12.8241463,
+      "longitude": 98.533238
+    },
+    "family": [
+      {
+        "fullname": "Sidney Moyer",
+        "mobile": null,
+        "relation": "amet dolore"
+      },
+      {
+        "fullname": "Abdurahman Parrish",
+        "mobile": null,
+        "relation": "nibh sed"
+      }
+    ]
+  }
+}

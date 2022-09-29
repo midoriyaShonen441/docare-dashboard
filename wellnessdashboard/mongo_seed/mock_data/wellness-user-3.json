@@ -1,0 +1,64 @@
+{
+  "user": {
+    "citizen_id": "7861619036477",
+    "domain_id": 26,
+    "username": "alix_dennis_8380",
+    "password": "Ss7imBdRSqj9V3Rd",
+    "fullname": "Alix Dennis",
+    "role": "User",
+    "gender": "Female",
+    "dob": "1960-08-18",
+    "blood_type": "O-",
+    "height": null,
+    "weight": null,
+    "allergies": [
+      "Hot dog",
+      "Kebab"
+    ],
+    "conditions": [
+      "Depressive",
+      "Substance Abuse: Ecstasy",
+      "Diabetes",
+      "Osteoarthritis",
+      "Hypertension"
+    ],
+    "drugs": [],
+    "vital_signs": {
+      "pulse": "112",
+      "bp": null,
+      "temp": null,
+      "oxygen": "91",
+      "glucose": "221",
+      "weight": "76.05"
+    },
+    "contact": {
+      "mobile": null,
+      "address_1": "amet amet dolore elit nonummy",
+      "address_2": null,
+      "subdistrict": null,
+      "district": null,
+      "province": null,
+      "zip": 80854,
+      "note": "dolor aliquam laoreet adipiscing ametdolor tincidunt diam dolor nonummy",
+      "latitude": 12.4904919,
+      "longitude": 99.2324992
+    },
+    "family": [
+      {
+        "fullname": "Shola Schaefer",
+        "mobile": "+66913941252",
+        "relation": "diam sed"
+      },
+      {
+        "fullname": "Piper Lynch",
+        "mobile": null,
+        "relation": "magna tincidunt"
+      },
+      {
+        "fullname": "Sumaiyah Villegas",
+        "mobile": null,
+        "relation": "diam lorem"
+      }
+    ]
+  }
+}
