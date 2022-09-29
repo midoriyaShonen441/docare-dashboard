@@ -10,7 +10,7 @@ const vital_info = new Schema(
             type:{type:String},
             mobile:{type:String},
         },  
-        vitals: {type:Array}
+        vitals: {type: Array}
     }
 )
 

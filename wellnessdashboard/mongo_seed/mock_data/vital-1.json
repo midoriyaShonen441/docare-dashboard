@@ -1,0 +1,16 @@
+{
+  "user_id": "1182660360238",
+  "device": {
+    "id": "dlFWwCx8PL7E",
+    "name": "ut",
+    "type": "EV05",
+    "mobile": null
+  },
+  "vitals": [
+    {
+      "type": "BloodPressure",
+      "value": "94/56",
+      "timestamp": 1664424259
+    }
+  ]
+}

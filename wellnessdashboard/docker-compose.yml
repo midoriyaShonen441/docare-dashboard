@@ -14,7 +14,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: docareRoot
       MONGO_INITDB_ROOT_PASSWORD: docareRoot
-      MONGO_INITDB_DATABASE: safetydb
+      MONGO_INITDB_DATABASE: wellnessdb
     volumes:
       # - ./data/db:/data/db
       - /etc/localtime:/etc/localtime:ro

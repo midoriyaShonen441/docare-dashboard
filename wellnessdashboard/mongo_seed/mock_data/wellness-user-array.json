@@ -1,0 +1,167 @@
+[
+  {
+    "user": {
+      "citizen_id": "6646521210028",
+      "domain_id": 18,
+      "username": "teo_bell_2049",
+      "password": "YcqfdYIcRE9bWt88",
+      "fullname": "Teo Bell",
+      "role": "User",
+      "gender": "Female",
+      "dob": null,
+      "blood_type": "O-",
+      "height": null,
+      "weight": "68",
+      "allergies": ["Seafood", "Sour cream"],
+      "conditions": ["Diabetes", "Depressive", "Cancer"],
+      "drugs": [
+        "Atorvastatin",
+        "Lisinopril",
+        "Pantoprazole",
+        "Acetaminophen; Hydrocodone",
+        "Montelukast",
+        "Montelukast"
+      ],
+      "vital_signs": {
+        "pulse": null,
+        "bp": "107/101",
+        "temp": "35.96",
+        "oxygen": "98",
+        "glucose": null,
+        "weight": null
+      },
+      "contact": {
+        "mobile": null,
+        "address_1": "sit ut dolore ipsum nibh sit",
+        "address_2": null,
+        "subdistrict": null,
+        "district": null,
+        "province": null,
+        "zip": 77464,
+        "note": null,
+        "latitude": 12.5144228,
+        "longitude": 99.2819299
+      },
+      "family": [
+        {
+          "fullname": "Abdurahman Parrish",
+          "mobile": null,
+          "relation": "diam diam"
+        }
+      ]
+    }
+  },
+  {
+    "user": {
+      "citizen_id": "8412722395323",
+      "domain_id": 2,
+      "username": "edie_wardle_9267",
+      "password": "Nt315SK50q1tGigs",
+      "fullname": "Edie Wardle",
+      "role": "User",
+      "gender": "Female",
+      "dob": null,
+      "blood_type": null,
+      "height": "164",
+      "weight": null,
+      "allergies": ["Cheese", "Steak"],
+      "conditions": [
+        "Diabetes",
+        "Osteoarthritis",
+        "Heat Stroke",
+        "Heat Stroke",
+        "Obesity",
+        "Stroke"
+      ],
+      "drugs": [
+        "Omeprazole",
+        "Amoxicillin",
+        "Sertraline",
+        "Hydrochlorothiazide",
+        "Furosemide",
+        "Fluoxetine"
+      ],
+      "vital_signs": null,
+      "contact": {
+        "mobile": null,
+        "address_1": "sed amet erat euismod ipsum tincidunt",
+        "address_2": null,
+        "subdistrict": null,
+        "district": null,
+        "province": null,
+        "zip": 43116,
+        "note": null,
+        "latitude": 12.5329646,
+        "longitude": 98.3085538
+      },
+      "family": [
+        {
+          "fullname": "Simone Rodrigues",
+          "mobile": "+66816736234",
+          "relation": "ut erat"
+        }
+      ]
+    }
+  },
+  {
+    "user": {
+      "citizen_id": "7861619036477",
+      "domain_id": 26,
+      "username": "alix_dennis_8380",
+      "password": "Ss7imBdRSqj9V3Rd",
+      "fullname": "Alix Dennis",
+      "role": "User",
+      "gender": "Female",
+      "dob": "1960-08-18",
+      "blood_type": "O-",
+      "height": null,
+      "weight": null,
+      "allergies": ["Hot dog", "Kebab"],
+      "conditions": [
+        "Depressive",
+        "Substance Abuse: Ecstasy",
+        "Diabetes",
+        "Osteoarthritis",
+        "Hypertension"
+      ],
+      "drugs": [],
+      "vital_signs": {
+        "pulse": "112",
+        "bp": null,
+        "temp": null,
+        "oxygen": "91",
+        "glucose": "221",
+        "weight": "76.05"
+      },
+      "contact": {
+        "mobile": null,
+        "address_1": "amet amet dolore elit nonummy",
+        "address_2": null,
+        "subdistrict": null,
+        "district": null,
+        "province": null,
+        "zip": 80854,
+        "note": "dolor aliquam laoreet adipiscing ametdolor tincidunt diam dolor nonummy",
+        "latitude": 12.4904919,
+        "longitude": 99.2324992
+      },
+      "family": [
+        {
+          "fullname": "Shola Schaefer",
+          "mobile": "+66913941252",
+          "relation": "diam sed"
+        },
+        {
+          "fullname": "Piper Lynch",
+          "mobile": null,
+          "relation": "magna tincidunt"
+        },
+        {
+          "fullname": "Sumaiyah Villegas",
+          "mobile": null,
+          "relation": "diam lorem"
+        }
+      ]
+    }
+  }
+]

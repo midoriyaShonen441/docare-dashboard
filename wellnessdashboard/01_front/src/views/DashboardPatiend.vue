@@ -22,14 +22,49 @@
                             <th class="c-tel">เบอร์</th>
                             <th class="c-mmgh">ความดันโลหิต</th>
                             <th class="c-bpm">อัตราการเต้นหัวใจ</th>
-                            <th class="c-o2">ออกซิเจนในเลืือด</th>
+                            <th class="c-o2">ออกซิเจนในเลือด</th>
                             <th class="c-sat">ปริมาณน้ำตาลในเลือด</th>
-                            <th class="c-temp">อุณหภูมิร่่างกาย</th>
+                            <th class="c-temp">อุณหภูมิร่างกาย</th>
                             <th class="c-kg">น้ำหนัก</th>
                             <th class="c-last">ข้อมูลล่าสุด</th>
                             <th class="c-btn"></th>
                         </tr>
-                        <tr class="row-set">
+                        <tr v-for="patient in patients">
+                            <td  class="r-name">
+                                {{ patient.name }}
+                            </td>
+                            <td class="r-age">
+                                {{ patient.age }}
+                            </td>
+                            <td class="r-tel">
+                                {{ patient.tel }}
+                            </td>
+                            <td class="r-mmgh">
+                                {{ patient.mmgh }}
+                            </td>
+                            <td class="r-bpm">
+                                {{ patient.bpm }}
+                            </td>
+                            <td class="r-o2">
+                                {{ patient.o2 }}
+                            </td>
+                            <td class="r-sat">
+                                {{ patient.sat }}
+                            </td>
+                            <td class="r-temp">
+                                {{ patient.temp }}
+                            </td>
+                            <td class="r-kg">
+                                {{ patient.kg }}
+                            </td>
+                            <td class="r-last">
+                                {{ patient.last }}
+                            </td>
+                            <td class="r-btn">
+                                {{ patient.btn }}
+                            </td>
+                        </tr>
+                        <!-- <tr class="row-set">
                             <td  class="r-name">111</td>
                             <td class="r-age">111</td>
                             <td class="r-tel">111</td>
@@ -41,7 +76,7 @@
                             <td class="r-kg">111</td>
                             <td class="r-last">111</td>
                             <td class="r-btn">111</td>
-                        </tr>
+                        </tr> -->
                     </table>
                 </div>
             </div>
@@ -51,6 +86,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Navbar from "../components/Navbar.vue"
 
 export default {
@@ -59,16 +95,48 @@ export default {
     },
     data(){
         return{
-            searching:""
+            searching:"",
+            // patients: [
+            //     {
+            //         name: "Tawan",
+            //         age: 20,
+            //         tel: "0801234567",
+            //         mmgh: 120,
+            //         bpm: 76,
+            //         o2: 99,
+            //         sat: 10,
+            //         temp: 35,
+            //         kg: 60,
+            //         last: ""
+            //     },
+            //     {
+            //         name: "Tawan",
+            //         age: 20,
+            //         tel: "0801234567",
+            //         mmgh: 120,
+            //         bpm: 76,
+            //         o2: 99,
+            //         sat: 10,
+            //         temp: 35,
+            //         kg: 60,
+            //         last: ""
+            //     }
+            // ],
+            patients: null
         }
     },
-    methods:{
+    methods: {
+        async getPatient() {
+            await axios
+                .get()
+                .then(() => {
 
+                })
+        },
     },
-    mounted(){
+    mounted () {
 
     }
-
 }
 </script>
 
