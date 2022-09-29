@@ -10,7 +10,7 @@
         <el-row :gutter="12">
           <el-col :span="6">
             <el-form-item label="ค้นหา">
-              <input v-model="input1" class="set-find" placeholder="ค้นหา" list="jobroles" name="role"/>
+              <input v-model="staffSelect" class="set-find" placeholder="ค้นหา" list="jobroles" name="role"/>
               <datalist id="jobroles">
                 <option  v-for="(data, index) in arrayName" :key="index" :value="data">
                   {{data}}
@@ -18,7 +18,7 @@
               </datalist>
             </el-form-item>
           </el-col>
-          <el-col :span="4">
+          <!-- <el-col :span="4">
             <el-form-item label="สถานะการใช้งาน">
               <el-select
                 v-model="accessoryTypeFilter"
@@ -33,16 +33,14 @@
                 />
               </el-select>
             </el-form-item>
-          </el-col>
+          </el-col> -->
           <el-col :span="4">
             <el-form-item label="ค้นหา">
-              <el-button class="btn-submit">ค้นหา</el-button>
+              <el-button class="btn-submit" @click="haddleFind">ค้นหา</el-button>
             </el-form-item>
           </el-col>
-
         </el-row>
       </el-form>
-
       <el-row :gutter="12">
         <el-col :span="24">
           <el-table
@@ -137,10 +135,13 @@ export default {
     return {
       dialogOwnerInfoVisible: false,
       accessoryTypeFilter: null,
+      staffSelect:null,
       staffArray:[],
+      backupStaff:[],
       arrayName: [],
       staffRole:null,
       accessoryTypes: [
+        "ทั้งหมด",
         "ออนไลน์",
         "ออฟไลน์"
       ],
@@ -165,12 +166,10 @@ export default {
         console.log(staffInfo.data[i].user.fullname)
       }
       this.staffArray = staffInfo.data;
-      console.log( this.arrayName)
-      
+      this.backupStaff = staffInfo.data;
       this.rangeOfPage = staffInfo.data.length;
       const setData = this.$cookies.get("sefaty-token");
       this.staffRole  = setData.role;
-      // console.log("this.staffArray ==> ", this.staffArray,  this.staffRole)
     },
     haddleEdit(id, name,profile){
       this.$store.state.selectionUser = id;
@@ -188,6 +187,17 @@ export default {
     handleCurrentChange(data){
         this.pageSelect = data;
     },
+    haddleFind(){
+      let setNewArray = [];
+      if(this.staffSelect !== null ){
+        for(let i = 0; i < this.backupStaff.length; i++){
+          if(this.staffSelect === this.backupStaff[i].user.fullname){
+            setNewArray.push(this.backupStaff[i]);
+          }
+        }
+      }
+      this.staffArray = setNewArray;
+    }
   },
   mounted(){
     this.fetchStaffData();
