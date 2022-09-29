@@ -448,7 +448,7 @@ app.get("/backend/getuser", auth,async(req, res) => {
     const userInfo = require("./model/user_info");
     const dateTimeConvert = require("./customFunction/datetimeConvert");
     const {domain_id} = req.authData.decode
-    console.log("domain_id ", domain_id)
+    // console.log("domain_id ", domain_id)
     try {
         const userAvialable = await userInfo.aggregate([
             {$lookup: {
@@ -566,7 +566,8 @@ app.post("/backend/sync/staff", async (req, res) => {
             vital_signs: staffData.user.vital_signs,
             contact:  staffData.user.contact,
             family: staffData.user.family,
-        }
+        },
+        online_status: false
     }
     try{
         await staff_info.create(payload);
@@ -577,6 +578,74 @@ app.post("/backend/sync/staff", async (req, res) => {
             status: 500
         }
         res.sendStatus(500).send(payload);
+    }
+});
+
+app.get("/backend/staffinfo", auth, async (req, res) => {
+    const staff_info = require("./model/staff_info");
+    const {domain_id} =  req.authData.decode;
+    try{
+        const userProfile = await staff_info.find({"user.domain_id":domain_id });
+        res.send(userProfile);
+    }catch(err){
+        console.log(`error in API staffinfo ${err}`);
+        const payload = {
+            status: 500,
+            data: err
+        }
+        res.sendStatus(500).send(payload);
+    }
+});
+
+app.delete("/backend/delete/staff", auth, async (req, res) => {
+    const staff_info = require("./model/staff_info");
+    const {role} =  req.authData.decode; 
+    const {id} = req.body;
+    if(role === 'Admin'){
+        await staff_info.deleteOne({"user.citizen_id": id});
+        const payload = {
+            status: 200,
+            data: "delete success!"
+        }
+        res.sendStatus(200).send(payload);
+    }else{
+        const payload = {
+            status: 401,
+            data: "unauthorized"
+        }
+        res.sendStatus(401).send(payload)
+    }
+});
+
+app.put("/backend/update/staff", auth, async (req, res) => {
+    const staff_info = require("./model/staff_info");
+    const {query, user} = req.body;
+    const {role} =  req.authData.decode; 
+    if(role === 'Admin'){
+        const isQuery = {
+            user:{
+                citizen_id: query
+            }
+        }
+        const updatePayload = {
+            user:user
+        }
+        try{
+            await staff_info.updateOne(isQuery, updatePayload);
+        }catch(err){
+            console.log(`error in API /backend/update/staff ${err}`);
+            const payload = {
+                status:  500,
+                data: err
+            }
+            res.sendStatus(500).send(payload);
+        }
+    }else{
+        const payload = {
+            status: 401,
+            data: "unauthorized"
+        }
+        res.sendStatus(401).send(payload)
     }
 });
 
@@ -610,7 +679,7 @@ app.post("/backend/login", async (req, res) => {
     if(username){
         try{
             const isUsername = await staff_info.findOne({"user.username": username});
-            console.log(isUsername)
+            // console.log(isUsername)
             if(isUsername && bcrypt.compare(password, isUsername.user.password_dashboard)){
                 const genToken = jwt.sign(
                     {
@@ -625,6 +694,7 @@ app.post("/backend/login", async (req, res) => {
                 const payload = {
                     status:200,
                     token: genToken,
+                    role: isUsername.user.role,
                     username: isUsername.user.username
                 }
                 res.send(payload)

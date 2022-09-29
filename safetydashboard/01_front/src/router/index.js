@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import LoginPage from "../views/LoginPage.vue";
 import SafetyDashboradView from "../views/SafetyDashboradView.vue";
-import Equipment from "../views/Equipment.vue";
+import StaffPage from "../views/StaffPage.vue";
 import SensorDetector from "../views/SensorDetector.vue";
 import User from "../views/User.vue";
 import UserInfo from "../views/UserInfo.vue";
@@ -21,9 +21,9 @@ const router = createRouter({
       component: LoginPage,
     },
     {
-      path: "/equipment",
-      name: "Equipment",
-      component: Equipment,
+      path: "/staff",
+      name: "StaffPage",
+      component: StaffPage,
     },
     {
       path: "/sensordetection",

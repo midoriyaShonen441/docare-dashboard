@@ -13,8 +13,8 @@ export default {
         this.$router.push("/");
       } else if (evt === "sensorDetect") {
         this.$router.push("/sensordetection");
-      } else if (evt === "equipment") {
-        this.$router.push("/equipment");
+      } else if (evt === "staff") {
+        this.$router.push("/staff");
       } else if (evt === "user") {
         this.$router.push("/user");
       }
@@ -70,7 +70,7 @@ export default {
           </div>
           <div class="set-menu-content">แจ้งเตือนอุปกรณ์</div> -->
         </div>
-        <div class="menu-content-conatiner" @click="haddleRouter('equipment')">
+        <div class="menu-content-conatiner" @click="haddleRouter('staff')">
           <div class="set-icon">
             <i class='fas fa-id-badge' style='font-size:24px'></i>
           </div>

@@ -21,20 +21,21 @@ const staff_info = new Schema(
             conditions: {type: Array},
             drugs: {type: Array},
             vital_signs: {type: Array},
+            contact: {
+                mobile: String,
+                address_1: String, 
+                address_2: String,
+                subdistrict: String,
+                district: String,
+                province: String,
+                zip: String,
+                note: String,
+                latitude: String,
+                longitude: String
+            },
+            family : {type: Array},  
         },
-        contact: {
-            mobile: String,
-            address_1: String, 
-            address_2: String,
-            subdistrict: String,
-            district: String,
-            province: String,
-            zip: String,
-            note: String,
-            latitude: String,
-            longitude: String
-        },
-        family : {type: Array}
+        online_status: {type: Boolean},
     },
     { timestamps: true }
 )

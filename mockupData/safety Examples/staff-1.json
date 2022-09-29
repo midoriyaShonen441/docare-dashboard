@@ -1,11 +1,11 @@
 {
     "user": {
       "citizen_id": "9579971510076",
-      "domain_id": 4,
-      "username": "sumaiyah_villegas_9484",
+      "domain_id": 1,
+      "username": "user1",
       "password": "sunWOJzuvknZF1Et",
       "fullname": "Sumaiyah Villegas",
-      "role": "Staff",
+      "role": "Admin",
       "gender": "Male",
       "dob": "1972-04-15",
       "blood_type": null,

@@ -1,11 +1,11 @@
 {
     "user": {
       "citizen_id": "4788062061269",
-      "domain_id": 3,
-      "username": "nataniel_love_7386",
+      "domain_id": 2,
+      "username": "user2",
       "password": "f71wI0ER7VsnYvN0",
       "fullname": "Nataniel Love",
-      "role": "Staff",
+      "role": "Admin",
       "gender": "Male",
       "dob": "1905-04-10",
       "blood_type": "O",

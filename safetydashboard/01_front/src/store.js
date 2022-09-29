@@ -16,19 +16,14 @@ export default createStore({
         deleteUserName:"",
         deleteUserId:"",
         deleteDeviceId:"",
-        // vvvv userSelectEmergency collect data in array like this vvvv // 
-        // {
-        //     text:"กดปุ่มขอความช่วยเหลือ (Anywhere)",
-        //     user: "Earth(test)",
-        //     matLine: "Telehealth Development",
-        //     timing: "9 ชม.",
-        //     location: {lat:13.727795, lng:100.532462}
-        // },
         userSelectEmergency: "",
-        
-        // mock emergency data // 
         emergencyArray:"",
         popupRegister:false,
+        popupStaffEdit: false,
+        selectionUser:null,
+        selectionName: null,
+        setStaffProfile: null,
+        popupStaffDelete: false,
        
     },
     mutations:{
@@ -37,10 +32,6 @@ export default createStore({
             state.setmenu = "setmenu"
             state.setsidemenu = "set-menu-container"
             state.cssGoogleMapContainer = "set-googlemap-container"
-            // if(state.cssEmergencyInfo === "set-emergency-info"){
-            //     state.cssEmergencyInfo = "set-emergency-info-close"
-            // }
-            // state.cssEmergencyInfo = "set-emergency-info-close"
         },
 
         haddleMenu(state){
@@ -56,21 +47,13 @@ export default createStore({
                 state.cssGoogleMapContainer = "set-googlemap-container"
                 state.isMenuOpen = false
             }
-
         },
-
         haddleSelectEmergency(state,payload){
-
             state.myDefaultPosition = payload.localtion;
             state.muDefaultZoom = 13;
-            
-            // console.log(payload.datas)
             this.commit('haddleEmergencyMarker', payload.datas)
- 
-
         },
         haddleEmergencyMarker(state,payload){
-            // console.log("payload ==> ",payload)
             state.cssEmergencyInfo = "set-emergency-info"
             state.userSelectEmergency = payload;
             console.log("state.userSelectEmergency ==> ",state.userSelectEmergency)
