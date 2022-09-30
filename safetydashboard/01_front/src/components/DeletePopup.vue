@@ -14,15 +14,22 @@
             <div>
                 <input class="input-delete" v-model="setDelete" placeholder="type delete"/>
             </div>
+            <div class="error-info" v-if="errorInfo">
+                {{errorInfo}}
+            </div>
             <div>
                 <button class="btn-delete" v-if="setDelete !== 'delete'">Delete</button>
-                <button class="btn-delete-active" v-if="setDelete === 'delete'">Delete</button>
+                <button class="btn-delete-active" v-if="setDelete === 'delete'" @click="haddleDelete">Delete</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import axios from "axios";
+import {httpAPI} from "../../settingAPI";
+const sensAPI = httpAPI();
+
 export default {
     components:{
 
@@ -30,7 +37,8 @@ export default {
     data(){
         return{
             // cssInputDelete: "input-delete",
-            setDelete:""
+            setDelete:"",
+            errorInfo: null
         }
     },
     computed:{
@@ -39,7 +47,21 @@ export default {
     methods:{
         haddleClose(){
             this.$store.state.deletePopupActive = false;
-
+        },
+        async haddleDelete(){
+            const headerData = this.$cookies.get("sefaty-token")
+            const headerConf = {
+                headers:{
+                    "access-token": headerData.token
+                }
+            }
+            const statusDelete = await axios.delete(`${sensAPI}/delete/staff`,payload, headerConf);
+            if(statusDelete.data.status === 200){
+                alert("this user are deleted!");
+                window.location.reload();
+            }else{
+                this.errorInfo = statusDelete.data.data
+            }
         }
     },
 }
@@ -50,7 +72,7 @@ export default {
     position: fixed;
     margin: auto;
     width: 700px;
-    height: 300px;
+    height: 340px;
     background: rgb(72, 72, 72);
     border-radius: 30px;
     z-index: 999;
