@@ -4,7 +4,7 @@ import Dashboard from '../views/Dashboard.vue';
 import DashboardPatiend from '../views/DashboardPatiend.vue';
 import DashboardReport from '../views/DashboardReport.vue';
 import DashnoardStaff from '../views/DashboardStaff.vue';
-import DashboardPatiendConfig from '../views/DashboardPatiendConfig.vue';
+// import DashboardPatiendConfig from '../views/DashboardPatiendConfig.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

@@ -24,6 +24,7 @@ export default createStore({
         selectionName: null,
         setStaffProfile: null,
         popupStaffDelete: false,
+        gobleError: null,
        
     },
     mutations:{
