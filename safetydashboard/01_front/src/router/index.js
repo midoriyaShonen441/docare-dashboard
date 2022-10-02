@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import LoginPage from "../views/LoginPage.vue";
 import SafetyDashboradView from "../views/SafetyDashboradView.vue";
 import StaffPage from "../views/StaffPage.vue";
+import SharingPage from "../views/SharingPage.vue";
 // import SensorDetector from "../views/SensorDetector.vue";
 import User from "../views/User.vue";
 // import UserInfo from "../views/UserInfo.vue";
@@ -25,11 +26,11 @@ const router = createRouter({
       name: "StaffPage",
       component: StaffPage,
     },
-    // {
-    //   path: "/sensordetection",
-    //   name: "SensorDetector",
-    //   component: SensorDetector,
-    // },
+    {
+      path: "/sharing/:id",
+      name: "SharingPage",
+      component: SharingPage,
+    },
     {
       path: "/user",
       name: "User",

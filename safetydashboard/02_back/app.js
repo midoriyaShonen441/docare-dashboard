@@ -989,4 +989,53 @@ app.post("/backend/login", async (req, res) => {
     }
 });
 
+app.get("/backend/generate/:id", async (req, res) => {
+    const emergency_info = require("./model/emergency_info");
+    const mongoose = require("mongoose");
+    const id = req.params.id;
+    // console.log("emergency_info ==> ",id)
+    // const ids = String(id)
+    try{
+        const emergencyReport = await emergency_info.aggregate([
+            {$lookup: {
+                from: "user_infos",
+                localField: "user_ids",
+                foreignField: "user.citizen_id",
+                as: "user_profile"
+            }},
+            {$unwind: "$user_profile"},
+            {$project: {
+                "_id":1,
+                "user_ids":1,
+                "case_info":1,
+                "case_confirm": 1,
+                fullname: "$user_profile.user.fullname",
+                citizen_id: "$user_profile.user.citizen_id",
+                blood_type: "$user_profile.user.blood_type",
+                gender: "$user_profile.user.gender",
+                mobile: "$user_profile.user.contact.mobile",
+                family: "$user_profile.user.family",
+                address_1: "$user_profile.user.contact.address_1",
+                address_2: "$user_profile.user.contact.address_2",
+                district: "$user_profile.user.contact.district",
+                province: "$user_profile.user.contact.province",
+                subdistrict: "$user_profile.user.contact.subdistrict",
+                zip: "$user_profile.user.contact.zip",
+                allergies: "$user_profile.user.allergies",
+                conditions: "$user_profile.user.conditions",
+                drugs: "$user_profile.user.drugs",
+            }},
+            {$match: {_id:mongoose.Types.ObjectId(id),case_confirm: false}}
+        ]);
+        // console.log(emergencyReport)
+        res.send(emergencyReport);
+    }catch(err){
+        const payload = {
+            status: 500,
+            text: err
+        }
+        res.send(payload)
+    }
+});
+
 module.exports = app;
