@@ -1,22 +1,25 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-// const MONGO_URI = process.env.MONGO_URI;
-const MONGO_URI = process.env.MONGO_URI_LOCALHOST
+const MONGO_URI = process.env.MONGO_URI;
 
 exports.connect = () => {
-    mongoose.connect(MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        // authSource: 'admin',
-        // auth: { username: 'root', password: 'root' },
-        // driverInfo: { name: 'Mongoose', version: '6.2.1' }
+  mongoose
+    .connect(MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      auth: {
+        authSource: "admin",
+      },
+      user: "docareUser",
+      pass: "docareUser",
     })
     .then(() => {
-        console.log("connected to Iot database")
+      console.log("connected to database");
     })
     .catch((error) => {
-        console.log("error Iot Database connecting")
-        console.error(error)
-        process.exit(1)
+      console.log("error Database connecting");
+      console.error(error);
+      process.exit(1);
     });
-}
+};

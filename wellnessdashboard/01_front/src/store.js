@@ -2,6 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
     state: {
+        user: null,
+        token: null,
         message: "USER!",
         is_expanded: false,
         isMenuOpen: false,
@@ -275,6 +277,12 @@ export default createStore({
         ]
     },
     mutations:{
+        setUser(state, user) {
+            state.user = user;
+        },
+        setToken(state, token) {
+            state.token = token;
+        },
         haddleMenu(state){
             if(state.isMenuOpen === false){
                 state.setmenu = "open setmenu"
@@ -292,6 +300,12 @@ export default createStore({
             }
 
         },
-    }
-  })
+    },
+    actions: {},
+    getters: {
+        isLoggedIn(state) {
+            return !!state.token;
+        }
+    },
+  });
 
