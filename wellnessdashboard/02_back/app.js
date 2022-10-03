@@ -12,15 +12,13 @@ const jwt = require("jsonwebtoken");
 // config server //
 const app = express();
 const corsOptions = {
-  origin: [
-    "http://localhost:7777", 
-    "https://wellness.silvercare.io"
-  ],
-  credentials: true
+  origin: ["http://localhost:7777", "https://wellness.silvercare.io"],
+  credentials: true,
 };
 app.use(cors(corsOptions));
 app.use(express.json());
-
+require('./routes/auth.routes')(app);
+require('./routes/user.routes')(app);
 db.connect();
 
 ////////////////////////////////////////////////////////////
@@ -38,26 +36,46 @@ app.get("/", (req, res) => {
 ////////////////// wellnesss start ///////////////////////////
 
 // Login API
-app.post("/login", (req, res) => {
-  const USERNAME = "uma victor";
-  const PASSWORD = "8888";
-  const { username, password } = req.body;
-  if (username === USERNAME && password === PASSWORD) {
-    const user = {
-      id: 1,
-      name: "uma victor",
-      username: "uma victor",
-    };
-    const token = jwt.sign(user, process.env.JWT_KEY);
-    res.json({
-      token,
-      user
-    });
-  } else {
-    res.status(403);
-    res.json({
-      message: "wrong login information",
-    });
+// app.post("/auth/login", async (req, res) => {
+//   const { username, password } = req.body;
+//   const userInfo = require("./model/user_info");
+//   db.connect();
+//   try {
+//     const user = await userInfo
+//       .find(
+//         {
+//           "user.username": username,
+//         },
+//         "user.username user.password",
+//         {
+//           _id: 0
+//         }
+//       )
+//     // user.select({"user.username": 1})
+//     if (username === user.user.username && password === user.user.password) {
+//       const token = jwt.sign(user, process.env.JWT_KEY);
+//       res.json({
+//         token,
+//         user,
+//       });
+//     } else {
+//       res.status(403);
+//       res.json({
+//         message: "wrong login information",
+//       });
+//     }
+//   } catch (err) {
+//     res.send(err);
+//   }
+// });
+
+app.get("/getUser", async (req, res) => {
+  const userInfo = require("./model/user_info");
+  try {
+    const users = await userInfo.find();
+    res.send(users);
+  } catch (err) {
+    res.send(err);
   }
 });
 
