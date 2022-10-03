@@ -548,28 +548,26 @@ app.post("/backend/updateBatch", async(req, res) => {
 });
 
 app.delete("/backend/deleteUser", async(req, res) => {
-    const userIds = req.body.user_ids;
+    const {id} = req.body.user_ids;
     const userInfo = require("./model/user_info");
-    // console.log(userIds);
-
     try {
-        userIds.forEach(async (value) => {
-            await userInfo.findOneAndDelete(
-                { "user.citizen_id": value }
-            );
-        });
+        await userInfo.findOneAndDelete({"user.citizen_id": id });
         res.sendStatus(200);
     } catch (err) {
-        res.send(err);
+        const payload = {
+            status: 500,
+            text: err
+        }
+        res.send(payload);
     };
 });
 //////// management emergency info //////// 
 
 // sync device // 
-app.post("/backend/syncDevice", async (req, res) => {
-    const deviceData = req.body;
+// app.post("/backend/syncDevice", async (req, res) => {
+//     const deviceData = req.body;
 
-});
+// });
 
 // sync emergency if user login dashbboard //
 
@@ -606,9 +604,13 @@ app.get("/backend/syncEmergencyLog", auth, async (req, res) => {
         // console.log("emergencyReport ==> ", emergencyReport)
         const emergencyModel = new SendingEmergencyModule(emergencyReport, domain_id);
         const sentEmergency = emergencyModel.returnResult();
-
+        
+        const payload = {
+            status: 200,
+            data: sentEmergency
+        }
         // console.log(sentEmergency);
-        res.send(sentEmergency);
+        res.send(payload);
     }catch(err){
         console.log(`error in api syncEmergencyLog ==> ${err}`);
         res.sendStatus(500);
@@ -701,7 +703,7 @@ app.get("/backend/getuser", auth,async(req, res) => {
     const userInfo = require("./model/user_info");
     const dateTimeConvert = require("./customFunction/datetimeConvert");
     const {domain_id} = req.authData.decode
-    console.log("domain_id ", domain_id)
+    // console.log("domain_id ", domain_id)
     try {
         const userAvialable = await userInfo.aggregate([
             {$lookup: {
@@ -731,7 +733,11 @@ app.get("/backend/getuser", auth,async(req, res) => {
         // console.log("userAvialable ==> ", userAvialable)
         const genStringDate = new dateTimeConvert(userAvialable);
         const setStringDate = genStringDate.convertTimesStamp();
-        res.send(setStringDate);
+        const payload = {
+            status: 200,
+            data: setStringDate
+        }
+        res.send(payload);
     } catch (err) {
         const payload = {
             status: 500,
@@ -801,12 +807,16 @@ app.get("/backend/staffinfo", auth, async (req, res) => {
     const {domain_id} =  req.authData.decode;
     try{
         const userProfile = await staff_info.find({"user.domain_id":domain_id });
-        res.send(userProfile);
+        const payload = {
+            status: 200,
+            data:userProfile
+        }
+        res.send(payload);
     }catch(err){
         console.log(`error in API staffinfo ${err}`);
         const payload = {
             status: 500,
-            data: err
+            text: err
         }
         res.sendStatus(500).send(payload);
     }
@@ -854,18 +864,22 @@ app.delete("/backend/delete/staff", auth, async (req, res) => {
     const {role} =  req.authData.decode; 
     const {id} = req.body;
     if(role === 'Admin'){
-        await staff_info.deleteOne({"user.citizen_id": id});
-        const payload = {
-            status: 200,
-            data: "delete success!"
+        try{
+            await staff_info.deleteOne({"user.citizen_id": id});
+            res.sendStatus(200);
+        }catch(err){
+            const payload = {
+                status: 500,
+                text: err
+            }
+            res.send(payload)
         }
-        res.sendStatus(200).send(payload);
     }else{
         const payload = {
             status: 401,
-            data: "unauthorized"
+            text: "unauthorized"
         }
-        res.sendStatus(401).send(payload)
+        res.send(payload)
     }
 });
 
@@ -884,18 +898,19 @@ app.put("/backend/update/staff", auth, async (req, res) => {
         }
         try{
             await staff_info.updateOne(isQuery, updatePayload);
+            res.sendStatus(200);
         }catch(err){
             console.log(`error in API /backend/update/staff ${err}`);
             const payload = {
                 status:  500,
-                data: err
+                text: err
             }
             res.sendStatus(500).send(payload);
         }
     }else{
         const payload = {
             status: 401,
-            data: "unauthorized"
+            text: "unauthorized"
         }
         res.sendStatus(401).send(payload)
     }
@@ -912,14 +927,14 @@ app.put("/backend/genpassword", async (req, res) => {
         }catch(err){
             const payload = {
                 status: 401,
-                data: "we not found this user make sure you are using username same as slivercare platform"
+                text: "we not found this user make sure you are using username same as slivercare platform"
             }
             res.sendStatus(401).send(payload);
         }
     }else{
         const payload = {
             status: 401,
-            data: "password must not be empty"
+            text: "password must not be empty"
         }
         res.sendStatus(400).send(payload);
     }
@@ -971,6 +986,55 @@ app.post("/backend/login", async (req, res) => {
             data: "username must not be empty"
         }
         res.sendStatus(401).send(payload);
+    }
+});
+
+app.get("/backend/generate/:id", async (req, res) => {
+    const emergency_info = require("./model/emergency_info");
+    const mongoose = require("mongoose");
+    const id = req.params.id;
+    // console.log("emergency_info ==> ",id)
+    // const ids = String(id)
+    try{
+        const emergencyReport = await emergency_info.aggregate([
+            {$lookup: {
+                from: "user_infos",
+                localField: "user_ids",
+                foreignField: "user.citizen_id",
+                as: "user_profile"
+            }},
+            {$unwind: "$user_profile"},
+            {$project: {
+                "_id":1,
+                "user_ids":1,
+                "case_info":1,
+                "case_confirm": 1,
+                fullname: "$user_profile.user.fullname",
+                citizen_id: "$user_profile.user.citizen_id",
+                blood_type: "$user_profile.user.blood_type",
+                gender: "$user_profile.user.gender",
+                mobile: "$user_profile.user.contact.mobile",
+                family: "$user_profile.user.family",
+                address_1: "$user_profile.user.contact.address_1",
+                address_2: "$user_profile.user.contact.address_2",
+                district: "$user_profile.user.contact.district",
+                province: "$user_profile.user.contact.province",
+                subdistrict: "$user_profile.user.contact.subdistrict",
+                zip: "$user_profile.user.contact.zip",
+                allergies: "$user_profile.user.allergies",
+                conditions: "$user_profile.user.conditions",
+                drugs: "$user_profile.user.drugs",
+            }},
+            {$match: {_id:mongoose.Types.ObjectId(id),case_confirm: false}}
+        ]);
+        // console.log(emergencyReport)
+        res.send(emergencyReport);
+    }catch(err){
+        const payload = {
+            status: 500,
+            text: err
+        }
+        res.send(payload)
     }
 });
 

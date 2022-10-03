@@ -154,22 +154,36 @@ export default {
   },
   methods:{
     async fetchStaffData(){
-      const headerData = this.$cookies.get("sefaty-token")
-      const headerConf = {
-                headers:{
-                    "access-token": headerData.token
-                }
-            }
-      const staffInfo = await axios.get(`${sensAPI}/staffinfo`, headerConf);
-      for(let i = 0; i < staffInfo.data.length; i++){
-        this.arrayName.push(staffInfo.data[i].user.fullname);
-        console.log(staffInfo.data[i].user.fullname)
+      try{
+        const headerData = this.$cookies.get("sefaty-token")
+        const headerConf = {
+                  headers:{
+                      "access-token": headerData.token
+                  }
+              }
+        const staffInfo = await axios.get(`${sensAPI}/staffinfo`, headerConf);
+        if(staffInfo.data.status === 200){
+          for(let i = 0; i < staffInfo.data.data.length; i++){
+          this.arrayName.push(staffInfo.data.data[i].user.fullname);
+          // console.log(staffInfo.data.data[i].user.fullname)
+          }
+          this.staffArray = staffInfo.data.data;
+          this.backupStaff = staffInfo.data.data;
+          this.rangeOfPage = staffInfo.data.data.length;
+          const setData = this.$cookies.get("sefaty-token");
+          this.staffRole  = setData.role;
+        }else{
+          alert(staffInfo.data.text);
+          this.$cookies.remove("sefaty-token");
+          this.$router.push("/login");
+        }
+        
+      }catch(err){
+        alert("unauthorized please login again.");
+        this.$cookies.remove("sefaty-token");
+        this.$router.push("/login");
       }
-      this.staffArray = staffInfo.data;
-      this.backupStaff = staffInfo.data;
-      this.rangeOfPage = staffInfo.data.length;
-      const setData = this.$cookies.get("sefaty-token");
-      this.staffRole  = setData.role;
+      
     },
     haddleEdit(id, name,profile){
       this.$store.state.selectionUser = id;

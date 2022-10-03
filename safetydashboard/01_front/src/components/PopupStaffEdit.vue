@@ -97,17 +97,21 @@ export default {
 
             try{
                 const statusOut = await axios.put(`${sensAPI}/update/staff`, payload,headerConf);
-                if(statusOut.data.status === 200){
+                if(statusOut.status === 200){
                     alert("user update sucess!");
                     this.$store.state.selectionUser=null,
                     this.$store.state.selectionName=null,
                     this.$store.state.setStaffProfile=null,
                     this.$store.state.popupStaffEdit = false;
                 }else{
-                    this.errorInfo = statusOut.data.data;
+                    alert(statusOut.data.text);
+                    this.$cookies.remove("sefaty-token");
+                    this.$router.push("/login");
                 }
             }catch(err){
-                this.errorInfo = err
+                alert(statusOut.data.text);
+                this.$cookies.remove("sefaty-token");
+                this.$router.push("/login");
             }
             
 

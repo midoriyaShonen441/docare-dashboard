@@ -49,18 +49,29 @@ export default {
             this.$store.state.deletePopupActive = false;
         },
         async haddleDelete(){
-            const headerData = this.$cookies.get("sefaty-token")
-            const headerConf = {
-                headers:{
-                    "access-token": headerData.token
+            try{
+                const headerData = this.$cookies.get("sefaty-token")
+                const headerConf = {
+                    headers:{
+                        "access-token": headerData.token
+                    }
                 }
-            }
-            const statusDelete = await axios.delete(`${sensAPI}/delete/staff`,payload, headerConf);
-            if(statusDelete.data.status === 200){
-                alert("this user are deleted!");
-                window.location.reload();
-            }else{
-                this.errorInfo = statusDelete.data.data
+                const payload = {
+                    id: this.$store.state.deleteUserId
+                }
+                const statusDelete = await axios.delete(`${sensAPI}/delete/deleteUser`,payload, headerConf);
+                if(statusDelete.status === 200){
+                    alert("this user are deleted!");
+                    window.location.reload();
+                }else{
+                    alert(statusDelete.data.text);
+                    this.$cookies.remove("sefaty-token");
+                    this.$router.push("/login");
+                }
+            }catch(err){
+                alert("unauthorized please login again.");
+                this.$cookies.remove("sefaty-token");
+                this.$router.push("/login");
             }
         }
     },

@@ -23,6 +23,10 @@
 </template>
 
 <script>
+import axios from "axios";
+import {httpAPI} from "../../settingAPI";
+const sensAPI = httpAPI();
+
 export default {
     components:{
 
@@ -39,7 +43,35 @@ export default {
     methods:{
         haddleClose(){
             this.$store.state.popupStaffDelete = false;
-
+        },
+        async haddleDelete(){
+            try{
+                const headerData = this.$cookies.get("sefaty-token")
+                const headerConf = {
+                        headers:{
+                            "access-token": headerData.token
+                        }
+                    }
+                const payload = {
+                    id: this.$store.state.selectionUser
+                }
+                const resultDelete = await axios.delete(`${sensAPI}/delete/staff`, payload, headerConf)
+                if(resultDelete.status === 200){
+                    alert(`user ${this.$store.state.selectionName} has deleted!`);
+                    this.$store.state.selectionUser = null;
+                    this.$store.state.selectionName = null;
+                    this.$store.state.popupStaffDelete = false;
+                    window.location.reload();
+                }else{
+                    alert(`${resultDelete.data.text}`);
+                    this.$cookies.remove("sefaty-token");
+                    this.$router.push("/login");
+                }
+            }catch(err){
+                alert("unauthorized please login again.");
+                this.$cookies.remove("sefaty-token");
+                this.$router.push("/login");
+            }
         }
     },
 }

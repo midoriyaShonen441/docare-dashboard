@@ -107,6 +107,32 @@
             </div>
           </div>
         </div>
+        <div class="qrcode-container">
+          <div class="title-qr">
+            Sharing qrcode
+          </div>
+          <div class="set-qrcode">
+            <div class="pic-qrcode">
+              <qrcode-vue :value="value" :size="size" level="H" />
+            </div>
+            <div class="sharing-link">
+              <div class="btn-clip">
+                <button
+                  @click="haddleCopy($store.state.userSelectEmergency.id)"
+                >
+                  <img src="../assets/copy.png" width="50" height="50" >
+                </button>
+              </div>
+              <div class="sharing-page">
+                <button
+                  @click="linkToPage($store.state.userSelectEmergency.id)"
+                >
+                  <img src="../assets/link.png" width="50" height="50" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="under-line">
           <hr/>
         </div>
@@ -145,25 +171,24 @@
 </template>
 
 <script>
+import QrcodeVue from 'qrcode.vue'
+
 export default {
     components:{
-
+      QrcodeVue
     },
     data(){
         return{
           commentArea:"",
           cssBtnConfirm:"btn-on-comment",
           cssBtnEvt:"btn-on-comment",
-          cssTextArea:"btn-on-comment"
+          cssTextArea:"btn-on-comment",
+          value: 'https://example.com',
+          size: 200,
         }
     },
     methods:{
       haddleAction(evt, id){
-
-        headerConfig = {
-          
-        }
-
         if(evt === "emer"){
           payload = {
             _id:id,
@@ -188,6 +213,13 @@ export default {
       },
       haddleSturctureShow(){
         this.$store.state.sturctureShow = true
+      },
+      async haddleCopy(id){
+        const redirect = `http://localhost:7777/sharing/${id}`
+        await navigator.clipboard.writeText(redirect);
+      },
+      async linkToPage(id){
+        this.$router.push(`/sharing/${id}`)
       }
     },
     mounted(){
@@ -492,5 +524,23 @@ label{
     opacity: 1;
     background: rgb(255, 255, 255);
   }
+}
+
+.qrcode-container{
+  color: black;
+  width: 80%;
+  margin-left: 40px;
+  margin-top: 30px;
+}
+.set-qrcode{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.sharing-link{
+  margin-left: 30px;
+}
+.btn-clip{
+  color: black;
 }
 </style>

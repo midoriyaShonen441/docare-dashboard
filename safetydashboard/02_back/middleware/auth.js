@@ -6,7 +6,7 @@ const verifyToken = (req, res, next) => {
     if(getToken === undefined || getToken === NaN || getToken === null){
         const payload = {
             error: true,
-            text: "unauthorized"
+            text: "unauthorized please login again."
         }
         res.send(payload);
     }else{
@@ -14,8 +14,8 @@ const verifyToken = (req, res, next) => {
             const decode = jwt.verify(getToken, process.env.TOKEN_KEY);
             if(decode.iat >= decode.exp){
                 const payload = {
-                    error: true,
-                    text: "unauthorized"
+                    status: 401,
+                    text: "unauthorized please login again."
                 }
                 res.send(payload);
             }else{
@@ -29,10 +29,10 @@ const verifyToken = (req, res, next) => {
                 next();
             }
         }catch(err){
-            console.log(`error in auth: ${err}`);
+            // console.log(`error in auth: ${err}`);
             const payload = {
-                error: true,
-                text: "expired token"
+                status: 401,
+                text: "Your token has expired."
             }
             res.send(payload);
         }

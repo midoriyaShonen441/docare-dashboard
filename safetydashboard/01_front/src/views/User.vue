@@ -249,8 +249,9 @@ export default {
         arrayDeleteDeviceId.push(userId.device_data[0]._id);
       }
       this.$store.state.deleteUserName = userId.user.fullname;
-      this.$store.state.deleteUserId = arrayDeleteDeviceId;
-      this.$store.state.deleteDeviceId = userId.user._id;
+      this.$store.state.deleteUserId = userId.user.citizen_id;
+      // this.$store.state.deleteDeviceId = userId.user._id;
+      console.log("citizen_id ==> citizen_id ",  this.$store.state.deleteUserId)
     },
 
     openUserChartPage(userId) {
@@ -258,34 +259,45 @@ export default {
     },
 
     async fetchAPIUser(){
-      const headerData = this.$cookies.get("sefaty-token")
-      const headerConf = {
-                headers:{
-                    "access-token": headerData.token
-                }
+      try{
+        const headerData = this.$cookies.get("sefaty-token")
+        const headerConf = {
+                  headers:{
+                      "access-token": headerData.token
+                  }
+              }
+        const userProfile = await axios.get(`${sensAPI}/getuser`,headerConf);
+        if(userProfile.data.status === 200){
+          this.backupUser = userProfile.data.data;
+          this.arrayUser = userProfile.data.data;
+          this.rangeOfPage = userProfile.data.data.length;
+          let genPages = 1;
+          let countMax = 1;
+          for(let i = 0; i < userProfile.data.data.length; i++){
+            this.arrayUser[i]["pages"] = genPages;
+            this.searchUsersList.push(userProfile.data.data[i].user.fullname);
+            countMax ++;
+            if(countMax ===  30){
+              genPages ++;
+              countMax = 0
             }
-      const userProfile = await axios.get(`${sensAPI}/getuser`,headerConf);
-      this.backupUser = userProfile.data;
-      this.arrayUser = userProfile.data;
-      this.rangeOfPage = userProfile.data.length;
-      let genPages = 1;
-      let countMax = 1;
-      for(let i = 0; i < userProfile.data.length; i++){
-        this.arrayUser[i]["pages"] = genPages;
-        this.searchUsersList.push(userProfile.data[i].user.fullname);
-        countMax ++;
-        if(countMax ===  30){
-          genPages ++;
-          countMax = 0
+          }
+        }else{
+          alert(userProfile.data.text);
+          this.$cookies.remove("sefaty-token");
+          this.$router.push("/login");
         }
+      }catch(err){
+        alert("unauthorized please login again.");
+        this.$cookies.remove("sefaty-token");
+        this.$router.push("/login");
       }
-      console.log(this.arrayUser)
     },
 
     findUser(){
       this.selectionUser.trim()
       this.arrayUser = this.backupUser;
-      console.log("find user!")
+      // console.log("find user!")
       if(this.startDate !== null && this.endDate !== null){
         const isStart = new Date(this.startDate);
         const isEnd = new Date(this.endDate);
