@@ -1,47 +1,47 @@
 {
-    "user": {
-      "citizen_id": "4788062061269",
-      "domain_id": 3,
-      "username": "nataniel_love_7386",
-      "password": "f71wI0ER7VsnYvN0",
-      "fullname": "Nataniel Love",
-      "role": "Staff",
-      "gender": "Male",
-      "dob": "1905-04-10",
-      "blood_type": "O",
-      "height": "177",
-      "weight": null,
-      "allergies": [
-        "Margarine",
-        "Ice cream"
-      ],
-      "conditions": [
-        "Substance Abuse: Ecstasy",
-        "Cancer",
-        "Diabetes",
-        "Substance Abuse: Alcohol",
-        "Osteoarthritis"
-      ],
-      "drugs": [],
-      "vital_signs": null,
-      "contact": {
-        "mobile": "+66753599262",
-        "address_1": "lorem sed elit adipiscing",
-        "address_2": "ut adipiscing euismod elit",
-        "subdistrict": null,
-        "district": null,
-        "province": null,
-        "zip": 38951,
-        "note": null,
-        "latitude": 13.436671,
-        "longitude": 100.7927565
-      },
-      "family": [
-        {
-          "fullname": "Isaiah Ferguson",
-          "mobile": "+66604462608",
-          "relation": "magna sed"
-        }
-      ]
-    }
+  "user": {
+    "citizen_id": "4788062061269",
+    "domain_id": 2,
+    "username": "user2",
+    "password": "user2",
+    "fullname": "Nataniel Love",
+    "role": "Admin",
+    "gender": "Male",
+    "dob": "1905-04-10",
+    "blood_type": "O",
+    "height": "177",
+    "weight": null,
+    "allergies": [
+      "Margarine",
+      "Ice cream"
+    ],
+    "conditions": [
+      "Substance Abuse: Ecstasy",
+      "Cancer",
+      "Diabetes",
+      "Substance Abuse: Alcohol",
+      "Osteoarthritis"
+    ],
+    "drugs": [],
+    "vital_signs": null,
+    "contact": {
+      "mobile": "+66753599262",
+      "address_1": "lorem sed elit adipiscing",
+      "address_2": "ut adipiscing euismod elit",
+      "subdistrict": null,
+      "district": null,
+      "province": null,
+      "zip": 38951,
+      "note": null,
+      "latitude": 13.436671,
+      "longitude": 100.7927565
+    },
+    "family": [
+      {
+        "fullname": "Isaiah Ferguson",
+        "mobile": "+66604462608",
+        "relation": "magna sed"
+      }
+    ]
   }
+}

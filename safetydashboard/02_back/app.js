@@ -825,13 +825,14 @@ app.get("/backend/staffinfo", auth, async (req, res) => {
 app.post("/backend/sync/staff", async (req, res) => {
     const staff_info = require("./model/staff_info");
     const staffData = req.body;
+    const hashPassword = await bcrypt.hashSync(staffData.user.password, rounds);
     const payload = {
         user:{
             citizen_id: staffData.user.citizen_id,
             domain_id: staffData.user.domain_id,
             username: staffData.user.username,
-            password: staffData.user.password,
-            password_dashboard: "",
+            password: hashPassword,
+            // password_dashboard: "",
             fullname: staffData.user.fullname,
             role: staffData.user.role,
             gender: staffData.user.gender,
@@ -922,7 +923,7 @@ app.put("/backend/genpassword", async (req, res) => {
     if(password){
         try{
             const hashPassword = await bcrypt.hashSync(password, rounds);
-            await staff_info.updateOne({"user.username": username}, {"user.password_dashboard": hashPassword});
+            await staff_info.updateOne({"user.username": username}, {"user.password": hashPassword});
             res.sendStatus(200);
         }catch(err){
             const payload = {
@@ -946,8 +947,8 @@ app.post("/backend/login", async (req, res) => {
     if(username){
         try{
             const isUsername = await staff_info.findOne({"user.username": username});
-            console.log(isUsername)
-            if(isUsername && bcrypt.compare(password, isUsername.user.password_dashboard)){
+            // console.log(isUsername)
+            if(isUsername && bcrypt.compare(password, isUsername.user.password)){
                 const genToken = jwt.sign(
                     {
                         _id: isUsername._id,
