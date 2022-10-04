@@ -21,7 +21,7 @@
                             <h5>{{errorDesc}}</h5>
                         </div>
                         <div class="set-btn">
-                            <button class="btn-register" @click="haddleRegister">สร้างรหัสสมาชิก</button>
+                            <!-- <button class="btn-register" @click="haddleRegister">สร้างรหัสสมาชิก</button> -->
                             <button class="btn-login" @click="haddleLogin">เข้าสู่ระบบ</button>
                         </div>
                     </div>
@@ -33,14 +33,14 @@
 </template>
 
 <script>
-    import RegisterUser from "../components/RegisterUser.vue";
+    // import RegisterUser from "../components/RegisterUser.vue";
     import axios from "axios";
     import {httpAPI} from "../../settingAPI";
     const sendAPI = httpAPI();
 
     export default {
         components:{
-            RegisterUser,
+            // RegisterUser,
         },
         data(){
             return{
