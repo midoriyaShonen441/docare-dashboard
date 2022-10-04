@@ -1,0 +1,18 @@
+{
+    "user_ids": [
+      "5501307648790"
+    ],
+    "device": {
+      "id": "VrURc7tetRRE",
+      "name": null,
+      "type": "Trackimo",
+      "mobile": "+66763168315"
+    },
+    "case_info": {
+      "locateable_id": null,
+      "locateable_type": null,
+      "latitude": 13.4691091,
+      "longitude": 98.9545171,
+      "timestamp": 1664004235
+    }
+  }

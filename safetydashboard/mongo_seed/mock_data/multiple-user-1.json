@@ -2,7 +2,7 @@
     "users": [
       {
         "citizen_id": "9918773311248",
-        "domain_id": 28,
+        "domain_id": 1,
         "username": "arjun_burrows_4230",
         "password": "y5IEThEcuT4aOCGy",
         "fullname": "Arjun Burrows",
@@ -108,7 +108,7 @@
       },
       {
         "citizen_id": "7035080706282",
-        "domain_id": 28,
+        "domain_id": 1,
         "username": "alix_dennis_3082",
         "password": "lwCu5nUo0JEfZ2KK",
         "fullname": "Alix Dennis",

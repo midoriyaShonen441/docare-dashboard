@@ -1,0 +1,74 @@
+[
+    {
+        "user_ids": [
+          "5501307648790"
+        ],
+        "device": {
+          "id": "VrURc7tetRRE",
+          "name": null,
+          "type": "Trackimo",
+          "mobile": "+66763168315"
+        },
+        "case_info": {
+          "locateable_id": null,
+          "locateable_type": null,
+          "latitude": 13.4691091,
+          "longitude": 98.9545171,
+          "timestamp": 1664004235
+        }
+      },
+      {
+        "user_ids": [
+          "4751081120470"
+        ],
+        "device": {
+          "id": "rHOpZeP3v2wp",
+          "name": "sed",
+          "type": "LivOn",
+          "mobile": null
+        },
+        "case_info": {
+          "locateable_id": null,
+          "locateable_type": null,
+          "latitude": 13.7191193,
+          "longitude": 99.3745368,
+          "timestamp": 1664004305
+        }
+      },
+      {
+        "user_ids": [
+          "3650674025729"
+        ],
+        "device": {
+          "id": "10g9ZhmduGeA",
+          "name": "adipiscing",
+          "type": "LivOn",
+          "mobile": "+66747983046"
+        },
+        "case_info": {
+          "locateable_id": null,
+          "locateable_type": null,
+          "latitude": 13.3372428,
+          "longitude": 98.3187509,
+          "timestamp": 1664004314
+        }
+      },
+      {
+        "user_ids": [
+          "3893833680255"
+        ],
+        "device": {
+          "id": "eOzXM3sSaZHv",
+          "name": null,
+          "type": "Trackimo",
+          "mobile": "+66783437836"
+        },
+        "case_info": {
+          "locateable_id": null,
+          "locateable_type": null,
+          "latitude": 12.6248196,
+          "longitude": 98.8110172,
+          "timestamp": 1664004326
+        }
+      }
+]

@@ -1,0 +1,18 @@
+{
+    "user_ids": [
+      "4751081120470"
+    ],
+    "device": {
+      "id": "rHOpZeP3v2wp",
+      "name": "sed",
+      "type": "LivOn",
+      "mobile": null
+    },
+    "case_info": {
+      "locateable_id": null,
+      "locateable_type": null,
+      "latitude": 13.7191193,
+      "longitude": 99.3745368,
+      "timestamp": 1664004305
+    }
+  }
