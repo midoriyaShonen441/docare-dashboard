@@ -163,7 +163,7 @@
 
         <div class="btn-change">
           <button :class="cssBtnConfirm" @click="haddleAction('emer', $store.state.userSelectEmergency.id)">ยืนยันเหตุการณ์</button>
-          <button :class="cssBtnEvt" @click="haddleAction('nor', $store.state.userSelectEmergency.id)">ไม่เกิดเหคุการณ์</button>
+          <button :class="cssBtnEvt" @click="haddleAction('nor', $store.state.userSelectEmergency.id)">ไม่เกิดเหตุการณ์</button>
         </div>
 
       </div>
@@ -171,7 +171,10 @@
 </template>
 
 <script>
-import QrcodeVue from 'qrcode.vue'
+import QrcodeVue from 'qrcode.vue';
+import axios from 'axios';
+import {httpAPI} from "../../settingAPI";
+const sensAPI = httpAPI();
 
 export default {
     components:{
@@ -188,18 +191,21 @@ export default {
         }
     },
     methods:{
-      haddleAction(evt, id){
+      async haddleAction (evt, id){
         if(evt === "emer"){
           payload = {
             _id:id,
             case_confirm: true,
           }
-
+          await axios
+          .post(`${sensAPI}/confirmemergency`,payload, headerConf)
         }else if(evt === "nor"){
           payload = {
             _id:id,
             case_confirm: true,
           }
+          await axios
+          .post(`${sensAPI}/confirmemergency`,payload, headerConf)
         }
       },
       checkComment(){
