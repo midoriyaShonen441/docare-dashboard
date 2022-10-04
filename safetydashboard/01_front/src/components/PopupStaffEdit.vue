@@ -105,11 +105,13 @@ export default {
                     this.$store.state.popupStaffEdit = false;
                 }else{
                     alert(statusOut.data.text);
+                    this.$cookies.remove("sefaty-user");
                     this.$cookies.remove("sefaty-token");
                     this.$router.push("/login");
                 }
             }catch(err){
                 alert(statusOut.data.text);
+                this.$cookies.remove("sefaty-user");
                 this.$cookies.remove("sefaty-token");
                 this.$router.push("/login");
             }

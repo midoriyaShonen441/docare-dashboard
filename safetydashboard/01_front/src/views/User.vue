@@ -128,7 +128,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="on-emer-set" >
+                    <!-- <div class="on-emer-set" >
                         <div style="display: flex; margin-left: 12px;">
                           <span style="display: flex">
                               <img
@@ -137,19 +137,19 @@
                               fit="cover"
                               class="mr-4"
                             />
-                            <div class="emer-deice" v-for="(data, index) in props.row.device_data" :key="index">
-                              <div v-if="data.id !== null">Device id: {{data.id}}</div>
+                            <div class="emer-deice" v-for="(data, index) in props.row" :key="index">
+                              <div v-if="data.id !== null">Device id: {{data.device_data.id}}</div>
                               <div v-if="data.id === null">Device id: n/a</div>
-                              <div v-if="data.name !== null">Device name: {{data.name}}</div>
+                              <div v-if="data.name !== null">Device name: {{data.device_data.name}}</div>
                               <div v-if="data.name === null">Device name: n/a</div>
-                              <div v-if="data.type !== null">Device type: {{data.type}}</div>
+                              <div v-if="data.type !== null">Device type: {{data.device_data.type}}</div>
                               <div v-if="data.type === null">Device type: n/a</div>
-                              <div v-if="data.mobile !== null">Device mobile: {{data.mobile}}</div>
+                              <div v-if="data.mobile !== null">Device mobile: {{data.device_data.mobile}}</div>
                               <div v-if="data.mobile === null">Device mobile: n/a</div>
                             </div>
                           </span>
                         </div>
-                      </div>
+                      </div> -->
                   </el-row>
                 </div>
               </template>
@@ -260,20 +260,23 @@ export default {
 
     async fetchAPIUser(){
       try{
-        const headerData = this.$cookies.get("sefaty-token")
+        const headerData = this.$cookies.get("sefaty-token");
         const headerConf = {
                   headers:{
                       "access-token": headerData.token
                   }
               }
         const userProfile = await axios.get(`${sensAPI}/getuser`,headerConf);
+        
         if(userProfile.data.status === 200){
           this.backupUser = userProfile.data.data;
           this.arrayUser = userProfile.data.data;
+          console.log(this.arrayUser)
           this.rangeOfPage = userProfile.data.data.length;
           let genPages = 1;
           let countMax = 1;
           for(let i = 0; i < userProfile.data.data.length; i++){
+            // console.log("userProfile device_data ==> ", userProfile.data.data[i].device_data)
             this.arrayUser[i]["pages"] = genPages;
             this.searchUsersList.push(userProfile.data.data[i].user.fullname);
             countMax ++;
@@ -284,11 +287,13 @@ export default {
           }
         }else{
           alert(userProfile.data.text);
+          this.$cookies.remove("sefaty-user");
           this.$cookies.remove("sefaty-token");
           this.$router.push("/login");
         }
       }catch(err){
         alert("unauthorized please login again.");
+        this.$cookies.remove("sefaty-user");
         this.$cookies.remove("sefaty-token");
         this.$router.push("/login");
       }

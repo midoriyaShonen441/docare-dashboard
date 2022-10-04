@@ -44,26 +44,26 @@ export default {
         
     },
     methods:{
-        haddleClose(){
-            this.$store.state.popupRegister = false
-        },
-        async haddleSubmit(){
-            if(this.newPassword === this.confirmPassword){
-                const payload = {
-                    username: this.sliverCareUsername,
-                    password: this.newPassword
-                }
-                const statusUpdate = await axios.put(`${sendAPI}/genpassword`,payload);
-                console.log(statusUpdate);
-                if(statusUpdate.status === 200){
-                    alert("update password sucess!");
-                    this.$store.state.popupRegister = false;
-                }
-            }else{
-                this.errorText = "password not match."
-            }
+        // haddleClose(){
+        //     this.$store.state.popupRegister = false
+        // },
+        // async haddleSubmit(){
+        //     if(this.newPassword === this.confirmPassword){
+        //         const payload = {
+        //             username: this.sliverCareUsername,
+        //             password: this.newPassword
+        //         }
+        //         const statusUpdate = await axios.put(`${sendAPI}/genpassword`,payload);
+        //         console.log(statusUpdate);
+        //         if(statusUpdate.status === 200){
+        //             alert("update password sucess!");
+        //             this.$store.state.popupRegister = false;
+        //         }
+        //     }else{
+        //         this.errorText = "password not match."
+        //     }
             
-        }
+        // }
     },
     created(){
 

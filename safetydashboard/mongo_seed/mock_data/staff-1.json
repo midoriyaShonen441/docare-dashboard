@@ -1,52 +1,52 @@
 {
-    "user": {
-      "citizen_id": "9579971510076",
-      "domain_id": 1,
-      "username": "user1",
-      "password": "user1",
-      "fullname": "Sumaiyah Villegas",
-      "role": "Admin",
-      "gender": "Male",
-      "dob": "1972-04-15",
-      "blood_type": null,
-      "height": "179",
-      "weight": null,
-      "allergies": [
-        "Sandwich",
-        "Hot dog",
-        "Hamburger"
-      ],
-      "conditions": [
-        "Osteoporosis",
-        "Osteoarthritis",
-        "Substance Abuse: Alcohol",
-        "Alzheimer",
-        "Stroke",
-        "Epilepsy"
-      ],
-      "drugs": [
-        "Montelukast"
-      ],
-      "vital_signs": {
-        "pulse": "72",
-        "bp": "112/105",
-        "temp": "38.83",
-        "oxygen": "97",
-        "glucose": "166",
-        "weight": null
-      },
-      "contact": {
-        "mobile": "+66678235294",
-        "address_1": null,
-        "address_2": null,
-        "subdistrict": null,
-        "district": null,
-        "province": null,
-        "zip": 97973,
-        "note": null,
-        "latitude": 13.993776,
-        "longitude": 100.3039461
-      },
-      "family": []
-    }
+  "user": {
+    "citizen_id": "9579971510076",
+    "domain_id": 1,
+    "username": "user1",
+    "password": "$2b$13$78amAQqWLJ4t1aWwlVE.h.qomR6MScVrJCYgwUfQ36OYq.bHPxA6S",
+    "fullname": "Sumaiyah Villegas",
+    "role": "Admin",
+    "gender": "Male",
+    "dob": "1972-04-15",
+    "blood_type": null,
+    "height": "179",
+    "weight": null,
+    "allergies": [
+      "Sandwich",
+      "Hot dog",
+      "Hamburger"
+    ],
+    "conditions": [
+      "Osteoporosis",
+      "Osteoarthritis",
+      "Substance Abuse: Alcohol",
+      "Alzheimer",
+      "Stroke",
+      "Epilepsy"
+    ],
+    "drugs": [
+      "Montelukast"
+    ],
+    "vital_signs": {
+      "pulse": "72",
+      "bp": "112/105",
+      "temp": "38.83",
+      "oxygen": "97",
+      "glucose": "166",
+      "weight": null
+    },
+    "contact": {
+      "mobile": "+66678235294",
+      "address_1": null,
+      "address_2": null,
+      "subdistrict": null,
+      "district": null,
+      "province": null,
+      "zip": 97973,
+      "note": null,
+      "latitude": 13.993776,
+      "longitude": 100.3039461
+    },
+    "family": []
   }
+}
