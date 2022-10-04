@@ -574,6 +574,7 @@ app.get("/backend/syncEmergencyLog", auth, async (req, res) => {
   // import function //
   const SendingEmergencyModule = require("./customFunction/recursiveModule");
   const { domain_id } = req.authData.decode;
+  console.log(domain_id)
   // console.log("domain_id" , domain_id)
   try {
     const emergencyReport = await emergency_info.aggregate([
@@ -601,6 +602,7 @@ app.get("/backend/syncEmergencyLog", auth, async (req, res) => {
       { $match: { tenan: domain_id, case_confirm: false } },
     ]);
 
+    console.log(emergencyReport);
     // console.log("emergencyReport ==> ", emergencyReport)
     const emergencyModel = new SendingEmergencyModule(
       emergencyReport,

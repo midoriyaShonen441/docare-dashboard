@@ -2,7 +2,7 @@
   {
     "user": {
       "citizen_id": "5501307648790",
-      "domain_id": 1,
+      "domain_id": "1",
       "username": "lyndon_hernandez_2285",
       "password": "Wc4bFDupzMECspPw",
       "fullname": "Lyndon Hernandez",
@@ -55,7 +55,7 @@
   {
     "user": {
       "citizen_id": "4751081120470",
-      "domain_id": 1,
+      "domain_id": "1",
       "username": "myron_partridge_5034",
       "password": "dU3pug1cfkY7Vg98",
       "fullname": "Myron Partridge",
@@ -108,7 +108,7 @@
   {
     "user": {
       "citizen_id": "3650674025729",
-      "domain_id": 2,
+      "domain_id": "2",
       "username": "anabella_bravo_6197",
       "password": "RTn3M1aForL9mBvg",
       "fullname": "Anabella Bravo",
@@ -160,7 +160,7 @@
   {
     "user": {
       "citizen_id": "3893833680255",
-      "domain_id": 2,
+      "domain_id": "2",
       "username": "mariah_brady_0077",
       "password": "bKnuRTuWza2R55CK",
       "fullname": "Mariah Brady",
