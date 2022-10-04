@@ -51,11 +51,13 @@ export default defineComponent({
                     this.$store.state.emergencyArray = emerData.data.data;
                 }else{
                     alert(emerData.data.text);
+                    this.$cookies.remove("sefaty-user");
                     this.$cookies.remove("sefaty-token");
                     this.$router.push("/login");
                 }
             }catch(err){
                 alert("unauthorized please login again.");
+                this.$cookies.remove("sefaty-user");
                 this.$cookies.remove("sefaty-token");
                 this.$router.push("/login");
             }

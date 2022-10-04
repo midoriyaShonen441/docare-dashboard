@@ -64,11 +64,13 @@ export default {
                     window.location.reload();
                 }else{
                     alert(`${resultDelete.data.text}`);
+                    this.$cookies.remove("sefaty-user");
                     this.$cookies.remove("sefaty-token");
                     this.$router.push("/login");
                 }
             }catch(err){
                 alert("unauthorized please login again.");
+                this.$cookies.remove("sefaty-user");
                 this.$cookies.remove("sefaty-token");
                 this.$router.push("/login");
             }

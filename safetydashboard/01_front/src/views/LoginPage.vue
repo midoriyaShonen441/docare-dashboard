@@ -60,7 +60,8 @@
                     const userProfile = await axios.post(`${sendAPI}/login`,payload);                    
                     console.log(userProfile)
                     if(userProfile.data.status === 200){
-                        console.log(userProfile)
+                        // console.log(userProfile)
+                        this.$cookies.set("sefaty-user", this.username);
                         this.$cookies.set("sefaty-token",userProfile.data);
                         this.$router.push('/');
                     }else{
