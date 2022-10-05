@@ -185,7 +185,7 @@ const sensAPI = httpAPI();
 
 export default {
   components: {
-    QrcodeVue
+    QrcodeVue,
   },
   data() {
     return {
@@ -209,7 +209,8 @@ export default {
           .put(`${sensAPI}/confirmemergency`, payload)
           .then((res) => {
             if (res) {
-              console.log(res)
+              console.log(res);
+              this.$router.go(this.$router.currentRoute)
               return
             }
           })
@@ -224,6 +225,7 @@ export default {
           .then((res) => {
             if (res) {
               console.log(res)
+              this.$router.go(this.$router.currentRoute)
               return
             }
           })
