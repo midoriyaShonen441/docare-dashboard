@@ -1,273 +1,294 @@
 <template>
   <div :class="$store.state.cssEmergencyInfo">
-  <div v-if="$store.state.cssEmergencyInfo === 'set-emergency-info'">
+    <div v-if="$store.state.cssEmergencyInfo === 'set-emergency-info'">
       <div class="title-info">
-          <div class="title-content">
-            Telehealth Development
-          </div>
-          <div class="title-btn-out" @click="$store.commit('closeEmergencyDetail')"> 
-            X
-          </div>
+        <div class="title-content">
+          Telehealth Development
         </div>
-        <div class="user-detail">
-          <div class="user-icon">
-            <i class='fas fa-user-alt' style='font-size:40px'></i>
-          </div>
-          <div class="user-id">
-            <div class="user-name">{{this.$store.state.userSelectEmergency.fullname}}</div>
-            <div class="user-address" v-if="$store.state.userSelectEmergency.address_1">{{this.$store.state.userSelectEmergency.province}} {{this.$store.state.userSelectEmergency.district}} {{this.$store.state.userSelectEmergency.subdistrict}}  {{this.$store.state.userSelectEmergency.zip}} {{this.$store.state.userSelectEmergency.address_1}} </div>
-            <div class="user-address" v-if="!($store.state.userSelectEmergency.address_1)">{{this.$store.state.userSelectEmergency.province}} {{this.$store.state.userSelectEmergency.district}} {{this.$store.state.userSelectEmergency.subdistrict}}  {{this.$store.state.userSelectEmergency.zip}} {{this.$store.state.userSelectEmergency.address_2}}</div>
-          </div>
+        <div class="title-btn-out" @click="$store.commit('closeEmergencyDetail')">
+          X
         </div>
-        <div class="customer-info">
-          <div class="title-person">
-            <div class="set-grid title-set-tel-device">
-              <div class="set-name">เบอร์โทรศัพท์ (อุปกรณ์)</div>
-              <div class="detail-set-tel-device" >
-                <div class="set-name" v-if="$store.state.userSelectEmergency.device.mobile !== '' || 
-                $store.state.userSelectEmergency.device.mobile !== undefined || 
-                $store.state.userSelectEmergency.device.mobile !== null"
-                >{{$store.state.userSelectEmergency.device.mobile}}</div>
-                <div class="set-name" v-if="$store.state.userSelectEmergency.device.mobile === '' || 
-                $store.state.userSelectEmergency.device.mobile === undefined || 
-                $store.state.userSelectEmergency.device.mobile === null"
-                >n/a</div>
-              </div>
+      </div>
+      <div class="user-detail">
+        <div class="user-icon">
+          <i class='fas fa-user-alt' style='font-size:40px'></i>
+        </div>
+        <div class="user-id">
+          <div class="user-name">{{this.$store.state.userSelectEmergency.fullname}}</div>
+          <div class="user-address" v-if="$store.state.userSelectEmergency.address_1">
+            {{this.$store.state.userSelectEmergency.province}} {{this.$store.state.userSelectEmergency.district}}
+            {{this.$store.state.userSelectEmergency.subdistrict}} {{this.$store.state.userSelectEmergency.zip}}
+            {{this.$store.state.userSelectEmergency.address_1}} </div>
+          <div class="user-address" v-if="!($store.state.userSelectEmergency.address_1)">
+            {{this.$store.state.userSelectEmergency.province}} {{this.$store.state.userSelectEmergency.district}}
+            {{this.$store.state.userSelectEmergency.subdistrict}} {{this.$store.state.userSelectEmergency.zip}}
+            {{this.$store.state.userSelectEmergency.address_2}}</div>
+        </div>
+      </div>
+      <div class="customer-info">
+        <div class="title-person">
+          <div class="set-grid title-set-tel-device">
+            <div class="set-name">เบอร์โทรศัพท์ (อุปกรณ์)</div>
+            <div class="detail-set-tel-device">
+              <div class="set-name" v-if="$store.state.userSelectEmergency.device.mobile !== '' || 
+              $store.state.userSelectEmergency.device.mobile !== undefined || 
+              $store.state.userSelectEmergency.device.mobile !== null">
+                {{$store.state.userSelectEmergency.device.mobile}}</div>
+              <div class="set-name" v-if="$store.state.userSelectEmergency.device.mobile === '' || 
+              $store.state.userSelectEmergency.device.mobile === undefined || 
+              $store.state.userSelectEmergency.device.mobile === null">n/a</div>
             </div>
-            <div class="set-grid title-set-tel-person">
-              <div class="set-name">เบอร์โทรศัพท์ (บุคคล)</div>
-              <div class="detail-set-tel-person" >
-                <div class="set-name" v-if="$store.state.userSelectEmergency.mobile !== '' || 
-                $store.state.userSelectEmergency.mobile !== undefined || 
-                $store.state.userSelectEmergency.mobile !== null">
+          </div>
+          <div class="set-grid title-set-tel-person">
+            <div class="set-name">เบอร์โทรศัพท์ (บุคคล)</div>
+            <div class="detail-set-tel-person">
+              <div class="set-name" v-if="$store.state.userSelectEmergency.mobile !== '' || 
+              $store.state.userSelectEmergency.mobile !== undefined || 
+              $store.state.userSelectEmergency.mobile !== null">
                 {{$store.state.userSelectEmergency.mobile}}
-                </div>
-                <div class="set-name" v-if="$store.state.userSelectEmergency.mobile === '' || 
-                $store.state.userSelectEmergency.mobile === undefined || 
-                $store.state.userSelectEmergency.mobile === null">
+              </div>
+              <div class="set-name" v-if="$store.state.userSelectEmergency.mobile === '' || 
+              $store.state.userSelectEmergency.mobile === undefined || 
+              $store.state.userSelectEmergency.mobile === null">
                 n/a
               </div>
             </div>
-            </div>
-            <div class="set-grid title-congenital-blood">
-              <div class="set-name">กรุ๊ปเลือด</div>
-              <div class="detail-congenital-blood" >
-                <div class="set-name" v-if="$store.state.userSelectEmergency.blood_type !== '' || 
-                $store.state.userSelectEmergency.blood_type !== undefined || 
-                $store.state.userSelectEmergency.blood_type !== null">
+          </div>
+          <div class="set-grid title-congenital-blood">
+            <div class="set-name">กรุ๊ปเลือด</div>
+            <div class="detail-congenital-blood">
+              <div class="set-name" v-if="$store.state.userSelectEmergency.blood_type !== '' || 
+              $store.state.userSelectEmergency.blood_type !== undefined || 
+              $store.state.userSelectEmergency.blood_type !== null">
                 {{$store.state.userSelectEmergency.blood_type}}</div>
-                <div class="set-name" v-if="$store.state.userSelectEmergency.blood_type === '' || 
-                $store.state.userSelectEmergency.blood_type === undefined || 
-                $store.state.userSelectEmergency.blood_type === null">
+              <div class="set-name" v-if="$store.state.userSelectEmergency.blood_type === '' || 
+              $store.state.userSelectEmergency.blood_type === undefined || 
+              $store.state.userSelectEmergency.blood_type === null">
                 n/a</div>
-                </div>
             </div>
-            <div class="set-grid title-congenital-disease">
-              <div class="set-name">โรคประจำตัว</div>
-              <div class="detail-congenital-disease" >
-                <div class="set-name" v-if="$store.state.userSelectEmergency.conditions !== '' || 
-                $store.state.userSelectEmergency.conditions !== undefined || 
-                $store.state.userSelectEmergency.conditions !== null">
-                <span v-for="(data, index) in $store.state.userSelectEmergency.conditions" :key="index">{{data}}, </span>
+          </div>
+          <div class="set-grid title-congenital-disease">
+            <div class="set-name">โรคประจำตัว</div>
+            <div class="detail-congenital-disease">
+              <div class="set-name" v-if="$store.state.userSelectEmergency.conditions !== '' || 
+              $store.state.userSelectEmergency.conditions !== undefined || 
+              $store.state.userSelectEmergency.conditions !== null">
+                <span v-for="(data, index) in $store.state.userSelectEmergency.conditions" :key="index">{{data}},
+                </span>
               </div>
-                <div class="set-name" v-if="$store.state.userSelectEmergency.conditions === '' || 
-                $store.state.userSelectEmergency.conditions === undefined || 
-                $store.state.userSelectEmergency.conditions === null">
+              <div class="set-name" v-if="$store.state.userSelectEmergency.conditions === '' || 
+              $store.state.userSelectEmergency.conditions === undefined || 
+              $store.state.userSelectEmergency.conditions === null">
                 n/a</div>
-                </div>
             </div>
           </div>
         </div>
-        <div class="set-customer-contact">
-          <div class="title-contact">ผู้ติดต่อ</div>
-          <div class="customer-contact" v-for="(data, index) in $store.state.userSelectEmergency.family" :key="index">
-            <div class="another-type">{{data.fullname}}</div>
-            <div class="another-contact">{{data.mobile }}</div>
-          </div>
-        </div>
-        <div class="staff-in-action">
-          <div class="staff-title">เจ้าหน้าที่ศูนย์ควบคุมประจำท้องที่ (กำลังปฏิบัติงาน)</div>
-          <div class="set-staff-contact">
-            <div class="set-name-title">UAT TESTER</div>
-            <div class="staff-contact">{{$store.state.userSelectEmergency.UATAction}}</div>
-          </div>
-        </div>
-        <div class="emer-stuc">
-          <div>
-            เหตุฉุกเฉินในอาคาร: 
-          </div>
-          <div class="set-detail-floor" @click="haddleSturctureShow">
-            <div>
-              <!-- {{$store.state.userSelectEmergency.case_location}} -->
-              <div v-if="$store.state.userSelectEmergency.case_info.case_info !== null">Case Id: {{$store.state.userSelectEmergency.case_info.locateable_id}}</div>
-              <div v-if="$store.state.userSelectEmergency.case_info.locateable_type !== null">Type: {{$store.state.userSelectEmergency.case_info.locateable_type}}</div>
-            </div>
-            <div>
-              <img src="../assets/tower-block.png" width="60" height="50"/>
-            </div>
-          </div>
-        </div>
-        <div class="qrcode-container">
-          <div class="title-qr">
-            Sharing qrcode
-          </div>
-          <div class="set-qrcode">
-            <div class="pic-qrcode">
-              <qrcode-vue :value="value" :size="size" level="H" />
-            </div>
-            <div class="sharing-link">
-              <div class="btn-clip">
-                <button
-                  @click="haddleCopy($store.state.userSelectEmergency.id)"
-                >
-                  <img src="../assets/copy.png" width="50" height="50" >
-                </button>
-              </div>
-              <div class="sharing-page">
-                <button
-                  @click="linkToPage($store.state.userSelectEmergency.id)"
-                >
-                  <img src="../assets/link.png" width="50" height="50" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="under-line">
-          <hr/>
-        </div>
-        <div class="time-emergency">
-          <div class="title-emergency">เหตุการณ์ กดปุ่มขอความช่วยเหลือ (Anywhere)</div>
-          <div class="set-time-emergency">
-            <div class="is-emer">เวลาเกิดเหตุ</div>
-            <div class="at-emer">{{$store.state.userSelectEmergency.emergencyDate}} &nbsp; {{$store.state.userSelectEmergency.emergencyTime}}</div>
-          </div>
-        </div>
-        <div class="confirm-emer">
-          <div class="confirm-title">
-            ยืนยันเหตุการณ์
-          </div>
-          <div class="set-confirm-emer">
-            <div class="set-dropdown-select">
-              <label>หน่วยฉุกเฉิน</label>
-              <select class="dropdown-select">
-                <option>SmartLiving Hospital</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="set-comment-area">
-          <textarea class="area-comment" v-model="commentArea"></textarea>
-        </div>
-
-        <div class="btn-change">
-          <button :class="cssBtnConfirm" @click="haddleAction('emer', $store.state.userSelectEmergency.id)">ยืนยันเหตุการณ์</button>
-          <button :class="cssBtnEvt" @click="haddleAction('nor', $store.state.userSelectEmergency.id)">ไม่เกิดเหตุการณ์</button>
-        </div>
-
       </div>
+      <div class="set-customer-contact">
+        <div class="title-contact">ผู้ติดต่อ</div>
+        <div class="customer-contact" v-for="(data, index) in $store.state.userSelectEmergency.family" :key="index">
+          <div class="another-type">{{data.fullname}}</div>
+          <div class="another-contact">{{data.mobile }}</div>
+        </div>
+      </div>
+      <div class="staff-in-action">
+        <div class="staff-title">เจ้าหน้าที่ศูนย์ควบคุมประจำท้องที่ (กำลังปฏิบัติงาน)</div>
+        <div class="set-staff-contact">
+          <div class="set-name-title">UAT TESTER</div>
+          <div class="staff-contact">{{$store.state.userSelectEmergency.UATAction}}</div>
+        </div>
+      </div>
+      <div class="emer-stuc">
+        <div>
+          เหตุฉุกเฉินในอาคาร:
+        </div>
+        <div class="set-detail-floor" @click="haddleSturctureShow">
+          <div>
+            <!-- {{$store.state.userSelectEmergency.case_location}} -->
+            <div v-if="$store.state.userSelectEmergency.case_info.case_info !== null">Case Id:
+              {{$store.state.userSelectEmergency.case_info.locateable_id}}</div>
+            <div v-if="$store.state.userSelectEmergency.case_info.locateable_type !== null">Type:
+              {{$store.state.userSelectEmergency.case_info.locateable_type}}</div>
+          </div>
+          <div>
+            <img src="../assets/tower-block.png" width="60" height="50" />
+          </div>
+        </div>
+      </div>
+      <div class="qrcode-container">
+        <div class="title-qr">
+          Sharing qrcode
+        </div>
+        <div class="set-qrcode">
+          <div class="pic-qrcode">
+            <qrcode-vue :value="value" :size="size" level="H" />
+          </div>
+          <div class="sharing-link">
+            <div class="btn-clip">
+              <button @click="haddleCopy($store.state.userSelectEmergency.id)">
+                <img src="../assets/copy.png" width="50" height="50">
+              </button>
+            </div>
+            <div class="sharing-page">
+              <button @click="linkToPage($store.state.userSelectEmergency.id)">
+                <img src="../assets/link.png" width="50" height="50" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="under-line">
+        <hr />
+      </div>
+      <div class="time-emergency">
+        <div class="title-emergency">เหตุการณ์ กดปุ่มขอความช่วยเหลือ (Anywhere)</div>
+        <div class="set-time-emergency">
+          <div class="is-emer">เวลาเกิดเหตุ</div>
+          <div class="at-emer">{{$store.state.userSelectEmergency.emergencyDate}} &nbsp;
+            {{$store.state.userSelectEmergency.emergencyTime}}</div>
+        </div>
+      </div>
+      <div class="confirm-emer">
+        <div class="confirm-title">
+          ยืนยันเหตุการณ์
+        </div>
+        <div class="set-confirm-emer">
+          <div class="set-dropdown-select">
+            <label>หน่วยฉุกเฉิน</label>
+            <select class="dropdown-select">
+              <option>SmartLiving Hospital</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="set-comment-area">
+        <textarea class="area-comment" v-model="commentArea"></textarea>
+      </div>
+
+      <div class="btn-change">
+        <button :class="cssBtnConfirm"
+          @click="haddleAction('emer', $store.state.userSelectEmergency.citizen_id)">ยืนยันเหตุการณ์</button>
+        <button :class="cssBtnEvt"
+          @click="haddleAction('nor', $store.state.userSelectEmergency.citizen_id)">ไม่เกิดเหตุการณ์</button>
+      </div>
+
+    </div>
   </div>
 </template>
 
 <script>
 import QrcodeVue from 'qrcode.vue';
 import axios from 'axios';
-import {httpAPI} from "../../settingAPI";
+import { httpAPI } from "../../settingAPI";
 const sensAPI = httpAPI();
 
 export default {
-    components:{
-      QrcodeVue
-    },
-    data(){
-        return{
-          commentArea:"",
-          cssBtnConfirm:"btn-on-comment",
-          cssBtnEvt:"btn-on-comment",
-          cssTextArea:"btn-on-comment",
-          value: 'https://example.com',
-          size: 200,
+  components: {
+    QrcodeVue
+  },
+  data() {
+    return {
+      commentArea: "",
+      cssBtnConfirm: "btn-on-comment",
+      cssBtnEvt: "btn-on-comment",
+      cssTextArea: "btn-on-comment",
+      value: 'https://example.com',
+      size: 200,
+    }
+  },
+  methods: {
+    async haddleAction(evt, id) {
+      if (evt === "emer") {
+        const payload = {
+          _id: id,
+          case_confirm: true
         }
-    },
-    methods:{
-      async haddleAction (evt, id){
-        if(evt === "emer"){
-          payload = {
-            _id:id,
-            case_confirm: true,
-          }
-          await axios
-          .post(`${sensAPI}/confirmemergency`,payload, headerConf)
-        }else if(evt === "nor"){
-          payload = {
-            _id:id,
-            case_confirm: true,
-          }
-          await axios
-          .post(`${sensAPI}/confirmemergency`,payload, headerConf)
+        await axios
+          // .post(`${sensAPI}/confirmemergency`, payload, headerConf)
+          .put(`${sensAPI}/confirmemergency`, payload)
+          .then((res) => {
+            if (res) {
+              console.log(res)
+              return
+            }
+          })
+        console.log(this.$store.state.userSelectEmergency)
+      } else if (evt === "nor") {
+        const payload = {
+          _id: id,
+          case_confirm: true,
         }
-      },
-      checkComment(){
-        if(this.commentArea !== ''){
-          this.cssBtnConfirm = "btn-confirm"
-          this.cssBtnEvt = "btn-no-evt"
-        }else{
-          this.cssBtnConfirm = this.cssTextArea
-          this.cssBtnEvt = this.cssTextArea
-        }
-      },
-      haddleSturctureShow(){
-        this.$store.state.sturctureShow = true
-      },
-      async haddleCopy(id){
-        const redirect = `http://localhost:7777/sharing/${id}`
-        await navigator.clipboard.writeText(redirect);
-      },
-      async linkToPage(id){
-        this.$router.push(`/sharing/${id}`)
+        await axios
+          .put(`${sensAPI}/confirmemergency`, payload)
+          .then((res) => {
+            if (res) {
+              console.log(res)
+              return
+            }
+          })
       }
     },
-    mounted(){
-      // console.log(this.$store.state.userSelectEmergency.case_location)
+    checkComment() {
+      if (this.commentArea !== '') {
+        this.cssBtnConfirm = "btn-confirm"
+        this.cssBtnEvt = "btn-no-evt"
+      } else {
+        this.cssBtnConfirm = this.cssTextArea
+        this.cssBtnEvt = this.cssTextArea
+      }
     },
-    updated(){
-      this.checkComment();      
+    haddleSturctureShow() {
+      this.$store.state.sturctureShow = true
+    },
+    async haddleCopy(id) {
+      const redirect = `http://localhost:7777/sharing/${id}`
+      await navigator.clipboard.writeText(redirect);
+    },
+    async linkToPage(id) {
+      this.$router.push(`/sharing/${id}`)
     }
+  },
+  mounted() {
+    // console.log(this.$store.state.userSelectEmergency.case_location)
+  },
+  updated() {
+    this.checkComment();
+  }
 }
 </script>
 
 <style scoped>
-
 /* open on of info */
-.set-emergency-info{
-    position: absolute;
-    width: 500px;
-    background: white;
-    left: 0;
-    z-index: 99;
-    transition: 0.4s;
-    height: 100vh;
-    overflow-y: scroll;
+.set-emergency-info {
+  position: absolute;
+  width: 500px;
+  background: white;
+  left: 0;
+  z-index: 99;
+  transition: 0.4s;
+  height: 100vh;
+  overflow-y: scroll;
 }
 
-.set-emergency-info-close{
-    position: absolute;
-    width: 0;
-    height: 100vh;
-    left: 0;
-    z-index: 1;
-    transition: 0.4s;
+.set-emergency-info-close {
+  position: absolute;
+  width: 0;
+  height: 100vh;
+  left: 0;
+  z-index: 1;
+  transition: 0.4s;
 }
 
 /* *********** */
 
 /* title detail */
-.title-info{
+.title-info {
   display: flex;
   justify-content: space-between;
 }
-.title-content{
+
+.title-content {
   color: black;
   font-weight: bold;
   font-size: 25px;
@@ -275,7 +296,7 @@ export default {
   margin-left: 20px;
 }
 
-.title-btn-out{
+.title-btn-out {
   text-align: center;
   color: rgb(90, 90, 90);
   margin-right: 20px;
@@ -288,7 +309,7 @@ export default {
 
 /* user detail */
 
-.user-detail{
+.user-detail {
   color: black;
   display: flex;
   justify-content: start;
@@ -297,22 +318,22 @@ export default {
   margin-top: 30px;
 }
 
-.user-id{
+.user-id {
   color: black;
   margin-left: 30px;
-  
+
 }
 
-.user-name{
+.user-name {
   font-size: 16px;
 }
 
-.user-address{
+.user-address {
   font-size: 12px
 }
 
 /* customer detail */
-.customer-info{
+.customer-info {
   display: flex;
   justify-content: start;
   width: 80%;
@@ -324,16 +345,17 @@ export default {
 
 
 /* customer contact */
-.set-customer-contact{
+.set-customer-contact {
   width: 80%;
   margin-left: 40px;
   margin-top: 30px;
 }
 
-.title-contact{
+.title-contact {
   color: black;
 }
-.customer-contact{
+
+.customer-contact {
   margin-top: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -343,58 +365,61 @@ export default {
 
 
 /* staff contact */
-.staff-in-action{
+.staff-in-action {
   margin-top: 30px;
   margin-left: 40px;
   color: black;
 }
 
-.staff-title{
+.staff-title {
   margin-bottom: 5px;
 }
 
-.set-staff-contact{
+.set-staff-contact {
   display: grid;
   grid-template-columns: 1fr 1fr;
   color: gray;
 }
-.staff-contact{
+
+.staff-contact {
   transform: translateX(-30px);
 }
 
-.under-line{
+.under-line {
   width: 90%;
   margin: auto;
 }
 
-hr{
+hr {
   margin-top: 35px;
   border: 1px solid rgb(223, 223, 223)
 }
 
 /* time emergency */
 
-.time-emergency{
+.time-emergency {
   margin-left: 40px;
   margin-top: 3px;
 }
-.title-emergency{
+
+.title-emergency {
   color: red;
   font-weight: bold;
   font-size: 16px;
 }
 
-.set-time-emergency{
+.set-time-emergency {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 10px;
-  
+
 }
-.is-emer{
+
+.is-emer {
   color: grey;
 }
 
-.at-emer{
+.at-emer {
   color: black;
   transform: translateX(-30px);
 }
@@ -402,35 +427,36 @@ hr{
 
 /* confirm emer */
 
-.confirm-emer{
+.confirm-emer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 6px;
   margin-left: 40px;
 }
 
-.set-confirm-emer{
+.set-confirm-emer {
   color: black;
 }
 
-select{
+select {
   margin: auto;
 }
 
-.confirm-title{
+.confirm-title {
   color: black
 }
 
-label{
+label {
   color: black;
   text-align: center;
   font-size: 13px;
 }
-.set-dropdown-select{
+
+.set-dropdown-select {
   margin-right: 90px;
 }
 
-.dropdown-select{
+.dropdown-select {
   color: rgb(28, 28, 28);
   background-color: white;
   border-bottom: 1px solid gray;
@@ -438,11 +464,12 @@ label{
 }
 
 /* comment text area */
-.set-comment-area{
+.set-comment-area {
   margin-top: 30px;
   margin-left: 40px;
 }
-.area-comment{
+
+.area-comment {
   color: black;
   background: white;
   border: 1px solid gray;
@@ -453,50 +480,51 @@ label{
 }
 
 /* btn action api */
-.btn-change{
-  margin:auto;
+.btn-change {
+  margin: auto;
   text-align: center;
   margin-bottom: 40px;
   margin-top: 40px;
 }
 
-.btn-change > button{
+.btn-change>button {
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.btn-confirm{
+.btn-confirm {
   background: rgb(63, 63, 108);
   width: 170px;
   height: 40px;
   border-radius: 10px;
 }
 
-.btn-no-evt{
+.btn-no-evt {
   background: rgb(138, 29, 29);
   width: 170px;
   height: 40px;
   border-radius: 10px;
 }
 
-.btn-on-comment{
+.btn-on-comment {
   background: rgb(57, 57, 57);
   width: 170px;
   height: 40px;
   border-radius: 10px;
 }
-.personal-detail{
+
+.personal-detail {
   margin-left: 30px;
 }
 
 
-.set-grid{
+.set-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 10px;
 }
 
-.emer-stuc{
+.emer-stuc {
   color: black;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -505,48 +533,57 @@ label{
   margin-top: 30px;
 }
 
-.set-detail-floor{
+.set-detail-floor {
   text-align: center;
   display: flex;
   justify-content: center;
   border-radius: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  -webkit-animation: close-alert-emergency 1s infinite;  /* Safari 4+ */
-  -moz-animation: close-alert-emergency 1s infinite;  /* Fx 5+ */
-  -o-animation: close-alert-emergency 1s infinite;  /* Opera 12+ */
-  animation: close-alert-emergency 1s infinite; 
-  
+  -webkit-animation: close-alert-emergency 1s infinite;
+  /* Safari 4+ */
+  -moz-animation: close-alert-emergency 1s infinite;
+  /* Fx 5+ */
+  -o-animation: close-alert-emergency 1s infinite;
+  /* Opera 12+ */
+  animation: close-alert-emergency 1s infinite;
+
 }
 
 @-webkit-keyframes close-alert-emergency {
-  0%, 49% {
+
+  0%,
+  49% {
     color: white;
     opacity: 1;
     background: rgb(229, 87, 87);
   }
-  50%, 100% {
+
+  50%,
+  100% {
     color: black;
     opacity: 1;
     background: rgb(255, 255, 255);
   }
 }
 
-.qrcode-container{
+.qrcode-container {
   color: black;
   width: 80%;
   margin-left: 40px;
   margin-top: 30px;
 }
-.set-qrcode{
+
+.set-qrcode {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.sharing-link{
+.sharing-link {
   margin-left: 30px;
 }
-.btn-clip{
+
+.btn-clip {
   color: black;
 }
 </style>

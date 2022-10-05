@@ -688,18 +688,15 @@ app.put("/backend/confirmemergency", async (req, res) => {
   const { _id, case_confirm } = req.body;
   const emergency_info = require("./model/emergency_info");
 
-  const setQuery = {
-    user_ids: _id,
-  };
-
   try {
-    await emergency_info.updateOne(setQuery, { case_confirm: case_confirm }).exec((err, query) => {
-        console.log(query);
-    });
-    res.sendStatus(200);
+    await emergency_info.updateOne(
+      { user_ids: _id, case_confirm: false },
+      { case_confirm: case_confirm }
+    );
+    res.status(200).send({ message: "OK" });
   } catch (err) {
-    console.log(`error in api confirmemergency: ${err}`);
-    res.sendStatus(500);
+    console.log(`error in api confirmEmergency: ${err}`);
+    res.status(500).send({ message: err });
   }
 });
 
