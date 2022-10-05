@@ -4,8 +4,8 @@ require("dotenv").config();
 
 
 ///////////  For Deployment  ////////////
-// const MONGO_URI = process.env.MONGO_URI;
-const MONGO_URI = process.env.MONGO_URI_LOCALHOST
+const MONGO_URI = process.env.MONGO_URI;
+// const MONGO_URI = process.env.MONGO_URI_LOCALHOST
 
 exports.connect = () => {
     mongoose.connect(MONGO_URI, {
