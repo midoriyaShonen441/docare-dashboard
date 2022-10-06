@@ -3,6 +3,7 @@ import axios from "axios";
 import { mapMutations } from "vuex";
 import config from "../config/api.config";
 import User from "../models/user";
+import authService from "../services/auth.service";
 export default {
     components: {},
     data() {

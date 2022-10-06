@@ -15,6 +15,7 @@ verifyToken = (req, res, next) => {
       return res.status(401).send({ message: "Unauthorized!" });
     }
     req.username = decoded.username;
+    req.domain_id = decoded.domain_id;
     next();
   });
 };
@@ -94,7 +95,7 @@ isStaff = (req, res, next) => {
     }
 
     try {
-      if (user.user.role === "Staff") {
+      if (user.user.role !== "User") {
         next();
         return;
       }

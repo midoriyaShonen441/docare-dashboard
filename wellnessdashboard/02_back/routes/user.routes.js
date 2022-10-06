@@ -32,7 +32,7 @@ module.exports = (app) => {
     controller.adminBoard
   );
   app.get(
-    "/api/test/staff",
+    "/api/staff/dashboard",
     [authJwt.verifyToken, authJwt.isStaff],
     controller.staffBoard
   );

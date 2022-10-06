@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar.vue";
 import DashboardMoniVue from "../components/dasboardComponent/DashboardMoni.vue";
 import DashboardAlertEmer from "../components/dasboardComponent/DashboardAlertEmer.vue";
 import DashnoardHealthCheck from "../components/dasboardComponent/DashnoardHealthCheck.vue";
+import UserService from '../services/user.service';
 // import PopupDetailEmer from "../components/dasboardComponent/popupDetail/PopupDetailEmer.vue";
 
 
@@ -15,6 +16,30 @@ export default {
         DashnoardHealthCheck,
         // PopupDetailEmer, // this is component popup detail of emergency.
     },
+    data() {
+        return {
+            content: ""
+        }
+    },
+    mounted() {
+        UserService.getStaffBoard().then(
+            response => {
+                this.content = response.data;
+            },
+            error => {
+                this.content =
+                    (error.response && error.response.data) ||
+                    error.message ||
+                    error.toString();
+                    this.$store.dispatch('auth/logout');
+                    this.$router.push('/');
+
+            }
+        );
+    },
+    computed() {
+
+    }
 }
 
 </script>

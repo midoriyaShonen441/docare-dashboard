@@ -3,15 +3,15 @@ import authHeader from "./auth-header";
 import config from "../config/api.config";
 
 class UserService {
-  getPublicContent() {
-    return axios.get(`${config.API}/api/test/` + "all");
-  }
+  // getPublicContent() {
+  //   return axios.get(`${config.API}/api/test/` + "all");
+  // }
 
-  getUserBoard() {
-    return axios.get(`${config.API}/api/test/` + "user", {
-      headers: authHeader(),
-    });
-  }
+  // getUserBoard() {
+  //   return axios.get(`${config.API}/api/test/` + "user", {
+  //     headers: authHeader(),
+  //   });
+  // }
 
   getMasterBoard() {
     return axios.get(`${config.API}/api/test/` + "master", {
@@ -32,7 +32,7 @@ class UserService {
   }
 
   getStaffBoard() {
-    return axios.get(`${config.API}/api/test/` + "staff", {
+    return axios.get(`${config.API}/api/staff/dashboard`, {
       headers: authHeader(),
     });
   }

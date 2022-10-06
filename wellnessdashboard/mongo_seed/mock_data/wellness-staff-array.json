@@ -1,6 +1,116 @@
 [
   {
     "user": {
+      "citizen_id": "77777777777777",
+      "domain_id": 1,
+      "username": "user",
+      "password": "user",
+      "fullname": "Aariz Lyon",
+      "role": "User",
+      "gender": "Male",
+      "dob": null,
+      "blood_type": null,
+      "height": null,
+      "weight": "41.78",
+      "allergies": ["Ice cream", "Pizza"],
+      "conditions": ["Depressive", "Heat Stroke", "Stroke", "Obesity"],
+      "drugs": ["Levothyroxine"],
+      "vital_signs": {
+        "pulse": null,
+        "bp": "132/70",
+        "temp": "35.04",
+        "oxygen": "93",
+        "glucose": "234",
+        "weight": "69.65"
+      },
+      "contact": {
+        "mobile": "+66659265448",
+        "address_1": null,
+        "address_2": null,
+        "subdistrict": null,
+        "district": null,
+        "province": null,
+        "zip": 29500,
+        "note": null,
+        "latitude": 12.3490318,
+        "longitude": 98.5215005
+      },
+      "family": [
+        {
+          "fullname": "Tia Kaufman",
+          "mobile": "+66663558340",
+          "relation": "sit amet"
+        },
+        {
+          "fullname": "Finley Herbert",
+          "mobile": "+66887915008",
+          "relation": "elit adipiscing"
+        },
+        {
+          "fullname": "Finley Herbert",
+          "mobile": null,
+          "relation": "sed elit"
+        }
+      ]
+    }
+  },
+  {
+    "user": {
+      "citizen_id": "8888888888888",
+      "domain_id": 1,
+      "username": "master1",
+      "password": "master1",
+      "fullname": "Aariz Lyon",
+      "role": "Master",
+      "gender": "Male",
+      "dob": null,
+      "blood_type": null,
+      "height": null,
+      "weight": "41.78",
+      "allergies": ["Ice cream", "Pizza"],
+      "conditions": ["Depressive", "Heat Stroke", "Stroke", "Obesity"],
+      "drugs": ["Levothyroxine"],
+      "vital_signs": {
+        "pulse": null,
+        "bp": "132/70",
+        "temp": "35.04",
+        "oxygen": "93",
+        "glucose": "234",
+        "weight": "69.65"
+      },
+      "contact": {
+        "mobile": "+66659265448",
+        "address_1": null,
+        "address_2": null,
+        "subdistrict": null,
+        "district": null,
+        "province": null,
+        "zip": 29500,
+        "note": null,
+        "latitude": 12.3490318,
+        "longitude": 98.5215005
+      },
+      "family": [
+        {
+          "fullname": "Tia Kaufman",
+          "mobile": "+66663558340",
+          "relation": "sit amet"
+        },
+        {
+          "fullname": "Finley Herbert",
+          "mobile": "+66887915008",
+          "relation": "elit adipiscing"
+        },
+        {
+          "fullname": "Finley Herbert",
+          "mobile": null,
+          "relation": "sed elit"
+        }
+      ]
+    }
+  },
+  {
+    "user": {
       "citizen_id": "99999999999",
       "domain_id": 1,
       "username": "user1",

@@ -19,5 +19,5 @@ exports.adminBoard = (req, res) => {
 };
 
 exports.staffBoard = (req, res) => {
-  res.status(200).send("Staff Content.");
+  res.status(200).send("Staff_OK.");
 };
