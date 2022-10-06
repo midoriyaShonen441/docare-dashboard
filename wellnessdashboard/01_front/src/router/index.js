@@ -4,7 +4,7 @@ import Dashboard from '../views/Dashboard.vue';
 import DashboardPatiend from '../views/DashboardPatiend.vue';
 import DashboardReport from '../views/DashboardReport.vue';
 import DashnoardStaff from '../views/DashboardStaff.vue';
-// import DashboardPatiendConfig from '../views/DashboardPatiendConfig.vue';
+import DashboardPatiendConfig from '../views/DashboardPatiendConfig.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,5 +41,19 @@ const router = createRouter({
     },
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  const publicPages = ['/', '/register'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
+
+  // trying to access a restricted page + not logged in
+  // redirect to login page
+  if (authRequired && !loggedIn) {
+    next('/');
+  } else {
+    next();
+  }
+});
 
 export default router

@@ -1,32 +1,68 @@
 <script>
 import axios from "axios";
 import { mapMutations } from "vuex";
+import config from "../config/api.config";
+import User from "../models/user";
 export default {
     components: {},
     data() {
         return {
-            username: "",
-            password: ""
+            user: new User("", ""),
+            message: "",
         };
     },
+    computed: {
+        loggedIn() {
+            return this.$store.state.auth.status.loggedIn;
+        }
+    },
+    created() {
+        if (this.loggedIn) {
+            this.$router.push('/dashboard')
+        }
+    },
     methods: {
-        ...mapMutations(["setUser", "setToken"]),
-        async onHaddleLogin(e) {
+        onHaddleLogin(e) {
             e.preventDefault();
-            const response = await axios.post("/login", {
-                username: this.username,
-                password: this.password,
-            })
-                .then((res) => {
-                    if (res === true) {
-                        this.$router.push("/dashboard")
-                    } else {
+            console.log(`User: ${this.user.username}`)
+            if (this.user.username && this.user.password) {
+                this.$store.dispatch('auth/login', this.user).then(
+                    () => {
+                        this.$router.push('/dashboard');
+                    },
+                    error => {
+                        this.message =
+                            (error.response && error.response.data) ||
+                            error.message ||
+                            error.toString();
                     }
-                })
-                .catch((err) => {
-                    console.log(err)
-                });
+                );
+            }
+            // axios.post(`${config.API}/auth/login`, {
+            //     username: this.username,
+            //     password: this.password
+            // })
+
         },
+        // ...mapMutations(["setUser", "setToken"]),
+        // async onHaddleLogin(e) {
+        //     console.log(this.username)
+        //     e.preventDefault();
+        //     // await axios.post(`${config.API}/auth/login`, {
+        //     axios.post(`http://localhost:8888/auth/login`, {
+        //         username: this.username,
+        //         password: this.password,
+        //     })
+        //         .then((res) => {
+        //             if (res === true) {
+        //                 this.$router.push("/dashboard")
+        //             } else {
+        //             }
+        //         })
+        //         .catch((err) => {
+        //             console.log(err)
+        //         });
+        // },
     },
     mounted() {
 
@@ -45,10 +81,10 @@ export default {
                 </div>
                 <div class="input-contaienr">
                     <div class="set-input">
-                        <input class="input-username" placeholder="รหัสผู้ใช้งาน" />
+                        <input class="input-username" v-model="user.username" placeholder="รหัสผู้ใช้งาน" />
                     </div>
                     <div class="set-input">
-                        <input class="input-password" placeholder="รหัสผ่าน" />
+                        <input class="input-password" type="password" v-model="user.password" placeholder="รหัสผ่าน" />
                     </div>
                     <div class="set-btn">
                         <button class="btn-login" @click="onHaddleLogin">เข้าสู่ระบบ</button>

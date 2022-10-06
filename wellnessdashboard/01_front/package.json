@@ -2,15 +2,17 @@
   "name": "docare-health-dashborad",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
     "axios": "^0.27.2",
     "axois": "^0.0.1-security",
+    "bcrypt": "^5.0.1",
     "chart.js": "^3.9.1",
     "cookie": "^0.5.0",
+    "jsonwebtoken": "^8.5.1",
     "vue": "^3.2.37",
     "vue-chartjs": "^4.1.1",
     "vue-router": "^4.0.16",
