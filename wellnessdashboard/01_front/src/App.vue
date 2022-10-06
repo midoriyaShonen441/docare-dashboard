@@ -1,44 +1,44 @@
 <script >
- 
 
 
-export default{
-  components:{
- 
+
+export default {
+  components: {
+
   },
-  data(){
-    return{
-  
+  data() {
+    return {
+
     }
   },
-  methods:{
-    ToggleMenuClose(){
-      this.$store.state.is_expanded = false
+  methods: {
+    ToggleMenuClose() {
+      this.$store.state.data.is_expanded = false
     }
 
-    
-       
+
+
   },
-  mounted(){
-      // this.testing = this.$store.state.message
-      // console.log(this.testing);
-      console.log(this.$store.state.is_expanded)
+  mounted() {
+    // this.testing = this.$store.state.data.message
+    // console.log(this.testing);
+    console.log(this.$store.state.data.is_expanded)
   }
 }
 
 </script>
 
 <template>
-<div>
-   
-        <!-- <RouterLink to="/">Home</RouterLink>
+  <div>
+
+    <!-- <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink> -->
-        <!-- <h1>{{testing}}</h1> -->
-       
-        <div class="mybock">
-          <RouterView />
-        </div>
-</div>
+    <!-- <h1>{{testing}}</h1> -->
+
+    <div class="mybock">
+      <RouterView />
+    </div>
+  </div>
 
 </template>
 
@@ -48,15 +48,15 @@ export default{
 body {
   margin: 0px;
   padding: 0px;
-  font-family: 'Noto Sans Thai', sans-serif  !important;
+  font-family: 'Noto Sans Thai', sans-serif !important;
 }
 
-.navbar-up{
+.navbar-up {
   position: fixed;
   height: 100vh;
   width: 100vw;
   background: rgb(77, 77, 77);
   opacity: 0.5;
- 
+
 }
 </style>
