@@ -1,6 +1,6 @@
 <template>
   <div class="contaienr-alert-emer">
-    <PopupDetailEmer v-if="$store.state.cssPopUpEmerDetail === true" />
+    <PopupDetailEmer v-if="$store.state.data.cssPopUpEmerDetail === true" />
     <div class="title">
       <div class="set-header">
         <div class="emer-title">แจ้งเตือนข้อมูลสุขภาพ</div>

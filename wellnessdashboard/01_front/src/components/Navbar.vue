@@ -16,12 +16,12 @@ export default {
         this.$router.push("/staff");
       } else if (evt === "report") {
         this.$router.push("/report");
-      } else if (evt === 'config'){
+      } else if (evt === 'config') {
         this.$router.push("/patiendconfig");
       }
     },
   },
-  mounted() {},
+  mounted() { },
 };
 </script>
 
@@ -30,10 +30,7 @@ export default {
     <div class="navbar-container">
       <div class="navbar-menu">
         <div class="menu-ham-container">
-          <div
-            :class="$store.state.setmenu"
-            @click="$store.commit('haddleMenu')"
-          >
+          <div :class="$store.state.data.setmenu" @click="$store.commit('data/haddleMenu' )">
             <div class="line1"></div>
             <div class="line2"></div>
             <div class="line3"></div>
@@ -42,36 +39,38 @@ export default {
         <div class="title-watching">ระบบดูแลสุขภาพ</div>
       </div>
       <div class="user-config">
- 
-          <h4>
-            test@test.com &nbsp; &nbsp;<i
-              class="fas fa-id-badge"
-              style="font-size: 24px"
-            ></i>
-          </h4>
-    
+
+        <h4>
+          test@test.com &nbsp; &nbsp;<i class="fas fa-id-badge" style="font-size: 24px"></i>
+        </h4>
+
       </div>
     </div>
 
-    <div :class="$store.state.setsidemenu">
-      <ul v-if="$store.state.isMenuOpen === true">
-      <div class="set-nav-menu">
-        <div class="menu-content-conatiner" @click="haddleRouter('dashboard')">
-          <div class="set-menu-content"><img class="icon-set" src="../assets/dashboard.png" height="25" width="25"/>แดชบอร์ด</div>
+    <div :class="$store.state.data.setsidemenu">
+      <ul v-if="$store.state.data.isMenuOpen === true">
+        <div class="set-nav-menu">
+          <div class="menu-content-conatiner" @click="haddleRouter('dashboard')">
+            <div class="set-menu-content"><img class="icon-set" src="../assets/dashboard.png" height="25"
+                width="25" />แดชบอร์ด</div>
+          </div>
+          <div class="menu-content-conatiner" @click="haddleRouter('patiend')">
+            <div class="set-menu-content"><img class="icon-set" src="../assets/patient.png" height="25"
+                width="25" />ข้อมูลผู้ป่วย</div>
+          </div>
+          <div class="menu-content-conatiner" @click="haddleRouter('config')">
+            <div class="set-menu-content"><img class="icon-set" src="../assets/patient-profile.png" height="25"
+                width="25" />ตั้งค่าผู้ป่วย</div>
+          </div>
+          <div class="menu-content-conatiner" @click="haddleRouter('staff')">
+            <div class="set-menu-content"><img class="icon-set" src="../assets/doctor.png" height="25"
+                width="25" />ข้อมูลเจ้าหน้าที่</div>
+          </div>
+          <div class="menu-content-conatiner" @click="haddleRouter('report')">
+            <div class="set-menu-content"><img class="icon-set" src="../assets/copy.png" height="25" width="25" />รายงาน
+            </div>
+          </div>
         </div>
-        <div class="menu-content-conatiner" @click="haddleRouter('patiend')">
-          <div class="set-menu-content"><img class="icon-set" src="../assets/patient.png" height="25" width="25"/>ข้อมูลผู้ป่วย</div>
-        </div>
-        <div class="menu-content-conatiner" @click="haddleRouter('config')">
-          <div class="set-menu-content"><img class="icon-set" src="../assets/patient-profile.png" height="25" width="25"/>ตั้งค่าผู้ป่วย</div>
-        </div>
-        <div class="menu-content-conatiner" @click="haddleRouter('staff')">
-          <div class="set-menu-content"><img class="icon-set" src="../assets/doctor.png" height="25" width="25"/>ข้อมูลเจ้าหน้าที่</div>
-        </div>
-        <div class="menu-content-conatiner" @click="haddleRouter('report')">
-          <div class="set-menu-content"><img class="icon-set" src="../assets/copy.png" height="25" width="25"/>รายงาน</div>
-        </div>
-      </div>
       </ul>
     </div>
   </div>
@@ -92,8 +91,8 @@ export default {
   margin-left: 50px;
 }
 
-.icon-set{
-    margin-right: 30px;
+.icon-set {
+  margin-right: 30px;
 }
 
 .user-config {
@@ -101,18 +100,20 @@ export default {
   font-weight: bold;
 }
 
- 
-.title-watching{
-  margin-top:20px;
+
+.title-watching {
+  margin-top: 20px;
   margin-left: 10px;
   font-weight: bold;
   font-size: 20px;
 
 }
+
 .menu-sidebar {
   height: 100vh;
   background: #ffffff;
 }
+
 .menu-ham-container {
   margin-top: 20px;
   padding-right: 10px;
@@ -120,7 +121,9 @@ export default {
 }
 
 /* toggle menu */
-.line1,.line2,.line3 {
+.line1,
+.line2,
+.line3 {
   margin-top: 6px;
   height: 3px;
   width: 30px;
@@ -170,7 +173,7 @@ export default {
   max-width: 50px;
 }
 
-.set-icon > i {
+.set-icon>i {
   margin-top: 100%;
 }
 
@@ -194,6 +197,6 @@ export default {
 .set-menu-content {
   text-align: left;
   margin-top: 30px;
- 
+
 }
 </style>

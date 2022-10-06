@@ -5,9 +5,7 @@ import DashboardMoniVue from "../components/dasboardComponent/DashboardMoni.vue"
 import DashboardAlertEmer from "../components/dasboardComponent/DashboardAlertEmer.vue";
 import DashnoardHealthCheck from "../components/dasboardComponent/DashnoardHealthCheck.vue";
 import UserService from '../services/user.service';
-// import PopupDetailEmer from "../components/dasboardComponent/popupDetail/PopupDetailEmer.vue";
-
-
+import PopupDetailEmer from "../components/dasboardComponent/popupDetail/PopupDetailEmer.vue";
 export default {
     components: {
         Navbar,
@@ -31,8 +29,8 @@ export default {
                     (error.response && error.response.data) ||
                     error.message ||
                     error.toString();
-                    this.$store.dispatch('auth/logout');
-                    this.$router.push('/');
+                this.$store.dispatch('auth/logout');
+                this.$router.push('/');
 
             }
         );
@@ -49,7 +47,8 @@ export default {
     <div class="set-dashboard">
         <Navbar />
         <PopupDetailEmer />
-        <div class="popup-waiting-screen" v-if="$store.state.isMenuOpen === true" @click="$store.commit('haddleMenu')">
+        <div class="popup-waiting-screen" v-if="$store.state.data.isMenuOpen === true"
+            @click="$store.commit('data/haddleMenu' )">
         </div>
         <div>
             <DashboardMoniVue />

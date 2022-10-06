@@ -1,6 +1,8 @@
 <template>
-    <Navbar/>
-    <div class="popup-waiting-screen" v-if="$store.state.isMenuOpen === true" @click="$store.commit('haddleMenu')"></div>
+    <Navbar />
+    <div class="popup-waiting-screen" v-if="$store.state.data.isMenuOpen === true"
+        @click="$store.commit('data/haddleMenu')">
+    </div>
     <div class="report-container">
         <div class="set-report">
             <div class="set-title">รายงาน</div>
@@ -8,7 +10,7 @@
             <div class="fiter-container">
 
                 <div class="dd-type">
-                    <select  v-model="isType">
+                    <select v-model="isType">
                         <option>กรุณาเลือกประเภทรายงาน</option>
                         <option v-for="(data, index) in typeReport" :key="index">
                             {{data}}
@@ -18,7 +20,8 @@
 
                 <div class="dd-patiend">
                     <div class="from-group">
-                        <input class="is-patined" list="jobroles" name="role" placeholder="กรุณาเลือกผู้ป่วย" v-model="isPatiend"/>
+                        <input class="is-patined" list="jobroles" name="role" placeholder="กรุณาเลือกผู้ป่วย"
+                            v-model="isPatiend" />
                         <datalist id="jobroles">
                             <option class="dd-option" v-for="(data, index) in arrayPatiend" :key="index" :value="data">
                                 {{data}}
@@ -28,10 +31,10 @@
                 </div>
 
                 <div class="dd-startdate">
-                    <input class="is-startdate" type="date" v-model="dateStart"/>
+                    <input class="is-startdate" type="date" v-model="dateStart" />
                 </div>
                 <div class="dd-stopdate">
-                    <input class="is-stopdate" type="date" v-model="dateEnd"/>
+                    <input class="is-stopdate" type="date" v-model="dateEnd" />
                 </div>
 
                 <div class="set-btn">
@@ -52,7 +55,7 @@
             <div class="set-comment">
                 <div class="title-comment">บันทึกสุขภาพ</div>
                 <div class="table-info">
-                    
+
                 </div>
             </div>
         </div>
@@ -62,23 +65,22 @@
 <script>
 import Navbar from "../components/Navbar.vue"
 import BarChart from "../components/dashboardReportComponent/BarChart"
-
 export default {
-    components:{
+    components: {
         Navbar,
         BarChart
     },
-    data(){
-        return{
+    data() {
+        return {
             // cssBtnReport:"btn-report-null",
             // cssBtnDownload:"btn-download-null",
-            isType:"กรุณาเลือกประเภทรายงาน",
+            isType: "กรุณาเลือกประเภทรายงาน",
             genBarChart: false,
-            isPatiend:"",
-            dateStart:"",
-            dateEnd:"",
-            wrapPatiend:"",
-            typeReport:[
+            isPatiend: "",
+            dateStart: "",
+            dateEnd: "",
+            wrapPatiend: "",
+            typeReport: [
                 "รายงานค่าความดันโลหิต",
                 "รายงานค่าออกซิเจนในเลือด",
                 "รายงานค่าน้ำตาลในเลือด",
@@ -86,7 +88,7 @@ export default {
                 "รายงานค่าน้ำหนัก",
                 "รายงานค่าอุณหภูมิร่างกาย"
             ],
-            arrayPatiend:[
+            arrayPatiend: [
                 "ชลลดา อรุณรุ่งเรืองชัย (SCG)",
                 "นาง ทวาย สารนารถ (SCG)",
                 "กองนาง ก้อนบุญ (SCG)",
@@ -95,71 +97,71 @@ export default {
 
         }
     },
-    computed:{
+    computed: {
 
-        cssBtnReport(){
-            if(this.isType !== "กรุณาเลือกประเภทรายงาน" && this.isPatiend !== "" && this.dateStart !== "" && this.dateEnd !== ""){
+        cssBtnReport() {
+            if (this.isType !== "กรุณาเลือกประเภทรายงาน" && this.isPatiend !== "" && this.dateStart !== "" && this.dateEnd !== "") {
                 return "btn-report"
-            }else{
+            } else {
                 return "btn-report-null"
             }
         },
-        cssBtnDownload(){
-            if(this.isType !== "กรุณาเลือกประเภทรายงาน" && this.isPatiend !== "" && this.dateStart !== "" && this.dateEnd !== ""){
+        cssBtnDownload() {
+            if (this.isType !== "กรุณาเลือกประเภทรายงาน" && this.isPatiend !== "" && this.dateStart !== "" && this.dateEnd !== "") {
                 return "btn-download"
-            }else{
+            } else {
                 return "btn-download-null"
             }
         },
-        cssBarChart(){
+        cssBarChart() {
             // return "barchart-show"
-            if(this.genBarChart === true){
+            if (this.genBarChart === true) {
                 return "barchart-show"
-            }else{
+            } else {
                 // this.genBarChart = true;
                 return "barchart-off"
             }
         },
-        infoContaienr(){
-            if(this.genBarChart === true){
+        infoContaienr() {
+            if (this.genBarChart === true) {
                 return "info-contaienr"
-            }else{
+            } else {
                 return "info-container-close"
             }
         }
-        
+
     },
-    methods:{
-        haddleShowReport(){
+    methods: {
+        haddleShowReport() {
             const warpDataToChild = {
-                title: this.isType, 
+                title: this.isType,
                 patiendName: this.isPatiend,
             }
             this.wrapPatiend = warpDataToChild;
             this.genBarChart = true;
         }
     },
-    
-    mounted(){
+
+    mounted() {
 
     },
-    
+
 
 }
 </script>
 
 <style scoped>
-.popup-waiting-screen{
+.popup-waiting-screen {
     position: fixed;
-    left:0;
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: 8;
     background: rgb(36, 36, 36);
-    opacity: 0.6;  
+    opacity: 0.6;
 }
 
-.report-container{
+.report-container {
     width: 95%;
     margin: auto;
     margin-top: 20px;
@@ -167,50 +169,51 @@ export default {
     border-radius: 10px;
 }
 
-.set-report{
+.set-report {
     width: 95%;
     margin: auto;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
-.set-title{
+.set-title {
     color: rgb(73, 87, 132);
     font-weight: bold;
     font-size: 25px;
     border-bottom: 1px solid rgb(195, 195, 195);
 }
 
-.fiter-container{
-    display:flex;
+.fiter-container {
+    display: flex;
     justify-content: space-between;
     margin-top: 20px;
 }
 
 
-select{
+select {
     width: 300px;
     height: 46px;
     text-indent: 10px;
 }
 
-.is-patined{
+.is-patined {
     width: 300px;
     height: 40px;
 }
 
-.is-startdate, .is-stopdate{
+.is-startdate,
+.is-stopdate {
     width: 200px;
     height: 41px;
     text-align: center;
 }
 
-.set-btn{
-    display:flex;
+.set-btn {
+    display: flex;
     margin-right: 5%;
 }
 
-.btn-report-null{
+.btn-report-null {
     width: 150px;
     height: 43px;
     border: none;
@@ -220,7 +223,7 @@ select{
     transition: 0.5s;
 }
 
-.btn-report{
+.btn-report {
     width: 150px;
     height: 43px;
     border: none;
@@ -231,7 +234,7 @@ select{
     transition: 0.5s;
 }
 
-.btn-download-null{
+.btn-download-null {
     margin-left: 20px;
     width: 150px;
     height: 43px;
@@ -242,7 +245,7 @@ select{
     transition: 0.5s;
 }
 
-.btn-download{
+.btn-download {
     margin-left: 20px;
     width: 150px;
     height: 43px;
@@ -254,34 +257,36 @@ select{
     transition: 0.5s;
 }
 
-.info-contaienr{
+.info-contaienr {
     width: 95%;
     margin: auto;
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
-.info-container-close{
-    width:0px;
-    margin:auto;
+.info-container-close {
+    width: 0px;
+    margin: auto;
     padding: 0px;
 }
 
-.set-barchart{
+.set-barchart {
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 10px;
     margin-top: 30px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-.barchart-show{
+
+.barchart-show {
     text-align: center;
     margin: auto;
     width: 1000px;
     height: 500px;
     translate: 0.5s;
 }
-.barchart-off{
+
+.barchart-off {
     text-align: center;
     margin: auto;
     width: 0px;
@@ -289,13 +294,12 @@ select{
     translate: 0.5s;
 }
 
-.set-comment{
+.set-comment {
     width: 1000px;
-    margin:auto;
+    margin: auto;
     margin-top: 30px;
     text-align: center;
     font-size: 20px;
     font-weight: bold;
 }
-
 </style>
