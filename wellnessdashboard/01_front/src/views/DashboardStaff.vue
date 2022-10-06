@@ -49,7 +49,18 @@ export default {
             searching: ""
         }
     },
-    methods: {}
+    methods: {},
+    mounted() {
+        UserService.getStaffBoard().then(
+            response => {
+                return
+            },
+            error => {
+                this.$store.dispatch('auth/logout');
+                this.$router.push('/');
+            }
+        );
+    },
 }
 </script>
 

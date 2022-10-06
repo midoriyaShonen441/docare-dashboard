@@ -141,9 +141,16 @@ export default {
             this.genBarChart = true;
         }
     },
-
     mounted() {
-
+        UserService.getStaffBoard().then(
+            response => {
+                return
+            },
+            error => {
+                this.$store.dispatch('auth/logout');
+                this.$router.push('/');
+            }
+        );
     },
 
 

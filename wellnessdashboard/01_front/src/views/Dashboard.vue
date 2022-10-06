@@ -16,28 +16,19 @@ export default {
     },
     data() {
         return {
-            content: ""
         }
     },
     mounted() {
         UserService.getStaffBoard().then(
             response => {
-                this.content = response.data;
+                return
             },
             error => {
-                this.content =
-                    (error.response && error.response.data) ||
-                    error.message ||
-                    error.toString();
                 this.$store.dispatch('auth/logout');
                 this.$router.push('/');
-
             }
         );
     },
-    computed() {
-
-    }
 }
 
 </script>

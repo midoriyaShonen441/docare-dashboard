@@ -39,35 +39,19 @@ export default {
                     }
                 );
             }
-            // axios.post(`${config.API}/auth/login`, {
-            //     username: this.username,
-            //     password: this.password
-            // })
-
         },
-        // ...mapMutations(["setUser", "setToken"]),
-        // async onHaddleLogin(e) {
-        //     console.log(this.username)
-        //     e.preventDefault();
-        //     // await axios.post(`${config.API}/auth/login`, {
-        //     axios.post(`http://localhost:8888/auth/login`, {
-        //         username: this.username,
-        //         password: this.password,
-        //     })
-        //         .then((res) => {
-        //             if (res === true) {
-        //                 this.$router.push("/dashboard")
-        //             } else {
-        //             }
-        //         })
-        //         .catch((err) => {
-        //             console.log(err)
-        //         });
-        // },
     },
     mounted() {
-
-    }
+        UserService.getStaffBoard().then(
+            response => {
+                return
+            },
+            error => {
+                this.$store.dispatch('auth/logout');
+                this.$router.push('/');
+            }
+        );
+    },
 }
 </script>
 

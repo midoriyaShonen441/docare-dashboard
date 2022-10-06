@@ -133,7 +133,17 @@ export default {
       await axios.get(`${this.API}/getPatients`).then(() => { });
     },
   },
-  mounted() { },
+  mounted() {
+    UserService.getStaffBoard().then(
+      response => {
+        return
+      },
+      error => {
+        this.$store.dispatch('auth/logout');
+        this.$router.push('/');
+      }
+    );
+  },
 };
 </script>
 

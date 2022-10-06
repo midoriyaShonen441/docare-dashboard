@@ -719,7 +719,18 @@ export default {
         haddleToAllPatiend() {
             this.$router.push("/patiend");
         }
-    }
+    },
+    mounted() {
+        UserService.getStaffBoard().then(
+            response => {
+                return
+            },
+            error => {
+                this.$store.dispatch('auth/logout');
+                this.$router.push('/');
+            }
+        );
+    },
 }
 </script>
 
