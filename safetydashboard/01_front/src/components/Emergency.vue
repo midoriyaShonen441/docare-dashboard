@@ -7,7 +7,6 @@
                 </h4>
         </div>
     </div>
-
     <div :class="showEmergency" >
         <div class="emergency-container">
             <div class="closing-emergency" @click="haddleClosingEmergency('comon')">
@@ -45,8 +44,8 @@
     </div>
 </template>
 
+
 <script>
-// $store.state.emergencyList
 export default {
     data(){
         return{
@@ -55,7 +54,6 @@ export default {
     },
     methods:{
         haddleClosingEmergency(e){
-            // console.log(e)
             if(e !== 'main-container'){
                 if(this.showEmergency === "set-emergency-container"){
                     this.showEmergency = "close-set-emergency-container"
@@ -65,12 +63,9 @@ export default {
             }else{
                 this.showEmergency = "set-emergency-container"
             }
-            
         },
-        
     },
     mounted(){
-
     }
 }
 </script>

@@ -609,7 +609,7 @@ app.get("/backend/syncEmergencyLog", auth, async (req, res) => {
             status: 200,
             data: sentEmergency
         }
-        // console.log(sentEmergency);
+        // console.log("sentEmergency ==> ",sentEmergency);
         res.send(payload);
     }catch(err){
         console.log(`error in api syncEmergencyLog ==> ${err}`);
@@ -654,7 +654,7 @@ app.post("/backend/syncEmergencysos", async (req, res) => {
         ])
         const emergencyModel = new SendingEmergencyModule(emergencyReport);
         const sentEmergency = emergencyModel.returnResult();
-        console.log(sentEmergency);
+        // console.log(sentEmergency);
         res.send(sentEmergency);
     }catch(err){
         console.log(`error in api syncemergency: emergencyReport ==> ${err}`);
@@ -667,7 +667,7 @@ app.get("/backend/alertemergency", async (req, res) => {
     const emergency_info = require("./model/emergency_info");
     try{
         const emerInfo = await emergency_info.find({case_confirm: false});
-        console.log(emerInfo);
+        // console.log(emerInfo);
         const payload = {
             userInfo:"",
             emerInfo:"",

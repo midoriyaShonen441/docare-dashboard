@@ -134,7 +134,6 @@ export default {
   margin-right: 50px;
   margin-top: 20px;
   font-weight: bold;
-  border: 1px solid red;
 }
 
 .set-nav-menu{
