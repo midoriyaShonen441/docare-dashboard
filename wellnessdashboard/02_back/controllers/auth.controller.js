@@ -76,6 +76,7 @@ exports.signin = async (req, res) => {
 
       const authorities = [];
       authorities.push("ROLE_" + user.user.role.toUpperCase());
+      console.log("login")
 
       res.status(200).send({
         username: user.user.username,

@@ -52,57 +52,57 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
 
-  backend:
-    container_name: backend
-    restart: always
-    image: safety_backend
-    build:
-      context: ./02_back
-      dockerfile: Dockerfile
-    ports:
-      - 8888:8888
-    environment:
-      - TZ=Asia/Bangkok
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
-    depends_on:
-      - db
+  # backend:
+  #   container_name: backend
+  #   restart: always
+  #   image: safety_backend
+  #   build:
+  #     context: ./02_back
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 8888:8888
+  #   environment:
+  #     - TZ=Asia/Bangkok
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /etc/timezone:/etc/timezone:ro
+  #   depends_on:
+  #     - db
 
-  frontend:
-    container_name: frontend
-    restart: always
-    image: safety_frontend
-    build:
-      context: ./01_front
-      dockerfile: Dockerfile
-    ports:
-      - 7777:7777
-    environment:
-      - TZ=Asia/Bangkok
+  # frontend:
+  #   container_name: frontend
+  #   restart: always
+  #   image: safety_frontend
+  #   build:
+  #     context: ./01_front
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 7777:7777
+  #   environment:
+  #     - TZ=Asia/Bangkok
   
-  nginx:
-    container_name: nginx
-    build:
-      context: ./nginx
-      dockerfile: Dockerfile
-    ports:
-      - 80:80
-      - 443:443
-    hostname: nginx
-    volumes:
-      - ./certbot/www:/var/www/certbot
-      - ./certbot/conf:/etc/nginx/ssl
-      - ./certbot/dhparam:/etc/nginx/dhparam
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
-    depends_on:
-      - db
-      - frontend
-      - backend
+  # nginx:
+  #   container_name: nginx
+  #   build:
+  #     context: ./nginx
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 80:80
+  #     - 443:443
+  #   hostname: nginx
+  #   volumes:
+  #     - ./certbot/www:/var/www/certbot
+  #     - ./certbot/conf:/etc/nginx/ssl
+  #     - ./certbot/dhparam:/etc/nginx/dhparam
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /etc/timezone:/etc/timezone:ro
+  #   depends_on:
+  #     - db
+  #     - frontend
+  #     - backend
   
-  certbot:
-    image: certbot/certbot:latest
-    volumes:
-      - ./certbot/www:/var/www/certbot:rw
-      - ./certbot/conf:/etc/letsencrypt:rw
+  # certbot:
+  #   image: certbot/certbot:latest
+  #   volumes:
+  #     - ./certbot/www:/var/www/certbot:rw
+  #     - ./certbot/conf:/etc/letsencrypt:rw

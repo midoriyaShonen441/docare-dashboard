@@ -22,7 +22,7 @@ require('./routes/user.routes')(app);
 db.connect();
 
 ////////////////////////////////////////////////////////////
-////////////////// Test Debug //////////////////////////////
+//                      Test Debug                        //
 ////////////////////////////////////////////////////////////
 
 app.get("/", (req, res) => {
@@ -30,45 +30,12 @@ app.get("/", (req, res) => {
 });
 
 ////////////////////////////////////////////////////////////
-////////////////// User Info API ///////////////////////////
+//                                                        //
+//                      Test Debug                        //
+//                                                        //
 ////////////////////////////////////////////////////////////
 
-////////////////// wellnesss start ///////////////////////////
-
-// Login API
-// app.post("/auth/login", async (req, res) => {
-//   const { username, password } = req.body;
-//   const userInfo = require("./model/user_info");
-//   db.connect();
-//   try {
-//     const user = await userInfo
-//       .find(
-//         {
-//           "user.username": username,
-//         },
-//         "user.username user.password",
-//         {
-//           _id: 0
-//         }
-//       )
-//     // user.select({"user.username": 1})
-//     if (username === user.user.username && password === user.user.password) {
-//       const token = jwt.sign(user, process.env.JWT_KEY);
-//       res.json({
-//         token,
-//         user,
-//       });
-//     } else {
-//       res.status(403);
-//       res.json({
-//         message: "wrong login information",
-//       });
-//     }
-//   } catch (err) {
-//     res.send(err);
-//   }
-// });
-
+//
 app.get("/getUser", async (req, res) => {
   const userInfo = require("./model/user_info");
   try {
