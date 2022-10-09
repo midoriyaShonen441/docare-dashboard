@@ -5,6 +5,7 @@ import DashboardMoniVue from "../components/dasboardComponent/DashboardMoni.vue"
 import DashboardAlertEmer from "../components/dasboardComponent/DashboardAlertEmer.vue";
 import DashnoardHealthCheck from "../components/dasboardComponent/DashnoardHealthCheck.vue";
 import UserService from '../services/user.service';
+import DashboardService from '../services/dashboard.service';
 import PopupDetailEmer from "../components/dasboardComponent/popupDetail/PopupDetailEmer.vue";
 export default {
     components: {
@@ -16,6 +17,7 @@ export default {
     },
     data() {
         return {
+            errMessage: ""
         }
     },
     mounted() {
@@ -26,6 +28,22 @@ export default {
             error => {
                 this.$store.dispatch('auth/logout');
                 this.$router.push('/');
+            }
+        );
+        DashboardService.getPatients().then(
+            respone => {
+                this.$store.commit('data/getPatients', respone.data);
+            },
+            err => {
+                this.errMessage = err;
+            }
+        );
+        DashboardService.getStaffs().then(
+            respone => {
+                this.$store.commit('data/getStaffs', respone.data);
+            },
+            err => {
+                this.errMessage = err;
             }
         );
     },

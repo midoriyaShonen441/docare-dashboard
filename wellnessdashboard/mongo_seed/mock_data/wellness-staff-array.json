@@ -2,7 +2,7 @@
   {
     "user": {
       "citizen_id": "77777777777777",
-      "domain_id": 1,
+      "domain_id": "1",
       "username": "user",
       "password": "user",
       "fullname": "Aariz Lyon",
@@ -57,7 +57,7 @@
   {
     "user": {
       "citizen_id": "8888888888888",
-      "domain_id": 1,
+      "domain_id": "1",
       "username": "master1",
       "password": "master1",
       "fullname": "Aariz Lyon",
@@ -112,7 +112,7 @@
   {
     "user": {
       "citizen_id": "99999999999",
-      "domain_id": 1,
+      "domain_id": "1",
       "username": "user1",
       "password": "user1",
       "fullname": "Aariz Lyon",
@@ -167,7 +167,7 @@
   {
     "user": {
       "citizen_id": "4740798668057",
-      "domain_id": 1,
+      "domain_id": "1",
       "username": "aariz_lyon_2380",
       "password": "p5LIqRlssFOh0KRS",
       "fullname": "Aariz Lyon",
@@ -222,7 +222,7 @@
   {
     "user": {
       "citizen_id": "4079089186617",
-      "domain_id": 2,
+      "domain_id": "2",
       "username": "zavier_griffiths_8291",
       "password": "Z5LAdfedTr0CG2Sw",
       "fullname": "Zavier Griffiths",
@@ -271,7 +271,7 @@
   {
     "user": {
       "citizen_id": "4567889018082",
-      "domain_id": 3,
+      "domain_id": "3",
       "username": "aahil_woods_0425",
       "password": "xNmoT45doCFV0j6f",
       "fullname": "Aahil Woods",
@@ -310,7 +310,7 @@
   {
     "user": {
       "citizen_id": "4740798668057",
-      "domain_id": 4,
+      "domain_id": "4",
       "username": "aariz_lyon_2380",
       "password": "p5LIqRlssFOh0KRS",
       "fullname": "Aariz Lyon",
@@ -365,7 +365,7 @@
   {
     "user": {
       "citizen_id": "5079089186617",
-      "domain_id": 1,
+      "domain_id": "1",
       "username": "admin",
       "password": "admin",
       "fullname": "Zavier Griffiths",

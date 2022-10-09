@@ -13,10 +13,12 @@
     "chart.js": "^3.9.1",
     "cookie": "^0.5.0",
     "jsonwebtoken": "^8.5.1",
+    "usemodal-vue3": "^0.3.6",
     "vue": "^3.2.37",
     "vue-chartjs": "^4.1.1",
     "vue-router": "^4.0.16",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",

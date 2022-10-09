@@ -4,6 +4,7 @@ export default {
   data() {
     return {
       // css //
+      username: null
     };
   },
   methods: {
@@ -21,7 +22,10 @@ export default {
       }
     },
   },
-  mounted() { },
+  mounted() { 
+    this.username = this.$store.getters['data/username'];
+    console.log(this.username);
+   },
 };
 </script>
 
@@ -41,7 +45,7 @@ export default {
       <div class="user-config">
 
         <h4>
-          test@test.com &nbsp; &nbsp;<i class="fas fa-id-badge" style="font-size: 24px"></i>
+          {{ username }} &nbsp; &nbsp;<i class="fas fa-id-badge" style="font-size: 24px"></i>
         </h4>
 
       </div>

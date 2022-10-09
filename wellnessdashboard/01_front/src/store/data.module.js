@@ -4,7 +4,15 @@ export const data = {
     is_expanded: false,
     isMenuOpen: false,
     cssPopUpEmerDetail: false,
+    username: "",
     wellness: [],
+    domain_id: null,
+    patients: [],
+    staffs: [],
+    staffRemove: {
+      fullname: "",
+      username: ""
+    }
   },
   mutations: {
     haddleMenu(state) {
@@ -22,7 +30,33 @@ export const data = {
         console.log("Click menu:", state.isMenuOpen);
       }
     },
+    getPatients(state, patients) {
+      state.patients = patients;
+    },
+    getStaffs(state, staffs) {
+      state.staffs = staffs;
+    },
+    getUsername(state, username) {
+      state.username = username;
+    },
+    getStaffRemove(state, staff) {
+      state.staffRemove.fullname = staff.fullname;
+      state.staffRemove.username = staff.username;
+    }
+  },
+  getters: {
+    patients (state) {
+      return state.patients;
+    },
+    staffs (state) {
+      return state.staffs;
+    },
+    username (state) {
+      return state.username;
+    },
+    staffRemove (state) {
+      return state.staffRemove.username
+    }
   },
   actions: {},
-  getters: {},
 };

@@ -30,24 +30,24 @@
               <th class="c-last">ข้อมูลล่าสุด</th>
               <th class="c-btn"></th>
             </tr>
-            <tr v-for="patient in patients">
+            <!-- <tr v-for="(patient, index) in patients">
               <td class="r-name">
-                {{ patient.name }}
+                {{ patient.user.fullname }}
               </td>
               <td class="r-age">
-                {{ patient.age }}
+                {{ patient.user.age }}
               </td>
               <td class="r-tel">
-                {{ patient.tel }}
+                {{ patient.user.contact.mobile }}
               </td>
               <td class="r-mmgh">
-                {{ patient.mmgh }}
+                {{ patient.user.vital_signs.pulse}}
               </td>
               <td class="r-bpm">
-                {{ patient.bpm }}
+                {{ patient.user.vital_signs}}
               </td>
               <td class="r-o2">
-                {{ patient.o2 }}
+                {{ patient.a }}
               </td>
               <td class="r-sat">
                 {{ patient.sat }}
@@ -64,7 +64,7 @@
               <td class="r-btn">
                 {{ patient.btn }}
               </td>
-            </tr>
+            </tr> -->
             <!-- <tr class="row-set">
                             <td  class="r-name">111</td>
                             <td class="r-age">111</td>
@@ -86,10 +86,8 @@
 </template>
 
 <script>
-import axios from "axios";
 import Navbar from "../components/Navbar.vue";
-import { httpAPI } from "../../settingAPI";
-const API = httpAPI();
+import UserService from '../services/user.service';
 
 export default {
   components: {
@@ -98,40 +96,9 @@ export default {
   data() {
     return {
       searching: "",
-      API: API,
-      // patients: [
-      //     {
-      //         name: "Tawan",
-      //         age: 20,
-      //         tel: "0801234567",
-      //         mmgh: 120,
-      //         bpm: 76,
-      //         o2: 99,
-      //         sat: 10,
-      //         temp: 35,
-      //         kg: 60,
-      //         last: ""
-      //     },
-      //     {
-      //         name: "Tawan",
-      //         age: 20,
-      //         tel: "0801234567",
-      //         mmgh: 120,
-      //         bpm: 76,
-      //         o2: 99,
-      //         sat: 10,
-      //         temp: 35,
-      //         kg: 60,
-      //         last: ""
-      //     }
-      // ],
       patients: null,
+      vital_bp: []
     };
-  },
-  methods: {
-    async getPatient() {
-      await axios.get(`${this.API}/getPatients`).then(() => { });
-    },
   },
   mounted() {
     UserService.getStaffBoard().then(
@@ -143,7 +110,15 @@ export default {
         this.$router.push('/');
       }
     );
+    // const vital = []
+    // for (let i=0; i < this.patients.length; i++) {
+    //   vital.push(this.patients[i].user.contact)
+    //   console.log(vital[i].mobile)
+    // }
   },
+  created() {
+    this.patients = this.$store.getters['data/patients'];
+  }
 };
 </script>
 

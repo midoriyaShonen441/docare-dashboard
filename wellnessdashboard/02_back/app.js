@@ -8,6 +8,7 @@ const db = require("./connection/connection");
 const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const config = require("./config/auth.config");
 
 // config server //
 const app = express();
@@ -17,8 +18,8 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
-require('./routes/auth.routes')(app);
-require('./routes/user.routes')(app);
+require("./routes/auth.routes")(app);
+require("./routes/user.routes")(app);
 db.connect();
 
 ////////////////////////////////////////////////////////////
@@ -69,23 +70,99 @@ app.post("/syncUser", async (req, res) => {
   }
 });
 
-app.get("/getPatients", async (req, res) => {
+////////////////////////////////////////////////////////////
+//                                                        //
+//                      Dashboard API                     //
+//                                                        //
+////////////////////////////////////////////////////////////
+
+//                get all patients in domain             //
+app.get("/api/staff/dashboard/getPatients", async (req, res) => {
   const userInfo = require("./model/user_info");
-  try {
-    patientAvailable = await userInfo.findOne({
-      "user.domain_id": payload.domain_id,
-    });
-    if (patientAvailable) {
-      patients = await userInfo.find({
-        "user.domain_id": payload.domain_id,
-      });
-      res.send(patients);
-    } else {
-      res.send(null);
-    }
-  } catch (err) {
-    res.send(err);
+
+  let token = req.headers["x-access-token"];
+
+  if (!token) {
+    return res.status(403).send({ message: "No token provided!" });
   }
+
+  jwt.verify(token, config.secret, (err, decoded) => {
+    if (err) {
+      return res.status(401).send({ message: "Unauthorized!" });
+    }
+    req.domain_id = decoded.domain_id;
+  });
+
+  await userInfo
+    .find({
+      "user.domain_id": req.domain_id,
+      "user.role": "User",
+    })
+    .exec((err, users) => {
+      if (err) {
+        res.status(500).send({ message: err });
+      }
+      res.status(200).send(users);
+    });
+});
+
+//                get all staffs in domain             //
+app.get("/api/staff/dashboard/getStaffs", async (req, res) => {
+  const userInfo = require("./model/user_info");
+
+  let token = req.headers["x-access-token"];
+
+  if (!token) {
+    return res.status(403).send({ message: "No token provided!" });
+  }
+
+  jwt.verify(token, config.secret, (err, decoded) => {
+    if (err) {
+      return res.status(401).send({ message: "Unauthorized!" });
+    }
+    req.domain_id = decoded.domain_id;
+  });
+
+  await userInfo
+    .find({
+      "user.domain_id": req.domain_id,
+      "user.role": ["Master", "Admin", "Manager", "Staff"],
+    })
+    .exec((err, users) => {
+      if (err) {
+        res.status(500).send({ message: err });
+      }
+      res.status(200).send(users);
+    });
+});
+
+app.delete("/api/staff/dashboard/removeStaff", async (req, res) => {
+  const userInfo = require("./model/user_info");
+  const username = req.body.username;
+  console.log(username)
+  let token = req.headers["x-access-token"];
+
+  if (!token) {
+    return res.status(403).send({ message: "No token provided!" });
+  }
+
+  jwt.verify(token, config.secret, (err, decoded) => {
+    if (err) {
+      return res.status(401).send({ message: "Unauthorized!" });
+    }
+    req.domain_id = decoded.domain_id;
+  });
+
+  await userInfo
+    .findOneAndDelete({
+      "user.username": username,
+    })
+    .exec((err, user) => {
+      if (err) {
+        res.status(500).send({ message: err });
+      }
+      res.status(200).send({ message: `"${user.user.username}" is deleted`});
+    });
 });
 
 // vitalSign api

@@ -25,7 +25,6 @@ export default {
     methods: {
         onHaddleLogin(e) {
             e.preventDefault();
-            console.log(`User: ${this.user.username}`)
             if (this.user.username && this.user.password) {
                 this.$store.dispatch('auth/login', this.user).then(
                     () => {
@@ -38,19 +37,9 @@ export default {
                             error.toString();
                     }
                 );
+                this.$store.commit('data/getUsername', this.user.username);
             }
         },
-    },
-    mounted() {
-        UserService.getStaffBoard().then(
-            response => {
-                return
-            },
-            error => {
-                this.$store.dispatch('auth/logout');
-                this.$router.push('/');
-            }
-        );
     },
 }
 </script>

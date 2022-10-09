@@ -65,6 +65,7 @@
 <script>
 import Navbar from "../components/Navbar.vue"
 import BarChart from "../components/dashboardReportComponent/BarChart"
+import UserService from '../services/user.service';
 export default {
     components: {
         Navbar,

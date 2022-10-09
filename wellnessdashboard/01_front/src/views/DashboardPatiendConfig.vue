@@ -688,6 +688,7 @@
 
 <script>
 import Navbar from "../components/Navbar.vue";
+import UserService from '../services/user.service';
 export default {
     components: {
         Navbar
