@@ -165,6 +165,23 @@ app.delete("/api/staff/dashboard/removeStaff", async (req, res) => {
     });
 });
 
+app.post("api/syncUser", async (req, res) => {
+  const userInfo = require("./model/user_info");
+
+  await userInfo
+  .find({
+    "user.domain_id": req.domain_id,
+    "user.role": ["Master", "Admin", "Manager", "Staff"],
+  })
+  .exec((err, users) => {
+    if (err) {
+      res.status(500).send({ message: err });
+    }
+    res.status(200).send(users);
+  });
+  
+})
+
 // vitalSign api
 app.post("/vitalSign", async (req, res) => {
   const payload = req.body;

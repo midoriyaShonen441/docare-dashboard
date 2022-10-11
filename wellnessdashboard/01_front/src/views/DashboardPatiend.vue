@@ -12,11 +12,11 @@
             <img class="is-icon" src="../assets/search.png" width="20" height="20" />
           </div>
           <div class="input-serach">
-            <input v-model="searching" />
+            <input v-model="filter" />
           </div>
         </div>
         <div class="set-table-info">
-          <table>
+          <table :key="componentKey">
             <tr class="header-col">
               <th class="c-name">ชื่อ - สกุล</th>
               <th class="c-age">อายุ</th>
@@ -27,10 +27,9 @@
               <th class="c-sat">ปริมาณน้ำตาลในเลือด</th>
               <th class="c-temp">อุณหภูมิร่างกาย</th>
               <th class="c-kg">น้ำหนัก</th>
-              <th class="c-last">ข้อมูลล่าสุด</th>
-              <th class="c-btn"></th>
+              <th class="c-last">จัดการผู้ใช้</th>
             </tr>
-            <!-- <tr v-for="(patient, index) in patients">
+            <tr class="row-set" v-for="(patient, index) in patientsList">
               <td class="r-name">
                 {{ patient.user.fullname }}
               </td>
@@ -41,43 +40,50 @@
                 {{ patient.user.contact.mobile }}
               </td>
               <td class="r-mmgh">
-                {{ patient.user.vital_signs.pulse}}
+                {{ vital_signs[index].bp }}
               </td>
               <td class="r-bpm">
-                {{ patient.user.vital_signs}}
+                {{ vital_signs[index].pulse }}
               </td>
               <td class="r-o2">
-                {{ patient.a }}
+                {{ vital_signs[index].oxygen }}
               </td>
               <td class="r-sat">
-                {{ patient.sat }}
+                {{ vital_signs[index].glucose }}
               </td>
               <td class="r-temp">
-                {{ patient.temp }}
+                {{ vital_signs[index].temp }}
               </td>
               <td class="r-kg">
-                {{ patient.kg }}
+                {{ vital_signs[index].weight }}
               </td>
               <td class="r-last">
-                {{ patient.last }}
+                <div class="remove-button">
+                  <img class="remove-button-white" src="../assets/remove_white.png" alt="remove-button">
+                  <img class="remove-button-red" src="../assets/remove_red.png" alt="remove-button"
+                    @click="handleRemove(index)">
+                </div>
               </td>
-              <td class="r-btn">
-                {{ patient.btn }}
-              </td>
-            </tr> -->
-            <!-- <tr class="row-set">
-                            <td  class="r-name">111</td>
-                            <td class="r-age">111</td>
-                            <td class="r-tel">111</td>
-                            <td class="r-mmgh">111</td>
-                            <td class="r-bpm">111</td>
-                            <td class="r-o2">111</td>
-                            <td class="r-sat">111</td>
-                            <td class="r-temp">111</td>
-                            <td class="r-kg">111</td>
-                            <td class="r-last">111</td>
-                            <td class="r-btn">111</td>
-                        </tr> -->
+            </tr>
+            <Teleport to="body">
+              <!-- use the modal component, pass in the prop -->
+              <modal :show="showModal" @close="showModal = false">
+                <template #header>
+                  <h3>ต้องการลบผู้ใช้งานหรือไม่ ?</h3>
+                </template>
+                <template #body>
+                  <b>ชื่อ-สกุล: </b> {{ $store.state.data.staffRemove.fullname }}
+                  <br>
+                  <b>ชื่อบัญชีผู้ใช้: </b> {{ $store.state.data.staffRemove.username }}
+                </template>
+                <template #footer>
+                  <div class="modal-footer">
+                    <button class="modal-btn-delete" @click="modalDelete"> Delete </button>
+                    <button class="modal-btn-cancel" @click="modalCancel"> Cancel </button>
+                  </div>
+                </template>
+              </modal>
+            </Teleport>
           </table>
         </div>
       </div>
@@ -88,17 +94,99 @@
 <script>
 import Navbar from "../components/Navbar.vue";
 import UserService from '../services/user.service';
+import VitalSign from "../models/vital_sign";
+import Modal from "../components/dasboardComponent/StaffDeleteModal.vue"
+import DashboardService from "../services/dashboard.service";
 
 export default {
   components: {
     Navbar,
+    Modal
   },
   data() {
     return {
-      searching: "",
+      componentKey: 0,
+      showModal: false,
+      filter: "",
       patients: null,
-      vital_bp: []
+      vital_signs: [],
+      rows: []
     };
+  },
+  methods: {
+    forceRerender() {
+      this.componentKey += 1;
+    },
+    modVitalSign() {
+      this.vital_signs = [];
+      for (let i = 0; i < this.patients.length; i++) {
+        if (this.patients[i].user.vital_signs) {
+          this.vital_signs.push(
+            new VitalSign(
+              this.patients[i].user.username,
+              this.patients[i].user.vital_signs.pulse,
+              this.patients[i].user.vital_signs.bp,
+              this.patients[i].user.vital_signs.temp,
+              this.patients[i].user.vital_signs.oxygen,
+              this.patients[i].user.vital_signs.glucose,
+              this.patients[i].user.vital_signs.weight
+            )
+          )
+        } else {
+          this.vital_signs.push(
+            new VitalSign(
+              this.patients[i].user.username
+            )
+          )
+        }
+      }
+    },
+    handleRemove(index) {
+      this.$store.commit('data/getStaffRemove', this.patients[index].user);
+      this.showModal = true;
+    },
+    async modalDelete() {
+      await DashboardService.deleteStaff(this.$store.state.data.staffRemove.username)
+      this.$store.commit('data/getStaffRemove', {
+        fullname: "",
+        username: ""
+
+      });
+      await DashboardService.getPatients().then(
+        respone => {
+          this.$store.commit('data/getPatients', respone.data);
+        },
+        err => {
+          this.errMessage = err;
+        }
+      );
+      this.showModal = false;
+    },
+    modalCancel() {
+      this.$store.commit('data/getStaffRemove', {
+        fullname: "",
+        username: ""
+      });
+      this.showModal = false;
+    }
+  },
+  computed: {
+    patientsList: function () {
+      this.patients = this.$store.state.data.patients;
+      this.modVitalSign();
+      this.forceRerender();
+      return this.patients
+    },
+    filteredRows: function () {
+    return this.rows.filter(row => {
+      const employees = row.employees.toString().toLowerCase();
+      const department = row.department.toLowerCase();
+      const searchTerm = this.filter.toLowerCase();
+
+      return department.includes(searchTerm) ||
+        employees.includes(searchTerm);
+    });
+  }
   },
   mounted() {
     UserService.getStaffBoard().then(
@@ -115,14 +203,42 @@ export default {
     //   vital.push(this.patients[i].user.contact)
     //   console.log(vital[i].mobile)
     // }
-  },
-  created() {
-    this.patients = this.$store.getters['data/patients'];
   }
 };
 </script>
 
 <style scoped>
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.remove-button {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.remove-button-red {
+  width: 15px;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
+
+.remove-button:hover .remove-button-red {
+  display: inline;
+  cursor: pointer;
+}
+
+.remove-button-white {
+  width: 15px;
+}
+
 .popup-waiting-screen {
   position: fixed;
   left: 0;
@@ -175,6 +291,13 @@ export default {
   height: 35px;
   border: none;
   border-bottom: 1px solid grey;
+}
+
+table {
+  width: 100%;
+  border-radius: 10px;
+  margin: auto;
+  border-collapse: collapse;
 }
 
 .set-table-info {

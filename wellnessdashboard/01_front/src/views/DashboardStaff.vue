@@ -15,8 +15,8 @@
                         <input v-model="searching" />
                     </div>
                 </div>
-                <div :key="componentKey" class="set-table-info">
-                    <table>
+                <div class="set-table-info">
+                    <table :key="componentKey">
                         <tr class="header-col">
                             <th class="c-name">ลำดับที่</th>
                             <th class="c-name">ชื่อ - สกุล</th>
@@ -96,13 +96,13 @@ export default {
             this.showModal = true;
         },
         async modalDelete() {
-            DashboardService.deleteStaff(this.$store.state.data.staffRemove.username)
+            await DashboardService.deleteStaff(this.$store.state.data.staffRemove.username)
             this.$store.commit('data/getStaffRemove', {
                 fullname: "",
                 username: ""
 
             });
-            DashboardService.getStaffs().then(
+            await DashboardService.getStaffs().then(
                 respone => {
                     this.$store.commit('data/getStaffs', respone.data);
                 },
@@ -110,8 +110,6 @@ export default {
                     this.errMessage = err;
                 }
             );
-            // this.staffs = this.$store.state.data.staffs;
-            this.forceRerender();
             this.showModal = false;
         },
         modalCancel() {
@@ -126,7 +124,13 @@ export default {
         staffsList: function () {
             // this.staffs = this.$store.getters['data/staffs'];
             this.staffs = this.$store.state.data.staffs;
+            this.forceRerender();
             return this.staffs
+        },
+        filteredList: function () {
+            return fruits.filter((fruit) =>
+                fruit.toLowerCase().includes(input.value.toLowerCase())
+            );
         }
     },
     mounted() {
