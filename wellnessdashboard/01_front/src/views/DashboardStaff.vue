@@ -26,7 +26,7 @@
                             <th class="c-tel">จัดการเจ้าหน้าที่</th>
                             <!-- <th class="c-mmgh"></th> -->
                         </tr>
-                        <tr class="row-set" v-for="(staff, index) in staffsList">
+                        <tr class="row-set" v-for="(staff, index) in filteredList">
                             <td class="r-name">{{index+1}}</td>
                             <td class="r-name">{{staff.user.fullname}}</td>
                             <td class="r-age">{{staff.user.username}}</td>
@@ -128,8 +128,19 @@ export default {
             return this.staffs
         },
         filteredList: function () {
-            return fruits.filter((fruit) =>
-                fruit.toLowerCase().includes(input.value.toLowerCase())
+            return this.patients.filter((patient) => {
+                const username = patient.user.username.toString().toLowerCase();
+                const fullname = patient.user.fullname.toString().toLowerCase();
+                const mobile = patient.user.contact.mobile.toString().toLowerCase();
+                const role = patient.user.role.toString().toLowerCase();
+
+                const searchTerm = this.searching.toLowerCase();
+                this.forceRerender();
+                return username.includes(searchTerm)
+                    || fullname.includes(searchTerm)
+                    || mobile.includes(searchTerm)
+                    || role.includes(searchTerm)
+            }
             );
         }
     },

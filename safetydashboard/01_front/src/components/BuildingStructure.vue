@@ -3,7 +3,7 @@
         <div class="close-btn" @click="haddleclose">X</div>
         <h4>Building emergency structure</h4>
         <div class="set-structure">
-            <div>   
+            <div class="building-figure">   
                 <div class="set-building" v-if="$store.state.userSelectEmergency.case_info.locateable_type === 'Room'">
                     <div class="set-floor">
                         <div class="building"  v-for="index in floorStructure + 1" :key="index">
@@ -279,7 +279,13 @@ export default {
 </script>
 
 <style scoped>
+
+.building-figure {
+    overflow-y: initial;
+    height: auto;
+}
 .structure-container{
+    display: block;
     color: black;
     position: fixed;
     width: 1000px;
@@ -301,8 +307,8 @@ export default {
 .set-building{
     width: 90%;
     margin: auto;
-    height: 800px;
-    overflow-y: scroll;
+    height: 45%;
+    overflow-y: auto;
 }
 
 .set-floor{
