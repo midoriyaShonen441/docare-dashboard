@@ -630,6 +630,7 @@ app.post("/backend/syncEmergencysos", async (req, res) => {
   let emergencyData = req.body;
   if (emergencyData) {
     emergencyData["case_confirm"] = false;
+    emergencyData["get_alert_time"] = new Date();
     const devicePayload = {
       user_ids: emergencyData.user_ids,
       device: emergencyData.device,
@@ -657,6 +658,7 @@ app.post("/backend/syncEmergencysos", async (req, res) => {
       },
     ]);
     const emergencyModel = new SendingEmergencyModule(emergencyReport);
+    console.log(emergencyModel);
     const sentEmergency = emergencyModel.returnResult();
     console.log(sentEmergency);
     res.send(sentEmergency);
@@ -691,7 +693,7 @@ app.put("/backend/confirmemergency", async (req, res) => {
   try {
     await emergency_info.updateOne(
       { user_ids: _id, case_confirm: false },
-      { case_confirm: case_confirm }
+      { case_confirm: case_confirm, incident_confirm_time: new Date() }
     );
     res.status(200).send({ message: "OK" });
   } catch (err) {

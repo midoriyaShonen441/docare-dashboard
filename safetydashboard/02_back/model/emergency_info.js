@@ -20,7 +20,10 @@ const emergency_info = new Schema({
         floor_plan:{
             Zones: {type: Array, required: true }
         },
-        case_confirm: {type: Boolean, required: true}
+        case_confirm: {type: Boolean, required: true},
+        get_alert_time: Date,
+        acknowledge_time: Date,
+        incident_confirm_time: Date
 
 })
 
