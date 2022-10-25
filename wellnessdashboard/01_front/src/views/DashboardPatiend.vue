@@ -1,7 +1,7 @@
 <template>
   <Navbar />
   <div class="popup-waiting-screen" v-if="$store.state.data.isMenuOpen === true"
-    @click="$store.commit('data/haddleMenu' )">
+    @click="$store.commit('data/haddleMenu')">
   </div>
   <div class="patiend-container">
     <div class="set-patiend">
@@ -178,15 +178,15 @@ export default {
       return this.patients
     },
     filteredRows: function () {
-    return this.rows.filter(row => {
-      const employees = row.employees.toString().toLowerCase();
-      const department = row.department.toLowerCase();
-      const searchTerm = this.filter.toLowerCase();
+      return this.rows.filter(row => {
+        const employees = row.employees.toString().toLowerCase();
+        const department = row.department.toLowerCase();
+        const searchTerm = this.filter.toLowerCase();
 
-      return department.includes(searchTerm) ||
-        employees.includes(searchTerm);
-    });
-  }
+        return department.includes(searchTerm) ||
+          employees.includes(searchTerm);
+      });
+    }
   },
   mounted() {
     UserService.getStaffBoard().then(

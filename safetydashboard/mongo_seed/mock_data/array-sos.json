@@ -821,7 +821,8 @@
         }
       ]
     },
-    "case_confirm": false
+    "case_confirm": false,
+    "case_audit": false
   },
   {
     "user_ids": ["4751081120470"],
@@ -1666,7 +1667,8 @@
         }
       ]
     },
-    "case_confirm": false
+    "case_confirm": false,
+    "case_audit": false
   },
   {
     "user_ids": ["3650674025729"],
@@ -2074,7 +2076,8 @@
         }
       ]
     },
-    "case_confirm": false
+    "case_confirm": false,
+    "case_audit": false
   },
   {
     "user_ids": ["3893833680255"],
@@ -2405,6 +2408,7 @@
         }
       ]
     },
-    "case_confirm": false
+    "case_confirm": false,
+    "case_audit": false
   }
 ]

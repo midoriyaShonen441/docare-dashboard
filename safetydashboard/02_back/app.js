@@ -594,14 +594,16 @@ app.get("/backend/syncEmergencyLog", auth, async (req, res) => {
           case_info: 1,
           floor_plan: 1,
           case_confirm: 1,
+          case_audit: 1,
           user_profile: ["$user_profile"],
           tenan: "$user_profile.user.domain_id",
         },
       },
-      { $match: { tenan: domain_id, case_confirm: false } },
+      // { $match: { tenan: domain_id, case_confirm: true } },
+      { $match: { tenan: domain_id, case_audit: false } },
     ]);
 
-    // console.log("emergencyReport ==> ", emergencyReport)
+    console.log("emergencyReport ==> ", emergencyReport)
     const emergencyModel = new SendingEmergencyModule(
       emergencyReport,
       domain_id
@@ -630,6 +632,7 @@ app.post("/backend/syncEmergencysos", async (req, res) => {
   let emergencyData = req.body;
   if (emergencyData) {
     emergencyData["case_confirm"] = false;
+    emergencyData["case_audit"] = false;
     emergencyData["get_alert_time"] = new Date();
     const devicePayload = {
       user_ids: emergencyData.user_ids,
@@ -668,6 +671,23 @@ app.post("/backend/syncEmergencysos", async (req, res) => {
   }
 });
 
+app.put("/backend/emergencyAudit", async (req, res) => {
+  const emergency_info = require("./model/emergency_info");
+  await emergency_info.updateOne(
+    { user_ids: req.body.user_ids },
+    {
+      case_audit: true,
+      acknowledge_time: new Date()
+    })
+    .exec((err, result) => {
+      if (err) {
+        res.status(500).send({ message: err })
+      }
+      res.status(200).send({ message: result })
+    })
+
+});
+
 // get alert emergency info //
 app.get("/backend/alertemergency", async (req, res) => {
   const emergency_info = require("./model/emergency_info");
@@ -693,7 +713,10 @@ app.put("/backend/confirmemergency", async (req, res) => {
   try {
     await emergency_info.updateOne(
       { user_ids: _id, case_confirm: false },
-      { case_confirm: case_confirm, incident_confirm_time: new Date() }
+      {
+        case_confirm: case_confirm,
+        incident_confirm_time: new Date()
+      }
     );
     res.status(200).send({ message: "OK" });
   } catch (err) {
@@ -1032,6 +1055,7 @@ app.get("/backend/generate/:id", async (req, res) => {
           user_ids: 1,
           case_info: 1,
           case_confirm: 1,
+          case_audit: 1,
           fullname: "$user_profile.user.fullname",
           citizen_id: "$user_profile.user.citizen_id",
           blood_type: "$user_profile.user.blood_type",

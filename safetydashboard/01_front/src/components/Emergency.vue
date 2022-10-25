@@ -3,8 +3,8 @@
         @click="haddleClosingEmergency('comon')">
         <div class="set-emergency-counting-text">
             <h4>
-                <i class='fas fa-exclamation-triangle' style='font-size:23px'></i>
-                {{$store.state.emergencyArray.length}}
+                <i class='fas fa-exclamation-triangle' style='font-size:23px;'></i>
+                {{ $store.state.emergencyArray.length }}
             </h4>
         </div>
     </div>
@@ -13,34 +13,43 @@
         <div class="emergency-container">
             <div class="closing-emergency" @click="haddleClosingEmergency('comon')">
                 <div class="btn-closing">
-                    <i class='fas fa-angle-double-right' style='font-size:24px'
+                    <i class='fas fa-angle-double-right' style='font-size:24px;'
                         v-if="showEmergency === 'set-emergency-container'"></i>
-                    <i class='fas fa-angle-double-left' style='font-size:24px'
+                    <i class='fas fa-angle-double-left' style='font-size:24px;'
                         v-if="showEmergency === 'close-set-emergency-container'"></i>
                 </div>
             </div>
             <div class="emergency-content" v-if="showEmergency === 'set-emergency-container'">
                 <div class="counting-emergency">
-                    <h3>จำนวนการแจ้งเตือน {{$store.state.emergencyArray.length}}</h3>
+                    <h3>จำนวนการแจ้งเตือน {{ $store.state.emergencyArray.length }}</h3>
                 </div>
                 <!-- use v-for here -->
-                <div class="emergency-list" v-for="(data, index) in $store.state.emergencyArray" :key="index">
-                    <div class="emergency-text"
-                        @click="$store.commit('haddleSelectEmergency',{localtion:{lat:data.case_info.latitude,lng:data.case_info.longitude}, datas: data})">
-                        <div class="content-text-container">
-                            <div class="content-text">
-                                กดปุ่มขอความช่วยเหลือ (Anywhere)
-                                {{data.case_info.latitude}} {{data.case_info.longitude}}
+                <div v-for="(data, index) in $store.state.emergencyArray" :key="index">
+                    <p style="color: black;">
+                        {{ data }}
+                    </p>
+                    <div v-if="test" :class=emergencyList>
+                        <div class="emergency-text"
+                            @click="$store.commit('haddleSelectEmergency', { localtion: { lat: data.case_info.latitude, lng: data.case_info.longitude }, datas: data })">
+                            <div class="content-text-container">
+                                <div class="content-text">
+                                    กดปุ่มขอความช่วยเหลือ (Anywhere)
+                                    {{ data.case_info.latitude }} {{ data.case_info.longitude }}
+                                </div>
+                                <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                                    <div class="user-text">
+                                        {{ data.fullname }}
+                                    </div>
+                                    <button class="btn-on-comment"
+                                        @click="haddleAction('emer', $store.state.userSelectEmergency.citizen_id)">ตรวจสอบ</button>
+                                </div>
+                                <div class="mat-line">
+                                    Teleheath
+                                </div>
                             </div>
-                            <div class="user-text">
-                                {{data.fullname}}
+                            <div class="timing-history">
+                                9 ชม.
                             </div>
-                            <div class="mat-line">
-                                Teleheath
-                            </div>
-                        </div>
-                        <div class="timing-history">
-                            9 ชม.
                         </div>
                     </div>
                 </div>
@@ -55,9 +64,14 @@ export default {
     data() {
         return {
             showEmergency: "set-emergency-container",
+            emergencyList: "emergency-list",
+            test: true
         }
     },
     methods: {
+        haddleAction() {
+            console.log("KUY")
+        },
         haddleClosingEmergency(e) {
             // console.log(e)
             if (e !== 'main-container') {
@@ -73,6 +87,13 @@ export default {
         },
 
     },
+    computed: {
+        isInspect() {
+            return {
+
+            }
+        }
+    },
     mounted() {
 
     }
@@ -80,6 +101,13 @@ export default {
 </script>
 
 <style scoped>
+.btn-on-comment {
+    background: rgb(57, 57, 57);
+    width: 5em;
+    height: auto;
+    border-radius: 10px;
+}
+
 /* if hide emergency this css will work */
 .close-emergency-counting {
     position: absolute;
@@ -211,6 +239,20 @@ export default {
 
 /* emergency detail alert */
 .emergency-list {
+    height: 100px;
+    background: rgb(229, 87, 87);
+    color: white;
+    margin-bottom: 0.5px;
+    -webkit-animation: alert-emergency 1s infinite;
+    /* Safari 4+ */
+    -moz-animation: alert-emergency 1s infinite;
+    /* Fx 5+ */
+    -o-animation: alert-emergency 1s infinite;
+    /* Opera 12+ */
+    animation: alert-emergency 1s infinite;
+}
+
+.emergency-list-inspect {
     height: 100px;
     background: rgb(229, 87, 87);
     color: white;
