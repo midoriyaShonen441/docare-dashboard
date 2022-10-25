@@ -25,10 +25,32 @@
                 </div>
                 <!-- use v-for here -->
                 <div v-for="(data, index) in $store.state.emergencyArray" :key="index">
-                    <p style="color: black;">
-                        {{ data }}
-                    </p>
-                    <div v-if="test" :class=emergencyList>
+                    <div v-if="data.case_audit" class="emergency-list-inspect">
+                        <div class="emergency-text"
+                            @click="$store.commit('haddleSelectEmergency', { localtion: { lat: data.case_info.latitude, lng: data.case_info.longitude }, datas: data })">
+                            <div class="content-text-container">
+                                <div class="content-text">
+                                    กดปุ่มขอความช่วยเหลือ (Anywhere)
+                                    {{ data.case_info.latitude }} {{ data.case_info.longitude }}
+                                </div>
+                                <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                                    <div class="user-text">
+                                        {{ data.fullname }}
+                                    </div>
+                                    <button class="btn-on-comment" style="background: rgb(150, 150, 150);"
+                                        :disabled='data.case_audit'
+                                        @click="haddleAction(data.citizen_id)">ตรวจสอบแล้ว</button>
+                                </div>
+                                <div class="mat-line">
+                                    Teleheath
+                                </div>
+                            </div>
+                            <div class="timing-history">
+                                9 ชม.
+                            </div>
+                        </div>
+                    </div>
+                    <div v-else :class=emergencyList>
                         <div class="emergency-text"
                             @click="$store.commit('haddleSelectEmergency', { localtion: { lat: data.case_info.latitude, lng: data.case_info.longitude }, datas: data })">
                             <div class="content-text-container">
@@ -41,7 +63,7 @@
                                         {{ data.fullname }}
                                     </div>
                                     <button class="btn-on-comment"
-                                        @click="haddleAction('emer', $store.state.userSelectEmergency.citizen_id)">ตรวจสอบ</button>
+                                        @click="haddleAction(data.citizen_id)">ตรวจสอบ</button>
                                 </div>
                                 <div class="mat-line">
                                     Teleheath
@@ -60,6 +82,10 @@
 
 <script>
 // $store.state.emergencyList
+import axios from 'axios';
+import { httpAPI } from "../../settingAPI";
+const sensAPI = httpAPI();
+
 export default {
     data() {
         return {
@@ -69,8 +95,39 @@ export default {
         }
     },
     methods: {
-        haddleAction() {
-            console.log("KUY")
+        async haddleAction(id) {
+            console.log(`id ======> ${id}`);
+            // if (evt === "emer") {
+                const payload = {
+                    _id: id,
+                    case_audit: true
+                }
+                await axios
+                    // .post(`${sensAPI}/confirmemergency`, payload, headerConf)
+                    .put(`${sensAPI}/emergencyAudit`, payload)
+                    .then((res) => {
+                        if (res) {
+                            console.log(res);
+                            this.$router.go(this.$router.currentRoute)
+                            return
+                        }
+                    })
+            //     console.log(this.$store.state.userSelectEmergency)
+            // } else if (evt === "nor") {
+            //     const payload = {
+            //         _id: id,
+            //         case_confirm: true,
+            //     }
+            //     await axios
+            //         .put(`${sensAPI}/emergencyAudit`, payload)
+            //         .then((res) => {
+            //             if (res) {
+            //                 console.log(res)
+            //                 this.$router.go(this.$router.currentRoute)
+            //                 return
+            //             }
+            //         })
+            // }
         },
         haddleClosingEmergency(e) {
             // console.log(e)
@@ -87,13 +144,6 @@ export default {
         },
 
     },
-    computed: {
-        isInspect() {
-            return {
-
-            }
-        }
-    },
     mounted() {
 
     }
@@ -103,7 +153,7 @@ export default {
 <style scoped>
 .btn-on-comment {
     background: rgb(57, 57, 57);
-    width: 5em;
+    width: 7em;
     height: auto;
     border-radius: 10px;
 }
@@ -254,16 +304,16 @@ export default {
 
 .emergency-list-inspect {
     height: 100px;
-    background: rgb(229, 87, 87);
+    background: rgb(87, 139, 229);
     color: white;
     margin-bottom: 0.5px;
-    -webkit-animation: alert-emergency 1s infinite;
+    /* -webkit-animation: alert-emergency 1s infinite; */
     /* Safari 4+ */
-    -moz-animation: alert-emergency 1s infinite;
+    /* -moz-animation: alert-emergency 1s infinite; */
     /* Fx 5+ */
-    -o-animation: alert-emergency 1s infinite;
+    /* -o-animation: alert-emergency 1s infinite; */
     /* Opera 12+ */
-    animation: alert-emergency 1s infinite;
+    /* animation: alert-emergency 1s infinite; */
 }
 
 @-webkit-keyframes alert-emergency {

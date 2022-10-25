@@ -599,8 +599,8 @@ app.get("/backend/syncEmergencyLog", auth, async (req, res) => {
           tenan: "$user_profile.user.domain_id",
         },
       },
-      // { $match: { tenan: domain_id, case_confirm: true } },
-      { $match: { tenan: domain_id, case_audit: false } },
+      { $match: { tenan: domain_id, case_confirm: false } },
+      // { $match: { tenan: domain_id, case_audit: false } },
     ]);
 
     console.log("emergencyReport ==> ", emergencyReport)
@@ -673,8 +673,9 @@ app.post("/backend/syncEmergencysos", async (req, res) => {
 
 app.put("/backend/emergencyAudit", async (req, res) => {
   const emergency_info = require("./model/emergency_info");
+  console.log(req.body._id);
   await emergency_info.updateOne(
-    { user_ids: req.body.user_ids },
+    { user_ids: req.body._id },
     {
       case_audit: true,
       acknowledge_time: new Date()
