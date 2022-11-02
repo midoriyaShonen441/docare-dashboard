@@ -54,6 +54,59 @@
   },
   {
     "user": {
+      "citizen_id": "5501307648733",
+      "domain_id": "1",
+      "username": "lyndon_hernandez_22885",
+      "password": "Wc4bFDupzMECspPw",
+      "fullname": "Test2 Hernandez",
+      "role": "User",
+      "gender": "Female",
+      "dob": null,
+      "blood_type": "B-",
+      "height": null,
+      "weight": null,
+      "allergies": [],
+      "conditions": ["Cancer"],
+      "drugs": [
+        "Acetaminophen; Hydrocodone",
+        "Levothyroxine",
+        "Amlodipine",
+        "Omeprazole"
+      ],
+      "vital_signs": null,
+      "contact": {
+        "mobile": "+66848077425",
+        "address_1": "sit consectetuer laoreet sit elit",
+        "address_2": null,
+        "subdistrict": null,
+        "district": null,
+        "province": null,
+        "zip": 33011,
+        "note": null,
+        "latitude": 13.3871237,
+        "longitude": 98.2737413
+      },
+      "family": [
+        {
+          "fullname": "Ariah Whitehead",
+          "mobile": "+66976331020",
+          "relation": "dolore amet"
+        },
+        {
+          "fullname": "Malia Sharpe",
+          "mobile": "+66711627504",
+          "relation": "amet tincidunt"
+        },
+        {
+          "fullname": "Matilda Aldred",
+          "mobile": null,
+          "relation": "tincidunt amet"
+        }
+      ]
+    }
+  },
+  {
+    "user": {
       "citizen_id": "5501307648790",
       "domain_id": "1",
       "username": "lyndon_hernandez_2285",

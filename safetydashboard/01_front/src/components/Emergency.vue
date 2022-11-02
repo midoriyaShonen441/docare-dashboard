@@ -24,7 +24,7 @@
                     <h3>จำนวนการแจ้งเตือน {{ $store.state.emergencyArray.length }}</h3>
                 </div>
                 <!-- use v-for here -->
-                <div v-for="(data, index) in $store.state.emergencyArray" :key="index">
+                <div v-for="(data, index) in $store.state.emergencyArray" :key="counter">
                     <div v-if="data.case_audit" class="emergency-list-inspect">
                         <div class="emergency-text"
                             @click="$store.commit('haddleSelectEmergency', { localtion: { lat: data.case_info.latitude, lng: data.case_info.longitude }, datas: data })">
@@ -91,43 +91,28 @@ export default {
         return {
             showEmergency: "set-emergency-container",
             emergencyList: "emergency-list",
-            test: true
+            timer: '',
+            counter: 0
         }
     },
     methods: {
         async haddleAction(id) {
             console.log(`id ======> ${id}`);
             // if (evt === "emer") {
-                const payload = {
-                    _id: id,
-                    case_audit: true
-                }
-                await axios
-                    // .post(`${sensAPI}/confirmemergency`, payload, headerConf)
-                    .put(`${sensAPI}/emergencyAudit`, payload)
-                    .then((res) => {
-                        if (res) {
-                            console.log(res);
-                            this.$router.go(this.$router.currentRoute)
-                            return
-                        }
-                    })
-            //     console.log(this.$store.state.userSelectEmergency)
-            // } else if (evt === "nor") {
-            //     const payload = {
-            //         _id: id,
-            //         case_confirm: true,
-            //     }
-            //     await axios
-            //         .put(`${sensAPI}/emergencyAudit`, payload)
-            //         .then((res) => {
-            //             if (res) {
-            //                 console.log(res)
-            //                 this.$router.go(this.$router.currentRoute)
-            //                 return
-            //             }
-            //         })
-            // }
+            const payload = {
+                _id: id,
+                case_audit: true
+            }
+            await axios
+                // .post(`${sensAPI}/confirmemergency`, payload, headerConf)
+                .put(`${sensAPI}/emergencyAudit`, payload)
+                .then((res) => {
+                    if (res) {
+                        console.log(res);
+                        this.$router.go(this.$router.currentRoute)
+                        return
+                    }
+                })
         },
         haddleClosingEmergency(e) {
             // console.log(e)
@@ -142,10 +127,51 @@ export default {
             }
 
         },
+        fetchEventsList() {
+            this.syncEmergency()
+            this.counter += 1;
+            console.log(this.counter);
+        },
+        cancelAutoUpdate() {
+            clearInterval(this.timer);
+        },
+        async syncEmergency(){
+            try{
+                const headerData = this.$cookies.get("sefaty-token")
+                console.log(headerData.token)
+                const headerConf = {
+                    headers:{
+                        "access-token": headerData.token
+                    }
+                }
+                const emerData = await axios.get(`${sensAPI}/syncEmergencyLog`, headerConf);
+                // console.log("emerData ==> ", emerData);
+                // console.log( this.$store.state.emergencyArray);
+                if(emerData.data.status === 200){
+                    this.$store.state.emergencyArray = emerData.data.data;
+                    console.log("OK")
+                }
+                // else{
+                //     alert(emerData.data.text);
+                //     this.$cookies.remove("sefaty-user");
+                //     this.$cookies.remove("sefaty-token");
+                //     this.$router.push("/login");
+                // }
+            }
+            catch(err){
+                console.log(`ERROR ===> ${err}`)
+                // alert("unauthorized please login again.");
+                // this.$cookies.remove("sefaty-user");
+                // this.$cookies.remove("sefaty-token");
+                // this.$router.push("/login");
+            }
+            
+        }
 
     },
-    mounted() {
-
+    created() {
+        // this.fetchEventsList();
+        this.timer = setInterval(this.fetchEventsList, 5000);
     }
 }
 </script>
