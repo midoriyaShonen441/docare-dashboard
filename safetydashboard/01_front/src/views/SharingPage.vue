@@ -2,89 +2,127 @@
     <div class="sharing-container">
         <div v-if="error === null">
             <div class="title">
-                ชื่อผู้ใช้บริการเหตุฉุกเฉิน: {{payload.fullname}}
+                <b>ชื่อผู้ใช้บริการ</b>
+                <ul>{{ payload.fullname }}</ul>
             </div>
             <div class="info-container" v-if="payload.case_confirm === false">
                 <div class="google-map">
-                    <GoogleMap
-                        api-key="AIzaSyD8ykKnc-qmYxTXQc5c_L6uQkbTHrIwH3M"
-                        style="width: 100%; height: 50vh"
-                        :center="{lat:payload.case_info.latitude, lng:payload.case_info.longitude }"
-                        :zoom="15"
-                        backgroundColor="dark"
-                        mapId="2ee29cc57f571e5b"
-                    >
-                        <Marker :options="{ position: {lat:payload.case_info.latitude, lng:payload.case_info.longitude } }"   >
+                    <GoogleMap api-key="AIzaSyD8ykKnc-qmYxTXQc5c_L6uQkbTHrIwH3M" style="width: 100%; height: 50vh"
+                        :center="{ lat: payload.case_info.latitude, lng: payload.case_info.longitude }" :zoom="15"
+                        backgroundColor="dark" mapId="2ee29cc57f571e5b">
+                        <Marker
+                            :options="{ position: { lat: payload.case_info.latitude, lng: payload.case_info.longitude } }">
                         </Marker>
                     </GoogleMap>
                 </div>
                 <div class="contact">
                     <div class="btn-google-map">
-                        <button class="btn-map" @click="btnGoogleMap({lat:payload.case_info.latitude, lng:payload.case_info.longitude})">เปิดใน Google map</button>
+                        <button class="btn-map"
+                            @click="btnGoogleMap({ lat: payload.case_info.latitude, lng: payload.case_info.longitude })">เปิดใน
+                            Google map</button>
                     </div>
                     <div>
                         <div class="case-at">
-                           สถานที่เกิดเหตุ : {{payload.case_info.locateable_type}}:{{payload.case_info.locateable_id}} 
+                            สถานที่เกิดเหตุ : {{ payload.case_info.locateable_type }}:{{ payload.case_info.locateable_id
+                            }}
                         </div>
                     </div>
                     <div class="header-content">
-                        <div>ที่อยู่ผู้ใช้งาน</div>
-                        <div class="contact-detail">
-                            <div class="label-name">
-                                <div class="label">ชื่อ</div>
-                                <div class="label">เพศ</div>
-                                <div class="label">เลขบัตรประชาชน</div>
-                                <div class="label">ที่อยู่ 1</div>
-                                <div class="label">ที่อยู่ 2</div>
-                                <div class="label">จังหวัด</div>
-                                <div class="label">อำเภอ</div>
-                                <div class="label">ตำบล</div>
-                                <div class="label">รหัสไปรษณีย์</div>
-                            </div>
-                            <div class="detail">
-                                <div class="info">{{payload.fullname}}</div>
-                                <div class="info">{{payload.gender}}</div>
-                                <div class="info">{{payload.citizen_id}}</div>
-                                <div class="info">{{payload.address_1}}</div>
-                                <div class="info">{{payload.address_2}}</div>
-                                <div class="info">{{payload.province}}</div>
-                                <div class="info">{{payload.district}}</div>
-                                <div class="info">{{payload.subdistrict}}</div>
-                                <div class="info">{{payload.zip}}</div>
-                            </div>
-                        </div>
+                        <div class="topic-data"><b>ข้อมูลผู้ใช้งาน</b></div>
+                        <table class="table-data">
+                            <tr>
+                                <td class="row-data">ชื่อ</td>
+                                <td class="row-data">{{ payload.fullname }}</td>
+                            </tr>
+                            <tr>
+                                <td class="row-data">เพศ</td>
+                                <td class="row-data">{{ payload.gender }}</td>
+                            </tr>
+                            <tr>
+                                <td class="row-data">เลขบัตรประชาชน</td>
+                                <td class="row-data">{{ payload.citizen_id }}</td>
+                            </tr>
+                            <tr v-if="payload.user_mobile">
+                                <td class="row-data">เบอร์ติดต่อ</td>
+                                <td class="row-data">{{ payload.user_mobile }}</td>
+                            </tr>
+                            <tr v-if="payload.address_1">
+                                <td class="row-data">ที่อยู่ 1</td>
+                                <td class="row-data">{{ payload.address_1 }}</td>
+                            </tr>
+                            <tr v-if="payload.address_2">
+                                <td class="row-data">ที่อยู่ 2</td>
+                                <td class="row-data">{{ payload.address_2 }}</td>
+                            </tr>
+                            <tr v-if="payload.province">
+                                <td class="row-data">จังหวัด</td>
+                                <td class="row-data">{{ payload.province }}</td>
+                            </tr>
+                            <tr v-if="payload.district">
+                                <td class="row-data">อำเภอ</td>
+                                <td class="row-data">{{ payload.district }}</td>
+                            </tr>
+                            <tr v-if="payload.subdistrict">
+                                <td class="row-data">ตำบล</td>
+                                <td class="row-data">{{ payload.subdistrict }}</td>
+                            </tr>
+                            <tr v-if="payload.zip">
+                                <td class="row-data">รหัสไปรษณีย์</td>
+                                <td class="row-data">{{ payload.zip }}</td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="header-content">
-                        <div>รายละเอียดการแพทย์</div>
-                        <div class="contact-detail">
-                            <div class="label-name">
-                                <div class="label">กรุ๊ปเลือด</div>
-                                <div class="label">โรคประจำตัว</div>
-                                <div class="label">ยาที่ใช้ประจำ</div>
-                                <div class="label">สิ่งที่แพ้</div>
-                            </div>
-                            <div class="detail">
-                                <div class="info">{{payload.blood_type}}</div>
-                                <div class="info"><span v-for="(data, index) in payload.conditions" :key="index">{{data}}, </span></div>
-                                <div class="info"><span v-for="(data, index) in payload.drugs" :key="index">{{data}}, </span></div>
-                                <div class="info"><span v-for="(data, index) in payload.allergies" :key="index">{{data}}, </span></div>
-                            </div>
-                        </div>
+                        <div class="topic-data"><b>บุคคลใกล้ชิด</b></div>
+                        <table class="table-data" v-for="(data, index) in payload.family" :key="index">
+                            <tr>
+                                <td class="row-data">ชื่อ</td>
+                                <td class="row-data">{{ data.fullname }}</td>
+                            </tr>
+                            <tr>
+                                <td class="row-data">เบอร์ติดต่อ</td>
+                                <td class="row-data">{{ data.mobile }}</td>
+                            </tr>
+                            <tr>
+                                <td class="row-data">ความสัมพันธ์</td>
+                                <td class="row-data">{{ data.relation }}</td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="header-content">
-                        <div>บุคคลใกล้ชิด</div>
-                        <div class="contact-detail" v-for="(data, index) in payload.family" :key="index">
-                            <div class="label-name">
-                                <div class="label">ชื่อ</div>
-                                <div class="label">เบอร์ติดต่อ</div>
-                                <div class="label">ความสัมพันธ์</div>
-                            </div>
-                            <div class="detail">
-                                <div class="info">{{data.fullname}}</div>
-                                <div class="info">{{data.mobile}}</div>
-                                <div class="info">{{data.relation}}</div>
-                            </div>
-                        </div>
+                        <div class="topic-data"><b>รายละเอียดการแพทย์</b></div>
+                        <table class="table-data">
+                            <tr>
+                                <td class="row-data">โรคประจำตัว</td>
+                                <td class="row-data">
+                                    <ul>
+                                        <li v-for="(data, index) in payload.conditions" :key="index">
+                                            - {{ data }}
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="row-data">สิ่งที่แพ้</td>
+                                <td class="row-data">
+                                    <ul>
+                                        <li v-for="(data, index) in payload.allergies" :key="index">
+                                            - {{ data }}
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="row-data">ยาที่ใช้ประจำ</td>
+                                <td class="row-data">
+                                    <ul>
+                                        <li v-for="(data, index) in payload.drugs" :key="index">
+                                            - {{ data }}
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -94,7 +132,7 @@
         </div>
         <div v-if="error !== null">
             <div class="title">
-                {{error}}
+                {{ error }}
             </div>
         </div>
     </div>
@@ -104,99 +142,145 @@
 import { useRoute } from 'vue-router';
 import axios from "axios";
 import { GoogleMap, Marker, InfoWindow } from "vue3-google-map";
-import {httpAPI} from "../../settingAPI";
+import { httpAPI } from "../../settingAPI";
 const sensAPI = httpAPI();
 
 export default {
-    components:{
+    components: {
         GoogleMap,
         Marker,
         InfoWindow
     },
-    data(){
-        return{
-            userId:null,
+    data() {
+        return {
+            userId: null,
             error: null,
             payload: null,
         }
     },
-    computed:{
-        
+    computed: {
+
     },
-    methods:{
-        async fetchEmerData(){
+    methods: {
+        async fetchEmerData() {
             const route = useRoute();
             this.userId = route.params.id
-            try{
+            try {
                 const data = await axios.get(`${sensAPI}/generate/${this.userId}`);
                 this.payload = data.data[0]
                 console.log(data.data[0]);
-            }catch(err){    
+            } catch (err) {
                 this.error = "Not found this user!"
             }
         },
-        btnGoogleMap(data){
+        btnGoogleMap(data) {
             window.open(`https://maps.google.com/?q=${data.lat},${data.lng}`);
         }
     },
-    created(){  
+    created() {
         this.fetchEmerData();
     },
-    mounted(){  
+    mounted() {
     }
 }
 </script>
 
 <style scoped>
-.sharing-container{
+.topic-data {
+    margin: 20px 0;
+}
+
+.table-data {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 5px 0px;
+}
+
+.row-data {
+    padding: 5px 10px;
+    border: solid gainsboro;
+}
+
+.row-data:nth-child(odd) {
+    width: 35%;
+    text-align: center;
+    color: black;
+    background-color: gainsboro;
+}
+
+.row-data:nth-child(even) {
+    width: 65%;
+    text-align: left;
+}
+
+.sharing-container {
     width: 95%;
     text-align: center;
     margin: auto;
     margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
 }
-.title{
+
+.title {
     margin-top: 50px;
     font-size: 20px;
+    margin-bottom: 20px;
 }
-.google-map{
-    width:95%;
-    margin:auto
+
+.google-map {
+    width: 95%;
+    margin: auto
 }
-.btn-google-map{
+
+.btn-google-map {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.btn-map{
+
+.btn-map {
     border: 1px solid white;
     width: 250px;
     height: 50px;
     border-radius: 10px;
 }
-.case-at{
+
+.case-at {
     border-radius: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 20px;
     margin-top: 10px;
 }
-.btn-map:active{
+
+.btn-map:active {
     background: rgb(46, 46, 46);
 }
-.contact-detail{
-    display:grid;
+
+.contact-detail {
+    display: grid;
     grid-template-columns: 1fr 2fr;
 }
 
-.header-content{
-    margin-top: 20px;
-    margin-bottom: 50px;
+.header-content {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.contact-detail{
+.contact-detail {
     margin-top: 20px;
 }
 
-.info{
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info {
     overflow-x: scroll;
     width: 100%;
 }

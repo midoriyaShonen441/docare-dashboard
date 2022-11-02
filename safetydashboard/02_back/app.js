@@ -603,7 +603,6 @@ app.get("/backend/syncEmergencyLog", auth, async (req, res) => {
       // { $match: { tenan: domain_id, case_audit: false } },
     ]);
 
-    console.log("emergencyReport ==> ", emergencyReport)
     const emergencyModel = new SendingEmergencyModule(
       emergencyReport,
       domain_id
@@ -614,7 +613,6 @@ app.get("/backend/syncEmergencyLog", auth, async (req, res) => {
       status: 200,
       data: sentEmergency,
     };
-    console.log("sentEmergency ==> ", sentEmergency);
     res.send(payload);
   } catch (err) {
     console.log(`error in api syncEmergencyLog ==> ${err}`);
@@ -661,9 +659,7 @@ app.post("/backend/syncEmergencysos", async (req, res) => {
       },
     ]);
     const emergencyModel = new SendingEmergencyModule(emergencyReport);
-    console.log(emergencyModel);
     const sentEmergency = emergencyModel.returnResult();
-    console.log(sentEmergency);
     res.send(sentEmergency);
   } catch (err) {
     console.log(`error in api syncemergency: emergencyReport ==> ${err}`);
@@ -673,7 +669,6 @@ app.post("/backend/syncEmergencysos", async (req, res) => {
 
 app.put("/backend/emergencyAudit", async (req, res) => {
   const emergency_info = require("./model/emergency_info");
-  console.log(req.body._id);
   await emergency_info.updateOne(
     { user_ids: req.body._id },
     {
@@ -694,7 +689,6 @@ app.get("/backend/alertemergency", async (req, res) => {
   const emergency_info = require("./model/emergency_info");
   try {
     const emerInfo = await emergency_info.find({ case_confirm: false });
-    console.log(emerInfo);
     const payload = {
       userInfo: "",
       emerInfo: "",
@@ -732,7 +726,6 @@ app.get("/backend/getuser", auth, async (req, res) => {
   const userInfo = require("./model/user_info");
   const dateTimeConvert = require("./customFunction/datetimeConvert");
   const { domain_id } = req.authData.decode;
-  console.log("domain_id ", domain_id);
   try {
     const userAvialable = await userInfo.aggregate([
       {
@@ -765,7 +758,6 @@ app.get("/backend/getuser", auth, async (req, res) => {
       },
       { $match: { tenan: domain_id } },
     ]);
-    console.log("userAvialable ==> ", userAvialable);
     const genStringDate = new dateTimeConvert(userAvialable);
     const setStringDate = genStringDate.convertTimesStamp();
     const payload = {
@@ -1061,8 +1053,9 @@ app.get("/backend/generate/:id", async (req, res) => {
           citizen_id: "$user_profile.user.citizen_id",
           blood_type: "$user_profile.user.blood_type",
           gender: "$user_profile.user.gender",
-          mobile: "$user_profile.user.contact.mobile",
+          user_mobile: "$user_profile.user.contact.mobile",
           family: "$user_profile.user.family",
+          mobile: "$user_profile.contact.mobile",
           address_1: "$user_profile.user.contact.address_1",
           address_2: "$user_profile.user.contact.address_2",
           district: "$user_profile.user.contact.district",
@@ -1076,7 +1069,6 @@ app.get("/backend/generate/:id", async (req, res) => {
       },
       { $match: { _id: mongoose.Types.ObjectId(id), case_confirm: false } },
     ]);
-    // console.log(emergencyReport)
     res.send(emergencyReport);
   } catch (err) {
     const payload = {
