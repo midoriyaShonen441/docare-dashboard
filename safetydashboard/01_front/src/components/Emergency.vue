@@ -108,7 +108,9 @@ export default {
                 .put(`${sensAPI}/emergencyAudit`, payload)
                 .then(async (res) => {
                     if (res) {
-                        console.log(res);
+                        console.log("response ===> ", res);
+                        this.$store.state.current_payload.datas.case_audit = payload.case_audit
+                        this.$store.commit('haddleSelectEmergency', this.$store.state.current_payload)
                         // await this.$router.go(this.$router.currentRoute);
                         // await this.$store.commit('haddleSelectEmergency', this.$store.state.current_payload);
                         return
@@ -139,7 +141,7 @@ export default {
         async syncEmergency() {
             try {
                 const headerData = this.$cookies.get("sefaty-token")
-                console.log(headerData.token)
+                // console.log(headerData.token)
                 const headerConf = {
                     headers: {
                         "access-token": headerData.token
