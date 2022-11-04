@@ -25,7 +25,9 @@ export default createStore({
         setStaffProfile: null,
         popupStaffDelete: false,
         gobleError: null,
-       
+        case_audited: false,
+        current_id: "",
+        current_payload: {},
     },
     mutations:{
         closingMenuSideBar(state){
@@ -52,7 +54,11 @@ export default createStore({
         haddleSelectEmergency(state,payload){
             state.myDefaultPosition = payload.localtion;
             state.muDefaultZoom = 13;
-            this.commit('haddleEmergencyMarker', payload.datas)
+            state.case_audited = payload.datas.case_audit;
+            state.current_id = payload.datas.citizen_id;
+            state.current_payload = payload;
+            console.log("case_audit ==> ", state.current_payload.datas.case_audit)
+            this.commit('haddleEmergencyMarker', state.current_payload.datas)
         },
         haddleEmergencyMarker(state,payload){
             state.cssEmergencyInfo = "set-emergency-info"

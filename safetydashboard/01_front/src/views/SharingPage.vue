@@ -249,8 +249,6 @@ export default {
     border-radius: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-bottom: 20px;
-    margin-top: 10px;
 }
 
 .btn-map:active {

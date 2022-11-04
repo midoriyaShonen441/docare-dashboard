@@ -106,10 +106,11 @@ export default {
             await axios
                 // .post(`${sensAPI}/confirmemergency`, payload, headerConf)
                 .put(`${sensAPI}/emergencyAudit`, payload)
-                .then((res) => {
+                .then(async (res) => {
                     if (res) {
                         console.log(res);
-                        this.$router.go(this.$router.currentRoute)
+                        // await this.$router.go(this.$router.currentRoute);
+                        // await this.$store.commit('haddleSelectEmergency', this.$store.state.current_payload);
                         return
                     }
                 })
@@ -135,19 +136,19 @@ export default {
         cancelAutoUpdate() {
             clearInterval(this.timer);
         },
-        async syncEmergency(){
-            try{
+        async syncEmergency() {
+            try {
                 const headerData = this.$cookies.get("sefaty-token")
                 console.log(headerData.token)
                 const headerConf = {
-                    headers:{
+                    headers: {
                         "access-token": headerData.token
                     }
                 }
                 const emerData = await axios.get(`${sensAPI}/syncEmergencyLog`, headerConf);
                 // console.log("emerData ==> ", emerData);
                 // console.log( this.$store.state.emergencyArray);
-                if(emerData.data.status === 200){
+                if (emerData.data.status === 200) {
                     this.$store.state.emergencyArray = emerData.data.data;
                     console.log("OK")
                 }
@@ -158,14 +159,14 @@ export default {
                 //     this.$router.push("/login");
                 // }
             }
-            catch(err){
+            catch (err) {
                 console.log(`ERROR ===> ${err}`)
                 // alert("unauthorized please login again.");
                 // this.$cookies.remove("sefaty-user");
                 // this.$cookies.remove("sefaty-token");
                 // this.$router.push("/login");
             }
-            
+
         }
 
     },
