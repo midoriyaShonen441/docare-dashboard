@@ -101,7 +101,7 @@
       </div>
       <div class="navigator-btn">
         <div class="qr-block">
-          <qrcode-vue :value="value" :size="size" level="H" />
+          <qrcode-vue :value="qrValue" :size="size" level="H" />
           <div style="font-size: 11px; color: #222222;"><b>Scan to navigate</b></div>
         </div>
         <div class="link-btn" style="cursor: pointer;">
@@ -241,9 +241,14 @@ export default {
       cssBtnConfirm: "btn-on-comment",
       cssBtnEvt: "btn-on-comment",
       cssTextArea: "btn-on-comment",
-      value: 'https://example.com',
+      value: this.$store.state.qrValue,
       click: 0,
       size: 75,
+    }
+  },
+  computed: {
+    qrValue () {
+      return this.$store.state.qrValue;
     }
   },
   methods: {
@@ -313,11 +318,14 @@ export default {
       this.$store.state.sturctureShow = true
     },
     async haddleCopy(id) {
-      const redirect = `http://localhost:7777/sharing/${id}`
+      const redirect = `${location.href}sharing/${id}`
       await navigator.clipboard.writeText(redirect);
     },
     async linkToPage(id) {
-      this.$router.push(`/sharing/${id}`)
+      // this.$router.push(`/sharing/${id}`)
+      const route = this.$router.resolve({ path: `/sharing/${id}` });
+      console.log('route =>', route.href);
+      window.open(route.href);
     }
   },
   mounted() {

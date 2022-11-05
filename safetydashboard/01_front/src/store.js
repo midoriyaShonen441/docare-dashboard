@@ -28,6 +28,7 @@ export default createStore({
         case_audited: false,
         current_id: "",
         current_payload: {},
+        qrValue: ""
     },
     mutations:{
         closingMenuSideBar(state){
@@ -57,13 +58,13 @@ export default createStore({
             state.case_audited = payload.datas.case_audit;
             state.current_id = payload.datas.citizen_id;
             state.current_payload = payload;
-            console.log("case_audit ==> ", state.current_payload.datas.case_audit)
-            this.commit('haddleEmergencyMarker', state.current_payload.datas)
+            state.qrValue = `${location.href}sharing/${payload.datas.id}`;
+            this.commit('haddleEmergencyMarker', state.current_payload.datas);
         },
         haddleEmergencyMarker(state,payload){
             state.cssEmergencyInfo = "set-emergency-info"
             state.userSelectEmergency = payload;
-            console.log("state.userSelectEmergency ==> ",state.userSelectEmergency)
+            // console.log("state.userSelectEmergency ==> ",state.userSelectEmergency)
         },
         closeEmergencyDetail(state){
             state.cssEmergencyInfo = "set-emergency-info-close"

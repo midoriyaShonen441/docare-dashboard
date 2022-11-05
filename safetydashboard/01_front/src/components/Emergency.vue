@@ -108,9 +108,7 @@ export default {
                 .put(`${sensAPI}/emergencyAudit`, payload)
                 .then(async (res) => {
                     if (res) {
-                        console.log("response ===> ", res);
-                        this.$store.state.current_payload.datas.case_audit = payload.case_audit
-                        this.$store.commit('haddleSelectEmergency', this.$store.state.current_payload)
+                        console.log(res);
                         // await this.$router.go(this.$router.currentRoute);
                         // await this.$store.commit('haddleSelectEmergency', this.$store.state.current_payload);
                         return
@@ -133,7 +131,7 @@ export default {
         fetchEventsList() {
             this.syncEmergency()
             this.counter += 1;
-            console.log(this.counter);
+            // console.log(this.counter);
         },
         cancelAutoUpdate() {
             clearInterval(this.timer);
@@ -152,7 +150,7 @@ export default {
                 // console.log( this.$store.state.emergencyArray);
                 if (emerData.data.status === 200) {
                     this.$store.state.emergencyArray = emerData.data.data;
-                    console.log("OK")
+                    // console.log("OK")
                 }
                 // else{
                 //     alert(emerData.data.text);
