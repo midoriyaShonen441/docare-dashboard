@@ -1,9 +1,9 @@
 const httpAPI = () => {
     ///////////  For Deployment  ////////////
-    // const isAPI = "http://localhost:80/backend";
+    const isAPI = "https://safety.silvercare.io/backend";
     
     ///////////  For Local  ////////////
-    const isAPI = "http://localhost:8888/backend";
+    // const isAPI = "http://localhost:8888/backend";
     return isAPI;
 }
 

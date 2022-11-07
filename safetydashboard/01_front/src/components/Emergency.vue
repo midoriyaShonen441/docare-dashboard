@@ -96,6 +96,12 @@ export default {
         }
     },
     methods: {
+        playSound(sound) {
+            if (sound) {
+                var audio = new Audio(sound);
+                audio.play();
+            }
+        },
         async haddleAction(id) {
             console.log(`id ======> ${id}`);
             // if (evt === "emer") {
@@ -131,7 +137,7 @@ export default {
         fetchEventsList() {
             this.syncEmergency()
             this.counter += 1;
-            // console.log(this.counter);
+            console.log(this.counter);
         },
         cancelAutoUpdate() {
             clearInterval(this.timer);
@@ -139,7 +145,7 @@ export default {
         async syncEmergency() {
             try {
                 const headerData = this.$cookies.get("sefaty-token")
-                // console.log(headerData.token)
+                console.log(headerData.token)
                 const headerConf = {
                     headers: {
                         "access-token": headerData.token
@@ -150,7 +156,7 @@ export default {
                 // console.log( this.$store.state.emergencyArray);
                 if (emerData.data.status === 200) {
                     this.$store.state.emergencyArray = emerData.data.data;
-                    // console.log("OK")
+                    console.log("OK")
                 }
                 // else{
                 //     alert(emerData.data.text);
@@ -283,7 +289,8 @@ export default {
 
 /* close btn */
 .closing-emergency {
-    width: 20px;
+    width: 30px;
+    height: 100vh;
     background: gray;
     padding-right: 5px;
     opacity: 0.5;
@@ -297,6 +304,7 @@ export default {
     padding-right: 5px;
     opacity: 1;
     transition: 0.4s;
+    cursor: pointer;
 }
 
 .closing-emergency:active {
